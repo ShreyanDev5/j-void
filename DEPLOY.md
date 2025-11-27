@@ -17,6 +17,7 @@ Render is excellent for hosting both the Node.js backend and the React frontend.
     - **Build Command:** `npm run build`
         - *Note: This runs the script in `package.json` which installs dependencies and builds the frontend.*
     - **Start Command:** `npm start`
+    - **Service Name:** `j-void` (or `j-void-app` if taken)
     - **Environment Variables:**
         - Add any necessary env vars (none required for basic setup).
 

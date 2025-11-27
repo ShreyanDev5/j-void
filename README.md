@@ -1,4 +1,4 @@
-# Java Compiler & DSA Practice Platform
+# J-Void: Minimalist Java Compiler
 
 A minimalist, web-based Java compiler designed for Data Structures and Algorithms (DSA) practice. This application provides a clean, distraction-free environment for coding, compiling, and executing Java code.
 
