@@ -1,0 +1,7 @@
+node_modules
+temp
+.git
+frontend-new/node_modules
+frontend-new/.git
+Dockerfile
+.dockerignore
