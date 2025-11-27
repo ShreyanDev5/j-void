@@ -1,5 +1,5 @@
 # Use Node.js 18 as the base image
-FROM node:18-bullseye
+FROM node:22-bullseye
 
 # Install OpenJDK 17
 RUN apt-get update && \
