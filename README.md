@@ -63,7 +63,7 @@ A minimalist, web-based Java compiler designed for Data Structures and Algorithm
 
 ### Docker (Recommended)
 
-The application is containerized for easy deployment.
+The application is containerized using a lightweight Alpine Linux image for fast startup and easy deployment.
 
 1.  **Build the image:**
     ```bash

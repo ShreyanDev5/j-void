@@ -1,28 +1,31 @@
-# Use Node.js 18 as the base image
-FROM node:22-bullseye
-
-# Install OpenJDK 17
-RUN apt-get update && \
-    apt-get install -y openjdk-17-jdk && \
-    apt-get clean;
-
-# Set working directory
-WORKDIR /app
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
-COPY . .
-
-# Build the frontend
+# Stage 1: Build the frontend
+FROM node:22-alpine AS builder
+WORKDIR /app/frontend-app
+COPY frontend-app/package*.json ./
+RUN npm ci
+COPY frontend-app/ .
 RUN npm run build
 
-# Expose the port
-EXPOSE 3001
+# Stage 2: Production image
+FROM node:22-alpine
+WORKDIR /app
 
-# Start the server
+# Install OpenJDK 17 (required for the Java compiler)
+RUN apk add --no-cache openjdk17-jdk
+
+# Copy server dependencies
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy server code
+COPY server.js .
+COPY scripts/ ./scripts/
+
+# Copy built frontend from builder stage
+COPY --from=builder /app/frontend-app/dist ./frontend-app/dist
+
+# Create temp directory for compilation jobs
+RUN mkdir -p temp
+
+EXPOSE 3001
 CMD ["node", "server.js"]

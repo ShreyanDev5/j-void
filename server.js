@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+
 const cors = require('cors');
 const { exec } = require('child_process');
 const fs = require('fs');
@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Serve static files from the React frontend app
 app.use(express.static(path.join(__dirname, 'frontend-app/dist')));

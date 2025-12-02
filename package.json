@@ -12,8 +12,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@monaco-editor/react": "^4.7.0",
-    "body-parser": "^2.2.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "uuid": "^9.0.1"
