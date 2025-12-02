@@ -9,9 +9,9 @@ const Header = () => {
             </div>
             <div className="help-container">
                 <div className="tooltip-text">
-                    This is a deliberately distraction-free space to practice writing clean Java code.
-                    <br />
-                    No execution, no output, no interruptions—just you and the syntax.
+                    <strong>Welcome to J-Void</strong><br />
+                    Your distraction-free sanctuary for mastering Java syntax.<br />
+                    No execution, no output, no noise—just you and the code.
                 </div>
                 <button className="help-button">
                     ?

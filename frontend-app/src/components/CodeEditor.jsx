@@ -49,6 +49,7 @@ const CodeEditor = ({ code, onChange, onMount }) => {
                     quickSuggestions: false,
                     parameterHints: { enabled: false },
                     wordBasedSuggestions: false,
+                    padding: { top: 12 },
                 }}
             />
         </div>
