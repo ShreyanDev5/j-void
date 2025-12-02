@@ -23,7 +23,7 @@ J-Void is built on the belief that sometimes, the best way to learn is to focus 
 1.  **Clone the repository**
     ```bash
     git clone <repository-url>
-    cd java-compiler
+    cd j-void
     ```
 
 2.  **Install Dependencies**
