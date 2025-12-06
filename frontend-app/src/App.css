@@ -1,20 +1,15 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  overflow: hidden;
-}
-
+/* ============================================
+   Header Styles
+   ============================================ */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  height: 50px;
-  background-color: #252526;
-  border-bottom: 1px solid #333;
+  padding: 0 16px;
+  height: 48px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .header-branding {
@@ -24,37 +19,404 @@
 }
 
 .header-logo {
-  height: 24px;
+  height: 22px;
 }
 
 .header h1 {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   margin: 0;
-  color: #cccccc;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
-.help-button {
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================
+   Question Selector Styles
+   ============================================ */
+.question-selector {
+  position: relative;
+}
+
+.selector-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  max-width: 220px;
+}
+
+.selector-button:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-light);
+}
+
+.selector-icon {
+  display: none;
+}
+
+.selector-icon-svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.selector-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.selector-arrow {
+  font-size: 8px;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.selector-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  width: 320px;
+  max-height: 450px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.search-container {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.categories-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+
+.category-group {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-group:last-child {
+  border-bottom: none;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
   background: none;
-  border: 1px solid #555;
-  color: #ccc;
+  border: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.category-header:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.category-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+  width: 12px;
+}
+
+.category-title {
+  flex: 1;
+}
+
+.category-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.questions-list {
+  padding: 0 0 6px 0;
+}
+
+.question-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 14px 8px 32px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.question-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.question-item.selected {
+  background-color: rgba(255, 161, 22, 0.1);
+  color: var(--accent);
+}
+
+.question-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+}
+
+.difficulty-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.difficulty-easy {
+  color: var(--easy);
+  background-color: rgba(0, 184, 163, 0.12);
+}
+
+.difficulty-medium {
+  color: var(--medium);
+  background-color: rgba(255, 192, 30, 0.12);
+}
+
+.difficulty-hard {
+  color: var(--hard);
+  background-color: rgba(255, 55, 95, 0.12);
+}
+
+.no-results {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ============================================
+   Theme Toggle Styles
+   ============================================ */
+.theme-toggle-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-light);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.theme-toggle-button:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   Help Button & Tooltip Styles
+   ============================================ */
+.help-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.help-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
 .help-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #888;
-  color: #fff;
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-light);
+  color: var(--text-primary);
+  transform: scale(1.05);
 }
 
+.help-button:active {
+  transform: scale(0.95);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 290px;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  text-align: left;
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  top: calc(100% + 20px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  font-size: 13px;
+  line-height: 1.6;
+  pointer-events: none;
+}
+
+.tooltip-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tooltip-text::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 8px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent var(--border-color) transparent;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 9px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent var(--bg-secondary) transparent;
+}
+
+.help-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.arc-link {
+  display: block;
+  margin-top: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.arc-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.tooltip-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 12px 0;
+}
+
+.tooltip-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tooltip-note {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Main Content & Editor Styles
+   ============================================ */
 .main-content {
   display: flex;
   flex: 1;
@@ -70,53 +432,72 @@
   width: 100%;
 }
 
-/* Modal Styles */
-/* Modal Styles */
-.help-container {
-  position: relative;
-  display: flex;
-  align-items: center;
+/* ============================================
+   Responsive Styles
+   ============================================ */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+    height: 44px;
+  }
+
+  .selector-button {
+    max-width: 160px;
+    padding: 5px 10px;
+  }
+
+  .selector-text {
+    max-width: 100px;
+    font-size: 12px;
+  }
+
+  .selector-dropdown {
+    width: 290px;
+    right: -10px;
+  }
+
+  .header h1 {
+    font-size: 14px;
+  }
+
+  .header-logo {
+    height: 18px;
+  }
+
+  .help-button,
+  .theme-toggle-button {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .header-controls {
+    gap: 6px;
+  }
 }
 
-.tooltip-text {
-  visibility: hidden;
-  width: 300px;
-  background-color: #252526;
-  color: #d4d4d4;
-  text-align: center;
-  border-radius: 8px;
-  padding: 15px;
-  position: absolute;
-  z-index: 1000;
-  right: 120%;
-  /* Position to the left */
-  top: -10px;
-  /* Start slightly above the button */
-  opacity: 0;
-  transition: opacity 0.3s;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  border: 1px solid #333;
-  font-size: 14px;
-  line-height: 1.5;
-  pointer-events: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+@media (max-width: 480px) {
+  .selector-text {
+    display: none;
+  }
 
-/* Arrow */
-.tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 22px;
-  /* Align with the button center */
-  left: 100%;
-  /* To the right of the tooltip */
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent #252526;
-}
+  .selector-button {
+    padding: 6px 10px;
+    max-width: none;
+  }
 
-.help-container:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+  .tooltip-text {
+    width: 240px;
+    font-size: 12px;
+    padding: 12px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 10px);
+    margin-right: 0;
+  }
+
+  .tooltip-text::after {
+    display: none;
+  }
 }

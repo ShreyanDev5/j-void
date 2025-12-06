@@ -1,0 +1,477 @@
+/**
+ * Java Boilerplate Generator
+ * Generates Allman-style Java method signatures based on problem titles
+ */
+
+// Problem-specific signature mappings (LeetCode standard signatures)
+const signatureMap = {
+    // Arrays & Hashing
+    'Two Sum': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] nums, int target' },
+    'Contains Duplicate': { returnType: 'boolean', methodName: 'containsDuplicate', params: 'int[] nums' },
+    'Valid Anagram': { returnType: 'boolean', methodName: 'isAnagram', params: 'String s, String t' },
+    'Group Anagrams': { returnType: 'List<List<String>>', methodName: 'groupAnagrams', params: 'String[] strs' },
+    'Top K Frequent Elements': { returnType: 'int[]', methodName: 'topKFrequent', params: 'int[] nums, int k' },
+    'Longest Consecutive Sequence': { returnType: 'int', methodName: 'longestConsecutive', params: 'int[] nums' },
+    'Product of Array Except Self': { returnType: 'int[]', methodName: 'productExceptSelf', params: 'int[] nums' },
+    'Encode and Decode Strings': { returnType: 'String', methodName: 'encode', params: 'List<String> strs', extra: 'decode' },
+    'First Missing Positive': { returnType: 'int', methodName: 'firstMissingPositive', params: 'int[] nums' },
+
+    // Sorting Fundamentals (non-LeetCode)
+    'Insertion Sort': { returnType: 'void', methodName: 'insertionSort', params: 'int[] arr' },
+    'Merge Sort': { returnType: 'void', methodName: 'mergeSort', params: 'int[] arr, int left, int right' },
+    'Quick Sort': { returnType: 'void', methodName: 'quickSort', params: 'int[] arr, int low, int high' },
+
+    // Two Pointers & Sliding Window
+    'Valid Palindrome': { returnType: 'boolean', methodName: 'isPalindrome', params: 'String s' },
+    'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
+    '3Sum': { returnType: 'List<List<Integer>>', methodName: 'threeSum', params: 'int[] nums' },
+    'Minimum Window Substring': { returnType: 'String', methodName: 'minWindow', params: 'String s, String t' },
+    'Longest Repeating Character Replacement': { returnType: 'int', methodName: 'characterReplacement', params: 'String s, int k' },
+    'Two Sum II': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] numbers, int target' },
+    'Trapping Rain Water': { returnType: 'int', methodName: 'trap', params: 'int[] height' },
+    'Container With Most Water': { returnType: 'int', methodName: 'maxArea', params: 'int[] height' },
+    'Best Time to Buy and Sell Stock': { returnType: 'int', methodName: 'maxProfit', params: 'int[] prices' },
+    'Sort Colors': { returnType: 'void', methodName: 'sortColors', params: 'int[] nums' },
+    'Move Zeroes': { returnType: 'void', methodName: 'moveZeroes', params: 'int[] nums' },
+    'Sliding Window Maximum': { returnType: 'int[]', methodName: 'maxSlidingWindow', params: 'int[] nums, int k' },
+
+    // Stacks & Monotonic
+    'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
+    'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
+    'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
+    'Next Greater Element I': { returnType: 'int[]', methodName: 'nextGreaterElement', params: 'int[] nums1, int[] nums2' },
+    'Largest Rectangle in Histogram': { returnType: 'int', methodName: 'largestRectangleArea', params: 'int[] heights' },
+    'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
+
+    // Binary Search & Quickselect
+    'Binary Search': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
+    'Search in Rotated Sorted Array': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
+    'Find Minimum in Rotated Sorted Array': { returnType: 'int', methodName: 'findMin', params: 'int[] nums' },
+    'Median of Two Sorted Arrays': { returnType: 'double', methodName: 'findMedianSortedArrays', params: 'int[] nums1, int[] nums2' },
+    'Kth Largest Element in an Array': { returnType: 'int', methodName: 'findKthLargest', params: 'int[] nums, int k' },
+    'Find Peak Element': { returnType: 'int', methodName: 'findPeakElement', params: 'int[] nums' },
+    'Search Insert Position': { returnType: 'int', methodName: 'searchInsert', params: 'int[] nums, int target' },
+
+    // Linked List
+    'Reverse Linked List': { returnType: 'ListNode', methodName: 'reverseList', params: 'ListNode head', needsListNode: true },
+    'Merge Two Sorted Lists': { returnType: 'ListNode', methodName: 'mergeTwoLists', params: 'ListNode list1, ListNode list2', needsListNode: true },
+    'Linked List Cycle': { returnType: 'boolean', methodName: 'hasCycle', params: 'ListNode head', needsListNode: true },
+    'Remove Nth Node From End of List': { returnType: 'ListNode', methodName: 'removeNthFromEnd', params: 'ListNode head, int n', needsListNode: true },
+    'Add Two Numbers': { returnType: 'ListNode', methodName: 'addTwoNumbers', params: 'ListNode l1, ListNode l2', needsListNode: true },
+    'Palindrome Linked List': { returnType: 'boolean', methodName: 'isPalindrome', params: 'ListNode head', needsListNode: true },
+    'Intersection of Two Linked Lists': { returnType: 'ListNode', methodName: 'getIntersectionNode', params: 'ListNode headA, ListNode headB', needsListNode: true },
+
+    // Trees
+    'Invert Binary Tree': { returnType: 'TreeNode', methodName: 'invertTree', params: 'TreeNode root', needsTreeNode: true },
+    'Maximum Depth of Binary Tree': { returnType: 'int', methodName: 'maxDepth', params: 'TreeNode root', needsTreeNode: true },
+    'Validate Binary Search Tree': { returnType: 'boolean', methodName: 'isValidBST', params: 'TreeNode root', needsTreeNode: true },
+    'Binary Tree Level Order Traversal': { returnType: 'List<List<Integer>>', methodName: 'levelOrder', params: 'TreeNode root', needsTreeNode: true },
+    'Lowest Common Ancestor of a BST': { returnType: 'TreeNode', methodName: 'lowestCommonAncestor', params: 'TreeNode root, TreeNode p, TreeNode q', needsTreeNode: true },
+    'Kth Smallest Element in a BST': { returnType: 'int', methodName: 'kthSmallest', params: 'TreeNode root, int k', needsTreeNode: true },
+    'Binary Tree Maximum Path Sum': { returnType: 'int', methodName: 'maxPathSum', params: 'TreeNode root', needsTreeNode: true },
+    'Diameter of Binary Tree': { returnType: 'int', methodName: 'diameterOfBinaryTree', params: 'TreeNode root', needsTreeNode: true },
+    'Same Tree': { returnType: 'boolean', methodName: 'isSameTree', params: 'TreeNode p, TreeNode q', needsTreeNode: true },
+    'Subtree of Another Tree': { returnType: 'boolean', methodName: 'isSubtree', params: 'TreeNode root, TreeNode subRoot', needsTreeNode: true },
+    'Path Sum II': { returnType: 'List<List<Integer>>', methodName: 'pathSum', params: 'TreeNode root, int targetSum', needsTreeNode: true },
+    'Binary Tree Zigzag Level Order Traversal': { returnType: 'List<List<Integer>>', methodName: 'zigzagLevelOrder', params: 'TreeNode root', needsTreeNode: true },
+    'Serialize and Deserialize Binary Tree': { returnType: 'String', methodName: 'serialize', params: 'TreeNode root', needsTreeNode: true, isClass: true },
+
+    // Trie
+    'Implement Trie (Prefix Tree)': { returnType: 'void', methodName: 'Trie', params: '', isClass: true },
+    'Word Search II': { returnType: 'List<String>', methodName: 'findWords', params: 'char[][] board, String[] words' },
+
+    // Heap / Priority Queue
+    'Kth Largest Element in a Stream': { returnType: 'int', methodName: 'add', params: 'int val', isClass: true },
+    'Merge k Sorted Lists': { returnType: 'ListNode', methodName: 'mergeKLists', params: 'ListNode[] lists', needsListNode: true },
+    'Find Median from Data Stream': { returnType: 'double', methodName: 'findMedian', params: '', isClass: true },
+    'Task Scheduler': { returnType: 'int', methodName: 'leastInterval', params: 'char[] tasks, int n' },
+    'K Closest Points to Origin': { returnType: 'int[][]', methodName: 'kClosest', params: 'int[][] points, int k' },
+
+    // Backtracking
+    'Subsets': { returnType: 'List<List<Integer>>', methodName: 'subsets', params: 'int[] nums' },
+    'Permutations': { returnType: 'List<List<Integer>>', methodName: 'permute', params: 'int[] nums' },
+    'Combination Sum': { returnType: 'List<List<Integer>>', methodName: 'combinationSum', params: 'int[] candidates, int target' },
+    'Combination Sum II': { returnType: 'List<List<Integer>>', methodName: 'combinationSum2', params: 'int[] candidates, int target' },
+    'Generate Parentheses': { returnType: 'List<String>', methodName: 'generateParenthesis', params: 'int n' },
+    'Letter Combinations of a Phone Number': { returnType: 'List<String>', methodName: 'letterCombinations', params: 'String digits' },
+
+    // Graph Theory Basics (non-LeetCode)
+    'Matrix DFS': { returnType: 'void', methodName: 'dfs', params: 'int[][] matrix, int row, int col, boolean[][] visited' },
+    'Matrix BFS': { returnType: 'void', methodName: 'bfs', params: 'int[][] matrix, int startRow, int startCol' },
+    'Topological Sort': { returnType: 'int[]', methodName: 'topologicalSort', params: 'int numNodes, int[][] edges' },
+
+    // Graphs
+    'Number of Islands': { returnType: 'int', methodName: 'numIslands', params: 'char[][] grid' },
+    'Clone Graph': { returnType: 'Node', methodName: 'cloneGraph', params: 'Node node', needsGraphNode: true },
+    'Course Schedule': { returnType: 'boolean', methodName: 'canFinish', params: 'int numCourses, int[][] prerequisites' },
+    'Course Schedule II': { returnType: 'int[]', methodName: 'findOrder', params: 'int numCourses, int[][] prerequisites' },
+    'Rotting Oranges': { returnType: 'int', methodName: 'orangesRotting', params: 'int[][] grid' },
+    'Flood Fill': { returnType: 'int[][]', methodName: 'floodFill', params: 'int[][] image, int sr, int sc, int color' },
+    'Number of Connected Components': { returnType: 'int', methodName: 'countComponents', params: 'int n, int[][] edges' },
+    'Detect Cycles in Directed & Undirected Graphs': { returnType: 'boolean', methodName: 'hasCycle', params: 'int numNodes, int[][] edges, boolean isDirected' },
+    'Word Ladder': { returnType: 'int', methodName: 'ladderLength', params: 'String beginWord, String endWord, List<String> wordList' },
+    'Alien Dictionary': { returnType: 'String', methodName: 'alienOrder', params: 'String[] words' },
+
+    // Advanced Graph Algorithms (non-LeetCode)
+    "Dijkstra's Algorithm": { returnType: 'int[]', methodName: 'dijkstra', params: 'int[][] graph, int source' },
+    "Prim's Algorithm": { returnType: 'int', methodName: 'primMST', params: 'int[][] graph' },
+    "Kruskal's Algorithm": { returnType: 'int', methodName: 'kruskalMST', params: 'int n, int[][] edges' },
+
+    // DP Fundamentals (non-LeetCode)
+    '0/1 Knapsack': { returnType: 'int', methodName: 'knapsack', params: 'int[] weights, int[] values, int capacity' },
+    'Unbounded Knapsack': { returnType: 'int', methodName: 'unboundedKnapsack', params: 'int[] weights, int[] values, int capacity' },
+
+    // Dynamic Programming — 1D
+    'Climbing Stairs': { returnType: 'int', methodName: 'climbStairs', params: 'int n' },
+    'House Robber': { returnType: 'int', methodName: 'rob', params: 'int[] nums' },
+    'House Robber II': { returnType: 'int', methodName: 'rob', params: 'int[] nums' },
+    'Coin Change': { returnType: 'int', methodName: 'coinChange', params: 'int[] coins, int amount' },
+    'Longest Increasing Subsequence': { returnType: 'int', methodName: 'lengthOfLIS', params: 'int[] nums' },
+    'Word Break': { returnType: 'boolean', methodName: 'wordBreak', params: 'String s, List<String> wordDict' },
+    'Partition Equal Subset Sum': { returnType: 'boolean', methodName: 'canPartition', params: 'int[] nums' },
+    'Decode Ways': { returnType: 'int', methodName: 'numDecodings', params: 'String s' },
+    'Longest Palindromic Substring': { returnType: 'String', methodName: 'longestPalindrome', params: 'String s' },
+
+    // Dynamic Programming — 2D
+    'Unique Paths': { returnType: 'int', methodName: 'uniquePaths', params: 'int m, int n' },
+    'Longest Common Subsequence': { returnType: 'int', methodName: 'longestCommonSubsequence', params: 'String text1, String text2' },
+    'Minimum Path Sum': { returnType: 'int', methodName: 'minPathSum', params: 'int[][] grid' },
+    'Edit Distance': { returnType: 'int', methodName: 'minDistance', params: 'String word1, String word2' },
+
+    // Greedy
+    'Maximum Subarray': { returnType: 'int', methodName: 'maxSubArray', params: 'int[] nums' },
+    'Jump Game': { returnType: 'boolean', methodName: 'canJump', params: 'int[] nums' },
+    'Gas Station': { returnType: 'int', methodName: 'canCompleteCircuit', params: 'int[] gas, int[] cost' },
+
+    // Intervals
+    'Merge Intervals': { returnType: 'int[][]', methodName: 'merge', params: 'int[][] intervals' },
+    'Insert Interval': { returnType: 'int[][]', methodName: 'insert', params: 'int[][] intervals, int[] newInterval' },
+    'Non-overlapping Intervals': { returnType: 'int', methodName: 'eraseOverlapIntervals', params: 'int[][] intervals' },
+    'Meeting Rooms II': { returnType: 'int', methodName: 'minMeetingRooms', params: 'int[][] intervals' },
+    'Meeting Rooms': { returnType: 'boolean', methodName: 'canAttendMeetings', params: 'int[][] intervals' },
+
+    // Bit Manipulation
+    'Single Number': { returnType: 'int', methodName: 'singleNumber', params: 'int[] nums' },
+    'Number of 1 Bits': { returnType: 'int', methodName: 'hammingWeight', params: 'int n' },
+    'Missing Number': { returnType: 'int', methodName: 'missingNumber', params: 'int[] nums' },
+    'Sum of Two Integers': { returnType: 'int', methodName: 'getSum', params: 'int a, int b' },
+    'Reverse Bits': { returnType: 'int', methodName: 'reverseBits', params: 'int n' },
+
+    // Math & Geometry
+    'Rotate Image': { returnType: 'void', methodName: 'rotate', params: 'int[][] matrix' },
+    'Spiral Matrix': { returnType: 'List<Integer>', methodName: 'spiralOrder', params: 'int[][] matrix' },
+    'Set Matrix Zeroes': { returnType: 'void', methodName: 'setZeroes', params: 'int[][] matrix' },
+
+    // System Design & Misc
+    'Design Twitter': { returnType: 'void', methodName: 'Twitter', params: '', isClass: true },
+};
+
+// Helper class definitions
+const listNodeClass = `/**
+ * Definition for singly-linked list.
+ */
+class ListNode 
+{
+    int val;
+    ListNode next;
+    
+    ListNode() 
+    {
+    }
+    
+    ListNode(int val) 
+    {
+        this.val = val;
+    }
+    
+    ListNode(int val, ListNode next) 
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+`;
+
+const treeNodeClass = `/**
+ * Definition for a binary tree node.
+ */
+class TreeNode 
+{
+    int val;
+    TreeNode left;
+    TreeNode right;
+    
+    TreeNode() 
+    {
+    }
+    
+    TreeNode(int val) 
+    {
+        this.val = val;
+    }
+    
+    TreeNode(int val, TreeNode left, TreeNode right) 
+    {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+`;
+
+const graphNodeClass = `/**
+ * Definition for a Node.
+ */
+class Node 
+{
+    public int val;
+    public List<Node> neighbors;
+    
+    public Node() 
+    {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
+    
+    public Node(int _val) 
+    {
+        val = _val;
+        neighbors = new ArrayList<Node>();
+    }
+    
+    public Node(int _val, ArrayList<Node> _neighbors) 
+    {
+        val = _val;
+        neighbors = _neighbors;
+    }
+}
+
+`;
+
+/**
+ * Generates Java boilerplate code in Allman brace style for a given problem
+ * @param {string} title - The problem title
+ * @returns {string} - Java code with Allman braces
+ */
+export const generateBoilerplate = (title) => {
+    const signature = signatureMap[title];
+
+    if (!signature) {
+        // Fallback for unknown problems
+        const methodName = title.toLowerCase().replace(/[^a-z0-9]/g, ' ').trim().split(/\s+/)
+            .map((word, i) => i === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1))
+            .join('');
+
+        return `class Solution 
+{
+    public void ${methodName}() 
+    {
+        // Your solution here
+    }
+}
+`;
+    }
+
+    let prefix = '';
+
+    // Add helper class definitions if needed
+    if (signature.needsListNode) {
+        prefix += listNodeClass;
+    }
+    if (signature.needsTreeNode) {
+        prefix += treeNodeClass;
+    }
+    if (signature.needsGraphNode) {
+        prefix += graphNodeClass;
+    }
+
+    // Handle special class-based problems
+    if (signature.isClass) {
+        return prefix + generateClassBoilerplate(title, signature);
+    }
+
+    // Standard method boilerplate
+    return prefix + `class Solution 
+{
+    public ${signature.returnType} ${signature.methodName}(${signature.params}) 
+    {
+        // Your solution here
+    }
+}
+`;
+};
+
+/**
+ * Generates boilerplate for class-based problems (like MinStack, Trie, etc.)
+ */
+const generateClassBoilerplate = (title, signature) => {
+    switch (title) {
+        case 'Min Stack':
+            return `class MinStack 
+{
+    public MinStack() 
+    {
+        // Initialize your data structure here
+    }
+    
+    public void push(int val) 
+    {
+        // Your code here
+    }
+    
+    public void pop() 
+    {
+        // Your code here
+    }
+    
+    public int top() 
+    {
+        // Your code here
+    }
+    
+    public int getMin() 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Implement Trie (Prefix Tree)':
+            return `class Trie 
+{
+    public Trie() 
+    {
+        // Initialize your data structure here
+    }
+    
+    public void insert(String word) 
+    {
+        // Your code here
+    }
+    
+    public boolean search(String word) 
+    {
+        // Your code here
+    }
+    
+    public boolean startsWith(String prefix) 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Kth Largest Element in a Stream':
+            return `class KthLargest 
+{
+    public KthLargest(int k, int[] nums) 
+    {
+        // Initialize your data structure here
+    }
+    
+    public int add(int val) 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Find Median from Data Stream':
+            return `class MedianFinder 
+{
+    public MedianFinder() 
+    {
+        // Initialize your data structure here
+    }
+    
+    public void addNum(int num) 
+    {
+        // Your code here
+    }
+    
+    public double findMedian() 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Serialize and Deserialize Binary Tree':
+            return `public class Codec 
+{
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) 
+    {
+        // Your code here
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Encode and Decode Strings':
+            return `class Codec 
+{
+    // Encodes a list of strings to a single string.
+    public String encode(List<String> strs) 
+    {
+        // Your code here
+    }
+
+    // Decodes a single string to a list of strings.
+    public List<String> decode(String s) 
+    {
+        // Your code here
+    }
+}
+`;
+
+        case 'Design Twitter':
+            return `class Twitter 
+{
+    public Twitter() 
+    {
+        // Initialize your data structure here
+    }
+    
+    public void postTweet(int userId, int tweetId) 
+    {
+        // Your code here
+    }
+    
+    public List<Integer> getNewsFeed(int userId) 
+    {
+        // Your code here
+    }
+    
+    public void follow(int followerId, int followeeId) 
+    {
+        // Your code here
+    }
+    
+    public void unfollow(int followerId, int followeeId) 
+    {
+        // Your code here
+    }
+}
+`;
+
+        default:
+            return `class ${signature.methodName} 
+{
+    public ${signature.methodName}() 
+    {
+        // Initialize your data structure here
+    }
+}
+`;
+    }
+};
+
+export default generateBoilerplate;

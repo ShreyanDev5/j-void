@@ -1,13 +1,13 @@
 import React from 'react';
 import Editor from '@monaco-editor/react';
 
-const CodeEditor = ({ code, onChange, onMount }) => {
+const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
     return (
         <div className="editor-container full-width">
             <Editor
                 height="100%"
                 defaultLanguage="java"
-                theme="vs-dark"
+                theme={theme === 'dark' ? 'vs-dark' : 'vs'}
                 value={code}
                 onChange={onChange}
                 onMount={onMount}
