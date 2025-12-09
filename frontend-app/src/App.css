@@ -263,6 +263,35 @@
   background-color: rgba(255, 55, 95, 0.12);
 }
 
+/* LeetCode Link Icon */
+.leetcode-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.leetcode-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+.leetcode-link:hover {
+  color: var(--accent);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.question-item:hover .leetcode-link {
+  opacity: 0.8;
+}
+
 .no-results {
   padding: 24px;
   text-align: center;
