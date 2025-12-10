@@ -14,7 +14,6 @@ export const roadmapData = [
             { id: '5', title: 'Top K Frequent Elements', difficulty: 'Medium', url: lc('Top K Frequent Elements') },
             { id: '6', title: 'Longest Consecutive Sequence', difficulty: 'Medium', url: lc('Longest Consecutive Sequence') },
             { id: '7', title: 'Product of Array Except Self', difficulty: 'Medium', url: lc('Product of Array Except Self') },
-            { id: '8', title: 'Encode and Decode Strings', difficulty: 'Medium', url: 'https://leetcode.com/problems/encode-and-decode-strings/' },
             { id: '9', title: 'First Missing Positive', difficulty: 'Hard', url: lc('First Missing Positive') },
         ]
     },
@@ -68,7 +67,6 @@ export const roadmapData = [
             { id: '35', title: 'Binary Search', difficulty: 'Easy', url: lc('Binary Search') },
             { id: '36', title: 'Search in Rotated Sorted Array', difficulty: 'Medium', url: lc('Search in Rotated Sorted Array') },
             { id: '37', title: 'Find Minimum in Rotated Sorted Array', difficulty: 'Medium', url: lc('Find Minimum in Rotated Sorted Array') },
-            { id: '38', title: 'Median of Two Sorted Arrays', difficulty: 'Hard', url: lc('Median of Two Sorted Arrays') },
             { id: '39', title: 'Kth Largest Element in an Array', difficulty: 'Medium', url: lc('Kth Largest Element in an Array') },
             { id: '40', title: 'Find Peak Element', difficulty: 'Medium', url: lc('Find Peak Element') },
             { id: '41', title: 'Search Insert Position', difficulty: 'Easy', url: lc('Search Insert Position') },
@@ -86,6 +84,7 @@ export const roadmapData = [
             { id: '26', title: 'Add Two Numbers', difficulty: 'Medium', url: lc('Add Two Numbers') },
             { id: '27', title: 'Palindrome Linked List', difficulty: 'Easy', url: lc('Palindrome Linked List') },
             { id: '28', title: 'Intersection of Two Linked Lists', difficulty: 'Easy', url: lc('Intersection of Two Linked Lists') },
+            { id: '119', title: 'LRU Cache', difficulty: 'Medium', url: lc('LRU Cache') },
         ]
     },
     // 7. Trees
@@ -245,8 +244,7 @@ export const roadmapData = [
             { id: '97', title: 'Single Number', difficulty: 'Easy', url: lc('Single Number') },
             { id: '98', title: 'Number of 1 Bits', difficulty: 'Easy', url: lc('Number of 1 Bits') },
             { id: '99', title: 'Missing Number', difficulty: 'Easy', url: lc('Missing Number') },
-            { id: '100', title: 'Sum of Two Integers', difficulty: 'Medium', url: lc('Sum of Two Integers') },
-            { id: '101', title: 'Reverse Bits', difficulty: 'Easy', url: lc('Reverse Bits') },
+
         ]
     },
     // 20. Math & Geometry
@@ -259,14 +257,7 @@ export const roadmapData = [
             { id: '106', title: 'Set Matrix Zeroes', difficulty: 'Medium', url: lc('Set Matrix Zeroes') },
         ]
     },
-    // 21. System Design & Misc
-    {
-        id: 'system_design_misc',
-        title: 'System Design & Misc',
-        questions: [
-            { id: '118', title: 'Design Twitter', difficulty: 'Medium', url: lc('Design Twitter') },
-        ]
-    },
+
 ];
 
 // Get all questions as a flat array

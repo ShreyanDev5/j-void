@@ -13,7 +13,6 @@ const signatureMap = {
     'Top K Frequent Elements': { returnType: 'int[]', methodName: 'topKFrequent', params: 'int[] nums, int k' },
     'Longest Consecutive Sequence': { returnType: 'int', methodName: 'longestConsecutive', params: 'int[] nums' },
     'Product of Array Except Self': { returnType: 'int[]', methodName: 'productExceptSelf', params: 'int[] nums' },
-    'Encode and Decode Strings': { returnType: 'String', methodName: 'encode', params: 'List<String> strs', extra: 'decode' },
     'First Missing Positive': { returnType: 'int', methodName: 'firstMissingPositive', params: 'int[] nums' },
 
     // Sorting Fundamentals (non-LeetCode)
@@ -47,7 +46,6 @@ const signatureMap = {
     'Binary Search': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Search in Rotated Sorted Array': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Find Minimum in Rotated Sorted Array': { returnType: 'int', methodName: 'findMin', params: 'int[] nums' },
-    'Median of Two Sorted Arrays': { returnType: 'double', methodName: 'findMedianSortedArrays', params: 'int[] nums1, int[] nums2' },
     'Kth Largest Element in an Array': { returnType: 'int', methodName: 'findKthLargest', params: 'int[] nums, int k' },
     'Find Peak Element': { returnType: 'int', methodName: 'findPeakElement', params: 'int[] nums' },
     'Search Insert Position': { returnType: 'int', methodName: 'searchInsert', params: 'int[] nums, int target' },
@@ -84,6 +82,7 @@ const signatureMap = {
     'Kth Largest Element in a Stream': { returnType: 'int', methodName: 'add', params: 'int val', isClass: true },
     'Merge k Sorted Lists': { returnType: 'ListNode', methodName: 'mergeKLists', params: 'ListNode[] lists', needsListNode: true },
     'Find Median from Data Stream': { returnType: 'double', methodName: 'findMedian', params: '', isClass: true },
+    'LRU Cache': { returnType: 'void', methodName: 'LRUCache', params: 'int capacity', isClass: true },
     'Task Scheduler': { returnType: 'int', methodName: 'leastInterval', params: 'char[] tasks, int n' },
     'K Closest Points to Origin': { returnType: 'int[][]', methodName: 'kClosest', params: 'int[][] points, int k' },
 
@@ -154,16 +153,14 @@ const signatureMap = {
     'Single Number': { returnType: 'int', methodName: 'singleNumber', params: 'int[] nums' },
     'Number of 1 Bits': { returnType: 'int', methodName: 'hammingWeight', params: 'int n' },
     'Missing Number': { returnType: 'int', methodName: 'missingNumber', params: 'int[] nums' },
-    'Sum of Two Integers': { returnType: 'int', methodName: 'getSum', params: 'int a, int b' },
-    'Reverse Bits': { returnType: 'int', methodName: 'reverseBits', params: 'int n' },
+
 
     // Math & Geometry
     'Rotate Image': { returnType: 'void', methodName: 'rotate', params: 'int[][] matrix' },
     'Spiral Matrix': { returnType: 'List<Integer>', methodName: 'spiralOrder', params: 'int[][] matrix' },
     'Set Matrix Zeroes': { returnType: 'void', methodName: 'setZeroes', params: 'int[][] matrix' },
 
-    // System Design & Misc
-    'Design Twitter': { returnType: 'void', methodName: 'Twitter', params: '', isClass: true },
+
 };
 
 // Helper class definitions
@@ -415,47 +412,21 @@ const generateClassBoilerplate = (title, signature) => {
 }
 `;
 
-        case 'Encode and Decode Strings':
-            return `class Codec 
-{
-    // Encodes a list of strings to a single string.
-    public String encode(List<String> strs) 
-    {
-        // Your code here
-    }
 
-    // Decodes a single string to a list of strings.
-    public List<String> decode(String s) 
-    {
-        // Your code here
-    }
-}
-`;
-
-        case 'Design Twitter':
-            return `class Twitter 
+        case 'LRU Cache':
+            return `class LRUCache 
 {
-    public Twitter() 
+    public LRUCache(int capacity) 
     {
         // Initialize your data structure here
     }
     
-    public void postTweet(int userId, int tweetId) 
+    public int get(int key) 
     {
         // Your code here
     }
     
-    public List<Integer> getNewsFeed(int userId) 
-    {
-        // Your code here
-    }
-    
-    public void follow(int followerId, int followeeId) 
-    {
-        // Your code here
-    }
-    
-    public void unfollow(int followerId, int followeeId) 
+    public void put(int key, int value) 
     {
         // Your code here
     }
