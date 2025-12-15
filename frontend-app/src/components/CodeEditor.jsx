@@ -5,7 +5,9 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
     const editorRef = useRef(null);
     const monacoRef = useRef(null);
     const bookmarksRef = useRef(new Set()); // Store bookmarked line numbers
-    const decorationsRef = useRef([]); // Store decoration IDs
+    const decorationsRef = useRef([]); // Store bookmark decoration IDs
+    const ghostDecorationsRef = useRef([]); // Store ghost decoration IDs
+    const lastHoveredLineRef = useRef(null); // Optimize: only update if line changes
 
     const updateDecorations = useCallback(() => {
         if (!editorRef.current) return;
@@ -15,7 +17,6 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
             options: {
                 isWholeLine: false,
                 glyphMarginClassName: 'bookmark-glyph',
-                glyphMarginHoverMessage: { value: 'Click to remove bookmark' },
             },
         }));
 
@@ -23,13 +24,19 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
             decorationsRef.current,
             newDecorations
         );
+
+        // Clear ghost to avoid collision if a bookmark was added where ghost was
+        if (lastHoveredLineRef.current && bookmarksRef.current.has(lastHoveredLineRef.current)) {
+            ghostDecorationsRef.current = editorRef.current.deltaDecorations(ghostDecorationsRef.current, []);
+            lastHoveredLineRef.current = null;
+        }
     }, []);
 
     const handleEditorDidMount = useCallback((editor, monaco) => {
         editorRef.current = editor;
         monacoRef.current = monaco;
 
-        // Handle click on glyph margin
+        // Handle click on glyph margin to toggle bookmark
         editor.onMouseDown((e) => {
             if (e.target.type === monaco.editor.MouseTargetType.GUTTER_GLYPH_MARGIN) {
                 const lineNumber = e.target.position?.lineNumber;
@@ -41,6 +48,49 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
                     }
                     updateDecorations();
                 }
+            }
+        });
+
+        // Handle mouse move for "ghost" bookmark
+        editor.onMouseMove((e) => {
+            const lineNumber = e.target.position?.lineNumber;
+            // If not on glyph margin or no line, clear ghost
+            if (e.target.type !== monaco.editor.MouseTargetType.GUTTER_GLYPH_MARGIN || !lineNumber) {
+                if (ghostDecorationsRef.current.length > 0) {
+                    ghostDecorationsRef.current = editor.deltaDecorations(ghostDecorationsRef.current, []);
+                    lastHoveredLineRef.current = null;
+                }
+                return;
+            }
+
+            // If same line, do nothing (PERFORMANCE OPTIMIZATION)
+            if (lineNumber === lastHoveredLineRef.current) return;
+
+            // If real bookmark exists, do not show ghost
+            if (bookmarksRef.current.has(lineNumber)) {
+                ghostDecorationsRef.current = editor.deltaDecorations(ghostDecorationsRef.current, []);
+                lastHoveredLineRef.current = lineNumber; // Track to prevent repeated checks
+                return;
+            }
+
+            // Apply ghost decoration
+            const newDecorations = [{
+                range: new monaco.Range(lineNumber, 1, lineNumber, 1),
+                options: {
+                    isWholeLine: false,
+                    glyphMarginClassName: 'bookmark-ghost',
+                },
+            }];
+
+            ghostDecorationsRef.current = editor.deltaDecorations(ghostDecorationsRef.current, newDecorations);
+            lastHoveredLineRef.current = lineNumber;
+        });
+
+        // Clear ghost on leave
+        editor.onMouseLeave(() => {
+            if (ghostDecorationsRef.current.length > 0) {
+                ghostDecorationsRef.current = editor.deltaDecorations(ghostDecorationsRef.current, []);
+                lastHoveredLineRef.current = null;
             }
         });
 

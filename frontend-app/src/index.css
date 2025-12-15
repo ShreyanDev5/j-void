@@ -105,7 +105,8 @@ body {
   border-radius: 50%;
   width: 8px !important;
   height: 8px !important;
-  margin-left: 4px;
+  /* Shift bookmark to align with shifted line numbers */
+  margin-left: 14px;
   margin-top: 6px;
   cursor: pointer;
   box-shadow: 0 0 4px rgba(255, 55, 95, 0.5);
@@ -117,37 +118,31 @@ body {
   box-shadow: 0 0 6px rgba(255, 55, 95, 0.7);
 }
 
-/* Hover preview on empty glyph margin for discoverability */
-.monaco-editor .margin-view-overlays .cgmr {
-  cursor: pointer;
-  position: relative;
+/* Shift Line Numbers Left */
+.monaco-editor .margin-view-overlays .line-numbers {
+  padding-left: 0 !important;
+  /* Reduce padding to pull numbers left */
+  transform: translateX(-5px);
+  /* Explicitly shift left */
 }
 
-.monaco-editor .margin-view-overlays .cgmr::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: transparent;
-  border-radius: 50%;
-  left: 4px;
-  top: 6px;
-  opacity: 0;
-  transition: opacity 0.15s ease, background-color 0.15s ease;
-  pointer-events: none;
-}
-
-.monaco-editor .margin-view-overlays .cgmr:hover::before {
+/* Ghost bookmark (JS-driven hover) */
+.bookmark-ghost {
   background-color: #ff375f;
+  /* Match red but rely on opacity */
+  border-radius: 50%;
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 14px;
+  /* Match bookmark-glyph */
+  margin-top: 6px;
+  cursor: pointer;
   opacity: 0.35;
+  /* Toned-down red */
+  transition: opacity 0.1s ease;
 }
 
-/* Hide hover preview when bookmark is already present */
-.monaco-editor .margin-view-overlays .cgmr:has(.bookmark-glyph)::before {
-  display: none !important;
-}
-
-/* Reduce Monaco tooltip size for bookmarks */
+/* Editor hover tooltip tweak */
 .monaco-editor .monaco-hover {
   font-size: 11px !important;
   padding: 3px 6px !important;
