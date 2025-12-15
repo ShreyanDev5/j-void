@@ -58,6 +58,7 @@ function App() {
         onQuestionSelect={handleQuestionSelect}
         theme={theme}
         onThemeToggle={handleThemeToggle}
+        code={code}
       />
       <div className="main-content">
         <CodeEditor

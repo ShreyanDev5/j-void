@@ -96,3 +96,70 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* ============================================
+   Monaco Editor Bookmark Glyph
+   ============================================ */
+.bookmark-glyph {
+  background-color: #ff375f;
+  border-radius: 50%;
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 4px;
+  margin-top: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(255, 55, 95, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bookmark-glyph:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 6px rgba(255, 55, 95, 0.7);
+}
+
+/* Hover preview on empty glyph margin for discoverability */
+.monaco-editor .margin-view-overlays .cgmr {
+  cursor: pointer;
+  position: relative;
+}
+
+.monaco-editor .margin-view-overlays .cgmr::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  border-radius: 50%;
+  left: 4px;
+  top: 6px;
+  opacity: 0;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+  pointer-events: none;
+}
+
+.monaco-editor .margin-view-overlays .cgmr:hover::before {
+  background-color: #ff375f;
+  opacity: 0.35;
+}
+
+/* Hide hover preview when bookmark is already present */
+.monaco-editor .margin-view-overlays .cgmr:has(.bookmark-glyph)::before {
+  display: none !important;
+}
+
+/* Reduce Monaco tooltip size for bookmarks */
+.monaco-editor .monaco-hover {
+  font-size: 11px !important;
+  padding: 3px 6px !important;
+  min-width: auto !important;
+}
+
+.monaco-editor .monaco-hover-content {
+  max-width: 160px !important;
+  padding: 1px 2px !important;
+  line-height: 1.3 !important;
+}
+
+.monaco-editor .monaco-hover .hover-row {
+  padding: 0 !important;
+}
