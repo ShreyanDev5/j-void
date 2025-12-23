@@ -53,7 +53,7 @@ const Header = ({ selectedQuestion, onQuestionSelect, theme, onThemeToggle, code
                         <div className="tooltip-divider"></div>
                         <span className="tooltip-subtitle">Ready for more?</span><br />
                         Explore <strong>Shreyan's Arc</strong>—a premium interactive DSA roadmap with curated problems and visual learning paths.
-                        <div className="tooltip-note">J-Void contains the exact same 114 curated questions as Shreyan's Arc—tailored for Freshers, SDE 1, and Junior Developer roles.</div>
+                        <div className="tooltip-note">J-Void contains the exact same 96 curated questions as Shreyan's Arc—tailored for Freshers, SDE 1, and Junior Developer roles.</div>
                         <a
                             href="https://shreyans-arc.vercel.app/"
                             target="_blank"

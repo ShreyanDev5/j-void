@@ -37,7 +37,6 @@ export const roadmapData = [
             { id: '30', title: 'Min Stack', difficulty: 'Medium', url: lc('Min Stack') },
             { id: '31', title: 'Daily Temperatures', difficulty: 'Medium', url: lc('Daily Temperatures') },
             { id: '34', title: 'Evaluate Reverse Polish Notation', difficulty: 'Medium', url: lc('Evaluate Reverse Polish Notation') },
-            { id: '33', title: 'Largest Rectangle in Histogram', difficulty: 'Hard', url: lc('Largest Rectangle in Histogram') },
         ]
     },
     // 4. Two Pointers & Sliding Window
@@ -50,13 +49,11 @@ export const roadmapData = [
             { id: '20', title: 'Move Zeroes', difficulty: 'Easy', url: lc('Move Zeroes') },
             { id: '11', title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', url: lc('Longest Substring Without Repeating Characters') },
             { id: '12', title: '3Sum', difficulty: 'Medium', url: lc('3Sum') },
-            { id: '14', title: 'Longest Repeating Character Replacement', difficulty: 'Medium', url: lc('Longest Repeating Character Replacement') },
             { id: '15', title: 'Two Sum II', difficulty: 'Medium', url: lc('Two Sum II - Input Array Is Sorted') },
             { id: '17', title: 'Container With Most Water', difficulty: 'Medium', url: lc('Container With Most Water') },
             { id: '19', title: 'Sort Colors', difficulty: 'Medium', url: lc('Sort Colors') },
             { id: '13', title: 'Minimum Window Substring', difficulty: 'Hard', url: lc('Minimum Window Substring') },
             { id: '16', title: 'Trapping Rain Water', difficulty: 'Hard', url: lc('Trapping Rain Water') },
-            { id: '21', title: 'Sliding Window Maximum', difficulty: 'Hard', url: lc('Sliding Window Maximum') },
         ]
     },
     // 5. Binary Search & Quickselect
@@ -69,7 +66,6 @@ export const roadmapData = [
             { id: '36', title: 'Search in Rotated Sorted Array', difficulty: 'Medium', url: lc('Search in Rotated Sorted Array') },
             { id: '37', title: 'Find Minimum in Rotated Sorted Array', difficulty: 'Medium', url: lc('Find Minimum in Rotated Sorted Array') },
             { id: '39', title: 'Kth Largest Element in an Array', difficulty: 'Medium', url: lc('Kth Largest Element in an Array') },
-            { id: '40', title: 'Find Peak Element', difficulty: 'Medium', url: lc('Find Peak Element') },
         ]
     },
     // 6. Linked List
@@ -84,7 +80,6 @@ export const roadmapData = [
             { id: '28', title: 'Intersection of Two Linked Lists', difficulty: 'Easy', url: lc('Intersection of Two Linked Lists') },
             { id: '25', title: 'Remove Nth Node From End of List', difficulty: 'Medium', url: lc('Remove Nth Node From End of List') },
             { id: '26', title: 'Add Two Numbers', difficulty: 'Medium', url: lc('Add Two Numbers') },
-            { id: '119', title: 'LRU Cache', difficulty: 'Medium', url: lc('LRU Cache') },
         ]
     },
     // 7. Trees
@@ -96,15 +91,12 @@ export const roadmapData = [
             { id: '43', title: 'Maximum Depth of Binary Tree', difficulty: 'Easy', url: lc('Maximum Depth of Binary Tree') },
             { id: '49', title: 'Diameter of Binary Tree', difficulty: 'Easy', url: lc('Diameter of Binary Tree') },
             { id: '50', title: 'Same Tree', difficulty: 'Easy', url: lc('Same Tree') },
-            { id: '51', title: 'Subtree of Another Tree', difficulty: 'Easy', url: lc('Subtree of Another Tree') },
             { id: '44', title: 'Validate Binary Search Tree', difficulty: 'Medium', url: lc('Validate Binary Search Tree') },
             { id: '45', title: 'Binary Tree Level Order Traversal', difficulty: 'Medium', url: lc('Binary Tree Level Order Traversal') },
             { id: '46', title: 'Lowest Common Ancestor of a BST', difficulty: 'Medium', url: lc('Lowest Common Ancestor of a Binary Search Tree') },
             { id: '47', title: 'Kth Smallest Element in a BST', difficulty: 'Medium', url: lc('Kth Smallest Element in a BST') },
             { id: '52', title: 'Path Sum II', difficulty: 'Medium', url: lc('Path Sum II') },
-            { id: '53', title: 'Binary Tree Zigzag Level Order Traversal', difficulty: 'Medium', url: lc('Binary Tree Zigzag Level Order Traversal') },
             { id: '48', title: 'Binary Tree Maximum Path Sum', difficulty: 'Hard', url: lc('Binary Tree Maximum Path Sum') },
-            { id: '54', title: 'Serialize and Deserialize Binary Tree', difficulty: 'Hard', url: lc('Serialize and Deserialize Binary Tree') },
         ]
     },
     // 8. Trie
@@ -113,7 +105,6 @@ export const roadmapData = [
         title: 'Trie',
         questions: [
             { id: '102', title: 'Implement Trie (Prefix Tree)', difficulty: 'Medium', url: lc('Implement Trie (Prefix Tree)') },
-            { id: '103', title: 'Word Search II', difficulty: 'Hard', url: lc('Word Search II') },
         ]
     },
     // 9. Heap / Priority Queue
@@ -125,7 +116,6 @@ export const roadmapData = [
             { id: '87', title: 'Task Scheduler', difficulty: 'Medium', url: lc('Task Scheduler') },
             { id: '88', title: 'K Closest Points to Origin', difficulty: 'Medium', url: lc('K Closest Points to Origin') },
             { id: '85', title: 'Merge k Sorted Lists', difficulty: 'Hard', url: lc('Merge k Sorted Lists') },
-            { id: '86', title: 'Find Median from Data Stream', difficulty: 'Hard', url: lc('Find Median from Data Stream') },
         ]
     },
     // 10. Backtracking
@@ -136,7 +126,6 @@ export const roadmapData = [
             { id: '78', title: 'Subsets', difficulty: 'Medium', url: lc('Subsets') },
             { id: '79', title: 'Permutations', difficulty: 'Medium', url: lc('Permutations') },
             { id: '80', title: 'Combination Sum', difficulty: 'Medium', url: lc('Combination Sum') },
-            { id: '81', title: 'Combination Sum II', difficulty: 'Medium', url: lc('Combination Sum II') },
             { id: '82', title: 'Generate Parentheses', difficulty: 'Medium', url: lc('Generate Parentheses') },
             { id: '83', title: 'Letter Combinations of a Phone Number', difficulty: 'Medium', url: lc('Letter Combinations of a Phone Number') },
         ]
@@ -163,9 +152,6 @@ export const roadmapData = [
             { id: '58', title: 'Course Schedule II', difficulty: 'Medium', url: lc('Course Schedule II') },
             { id: '59', title: 'Rotting Oranges', difficulty: 'Medium', url: lc('Rotting Oranges') },
             { id: '61', title: 'Number of Connected Components', difficulty: 'Medium', url: 'https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/' },
-            { id: '62', title: 'Detect Cycles in Directed & Undirected Graphs', difficulty: 'Medium', url: '' },
-            { id: '63', title: 'Word Ladder', difficulty: 'Hard', url: lc('Word Ladder') },
-            { id: '64', title: 'Alien Dictionary', difficulty: 'Hard', url: 'https://leetcode.com/problems/alien-dictionary/' },
         ]
     },
     // 13. [Core] Advanced Graph Algos
@@ -194,13 +180,11 @@ export const roadmapData = [
         questions: [
             { id: '65', title: 'Climbing Stairs', difficulty: 'Easy', url: lc('Climbing Stairs') },
             { id: '66', title: 'House Robber', difficulty: 'Medium', url: lc('House Robber') },
-            { id: '67', title: 'House Robber II', difficulty: 'Medium', url: lc('House Robber II') },
             { id: '68', title: 'Coin Change', difficulty: 'Medium', url: lc('Coin Change') },
             { id: '69', title: 'Longest Increasing Subsequence', difficulty: 'Medium', url: lc('Longest Increasing Subsequence') },
             { id: '70', title: 'Word Break', difficulty: 'Medium', url: lc('Word Break') },
             { id: '71', title: 'Partition Equal Subset Sum', difficulty: 'Medium', url: lc('Partition Equal Subset Sum') },
             { id: '72', title: 'Decode Ways', difficulty: 'Medium', url: lc('Decode Ways') },
-            { id: '73', title: 'Longest Palindromic Substring', difficulty: 'Medium', url: lc('Longest Palindromic Substring') },
         ]
     },
     // 16. Dynamic Programming — 2D
@@ -211,7 +195,6 @@ export const roadmapData = [
             { id: '74', title: 'Unique Paths', difficulty: 'Medium', url: lc('Unique Paths') },
             { id: '75', title: 'Longest Common Subsequence', difficulty: 'Medium', url: lc('Longest Common Subsequence') },
             { id: '76', title: 'Minimum Path Sum', difficulty: 'Medium', url: lc('Minimum Path Sum') },
-            { id: '77', title: 'Edit Distance', difficulty: 'Hard', url: lc('Edit Distance') },
         ]
     },
     // 17. Greedy
@@ -229,11 +212,9 @@ export const roadmapData = [
         id: 'intervals',
         title: 'Intervals',
         questions: [
-            { id: '96', title: 'Meeting Rooms', difficulty: 'Easy', url: 'https://leetcode.com/problems/meeting-rooms/' },
             { id: '92', title: 'Merge Intervals', difficulty: 'Medium', url: lc('Merge Intervals') },
             { id: '93', title: 'Insert Interval', difficulty: 'Medium', url: lc('Insert Interval') },
             { id: '94', title: 'Non-overlapping Intervals', difficulty: 'Medium', url: lc('Non-overlapping Intervals') },
-            { id: '95', title: 'Meeting Rooms II', difficulty: 'Medium', url: 'https://leetcode.com/problems/meeting-rooms-ii/' },
         ]
     },
     // 19. Bit Manipulation
@@ -244,7 +225,6 @@ export const roadmapData = [
             { id: '97', title: 'Single Number', difficulty: 'Easy', url: lc('Single Number') },
             { id: '98', title: 'Number of 1 Bits', difficulty: 'Easy', url: lc('Number of 1 Bits') },
             { id: '99', title: 'Missing Number', difficulty: 'Easy', url: lc('Missing Number') },
-
         ]
     },
     // 20. Math & Geometry

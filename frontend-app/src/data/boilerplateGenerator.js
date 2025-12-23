@@ -25,21 +25,18 @@ const signatureMap = {
     'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
     '3Sum': { returnType: 'List<List<Integer>>', methodName: 'threeSum', params: 'int[] nums' },
     'Minimum Window Substring': { returnType: 'String', methodName: 'minWindow', params: 'String s, String t' },
-    'Longest Repeating Character Replacement': { returnType: 'int', methodName: 'characterReplacement', params: 'String s, int k' },
     'Two Sum II': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] numbers, int target' },
     'Trapping Rain Water': { returnType: 'int', methodName: 'trap', params: 'int[] height' },
     'Container With Most Water': { returnType: 'int', methodName: 'maxArea', params: 'int[] height' },
     'Best Time to Buy and Sell Stock': { returnType: 'int', methodName: 'maxProfit', params: 'int[] prices' },
     'Sort Colors': { returnType: 'void', methodName: 'sortColors', params: 'int[] nums' },
     'Move Zeroes': { returnType: 'void', methodName: 'moveZeroes', params: 'int[] nums' },
-    'Sliding Window Maximum': { returnType: 'int[]', methodName: 'maxSlidingWindow', params: 'int[] nums, int k' },
 
     // Stacks & Monotonic
     'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
     'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
     'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
     'Next Greater Element I': { returnType: 'int[]', methodName: 'nextGreaterElement', params: 'int[] nums1, int[] nums2' },
-    'Largest Rectangle in Histogram': { returnType: 'int', methodName: 'largestRectangleArea', params: 'int[] heights' },
     'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
 
     // Binary Search & Quickselect
@@ -47,7 +44,6 @@ const signatureMap = {
     'Search in Rotated Sorted Array': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Find Minimum in Rotated Sorted Array': { returnType: 'int', methodName: 'findMin', params: 'int[] nums' },
     'Kth Largest Element in an Array': { returnType: 'int', methodName: 'findKthLargest', params: 'int[] nums, int k' },
-    'Find Peak Element': { returnType: 'int', methodName: 'findPeakElement', params: 'int[] nums' },
     'Search Insert Position': { returnType: 'int', methodName: 'searchInsert', params: 'int[] nums, int target' },
 
     // Linked List
@@ -69,20 +65,16 @@ const signatureMap = {
     'Binary Tree Maximum Path Sum': { returnType: 'int', methodName: 'maxPathSum', params: 'TreeNode root', needsTreeNode: true },
     'Diameter of Binary Tree': { returnType: 'int', methodName: 'diameterOfBinaryTree', params: 'TreeNode root', needsTreeNode: true },
     'Same Tree': { returnType: 'boolean', methodName: 'isSameTree', params: 'TreeNode p, TreeNode q', needsTreeNode: true },
-    'Subtree of Another Tree': { returnType: 'boolean', methodName: 'isSubtree', params: 'TreeNode root, TreeNode subRoot', needsTreeNode: true },
     'Path Sum II': { returnType: 'List<List<Integer>>', methodName: 'pathSum', params: 'TreeNode root, int targetSum', needsTreeNode: true },
-    'Binary Tree Zigzag Level Order Traversal': { returnType: 'List<List<Integer>>', methodName: 'zigzagLevelOrder', params: 'TreeNode root', needsTreeNode: true },
-    'Serialize and Deserialize Binary Tree': { returnType: 'String', methodName: 'serialize', params: 'TreeNode root', needsTreeNode: true, isClass: true },
 
     // Trie
     'Implement Trie (Prefix Tree)': { returnType: 'void', methodName: 'Trie', params: '', isClass: true },
-    'Word Search II': { returnType: 'List<String>', methodName: 'findWords', params: 'char[][] board, String[] words' },
+    'Implement Trie (Prefix Tree)': { returnType: 'void', methodName: 'Trie', params: '', isClass: true },
 
     // Heap / Priority Queue
     'Kth Largest Element in a Stream': { returnType: 'int', methodName: 'add', params: 'int val', isClass: true },
     'Merge k Sorted Lists': { returnType: 'ListNode', methodName: 'mergeKLists', params: 'ListNode[] lists', needsListNode: true },
-    'Find Median from Data Stream': { returnType: 'double', methodName: 'findMedian', params: '', isClass: true },
-    'LRU Cache': { returnType: 'void', methodName: 'LRUCache', params: 'int capacity', isClass: true },
+
     'Task Scheduler': { returnType: 'int', methodName: 'leastInterval', params: 'char[] tasks, int n' },
     'K Closest Points to Origin': { returnType: 'int[][]', methodName: 'kClosest', params: 'int[][] points, int k' },
 
@@ -90,7 +82,6 @@ const signatureMap = {
     'Subsets': { returnType: 'List<List<Integer>>', methodName: 'subsets', params: 'int[] nums' },
     'Permutations': { returnType: 'List<List<Integer>>', methodName: 'permute', params: 'int[] nums' },
     'Combination Sum': { returnType: 'List<List<Integer>>', methodName: 'combinationSum', params: 'int[] candidates, int target' },
-    'Combination Sum II': { returnType: 'List<List<Integer>>', methodName: 'combinationSum2', params: 'int[] candidates, int target' },
     'Generate Parentheses': { returnType: 'List<String>', methodName: 'generateParenthesis', params: 'int n' },
     'Letter Combinations of a Phone Number': { returnType: 'List<String>', methodName: 'letterCombinations', params: 'String digits' },
 
@@ -107,9 +98,7 @@ const signatureMap = {
     'Rotting Oranges': { returnType: 'int', methodName: 'orangesRotting', params: 'int[][] grid' },
     'Flood Fill': { returnType: 'int[][]', methodName: 'floodFill', params: 'int[][] image, int sr, int sc, int color' },
     'Number of Connected Components': { returnType: 'int', methodName: 'countComponents', params: 'int n, int[][] edges' },
-    'Detect Cycles in Directed & Undirected Graphs': { returnType: 'boolean', methodName: 'hasCycle', params: 'int numNodes, int[][] edges, boolean isDirected' },
     'Word Ladder': { returnType: 'int', methodName: 'ladderLength', params: 'String beginWord, String endWord, List<String> wordList' },
-    'Alien Dictionary': { returnType: 'String', methodName: 'alienOrder', params: 'String[] words' },
 
     // Advanced Graph Algorithms (non-LeetCode)
     "Dijkstra's Algorithm": { returnType: 'int[]', methodName: 'dijkstra', params: 'int[][] graph, int source' },
@@ -123,19 +112,16 @@ const signatureMap = {
     // Dynamic Programming — 1D
     'Climbing Stairs': { returnType: 'int', methodName: 'climbStairs', params: 'int n' },
     'House Robber': { returnType: 'int', methodName: 'rob', params: 'int[] nums' },
-    'House Robber II': { returnType: 'int', methodName: 'rob', params: 'int[] nums' },
     'Coin Change': { returnType: 'int', methodName: 'coinChange', params: 'int[] coins, int amount' },
     'Longest Increasing Subsequence': { returnType: 'int', methodName: 'lengthOfLIS', params: 'int[] nums' },
     'Word Break': { returnType: 'boolean', methodName: 'wordBreak', params: 'String s, List<String> wordDict' },
     'Partition Equal Subset Sum': { returnType: 'boolean', methodName: 'canPartition', params: 'int[] nums' },
     'Decode Ways': { returnType: 'int', methodName: 'numDecodings', params: 'String s' },
-    'Longest Palindromic Substring': { returnType: 'String', methodName: 'longestPalindrome', params: 'String s' },
 
     // Dynamic Programming — 2D
     'Unique Paths': { returnType: 'int', methodName: 'uniquePaths', params: 'int m, int n' },
     'Longest Common Subsequence': { returnType: 'int', methodName: 'longestCommonSubsequence', params: 'String text1, String text2' },
     'Minimum Path Sum': { returnType: 'int', methodName: 'minPathSum', params: 'int[][] grid' },
-    'Edit Distance': { returnType: 'int', methodName: 'minDistance', params: 'String word1, String word2' },
 
     // Greedy
     'Maximum Subarray': { returnType: 'int', methodName: 'maxSubArray', params: 'int[] nums' },
@@ -146,8 +132,6 @@ const signatureMap = {
     'Merge Intervals': { returnType: 'int[][]', methodName: 'merge', params: 'int[][] intervals' },
     'Insert Interval': { returnType: 'int[][]', methodName: 'insert', params: 'int[][] intervals, int[] newInterval' },
     'Non-overlapping Intervals': { returnType: 'int', methodName: 'eraseOverlapIntervals', params: 'int[][] intervals' },
-    'Meeting Rooms II': { returnType: 'int', methodName: 'minMeetingRooms', params: 'int[][] intervals' },
-    'Meeting Rooms': { returnType: 'boolean', methodName: 'canAttendMeetings', params: 'int[][] intervals' },
 
     // Bit Manipulation
     'Single Number': { returnType: 'int', methodName: 'singleNumber', params: 'int[] nums' },
@@ -375,63 +359,7 @@ const generateClassBoilerplate = (title, signature) => {
 }
 `;
 
-        case 'Find Median from Data Stream':
-            return `class MedianFinder 
-{
-    public MedianFinder() 
-    {
-        // Initialize your data structure here
-    }
-    
-    public void addNum(int num) 
-    {
-        // Your code here
-    }
-    
-    public double findMedian() 
-    {
-        // Your code here
-    }
-}
-`;
 
-        case 'Serialize and Deserialize Binary Tree':
-            return `public class Codec 
-{
-    // Encodes a tree to a single string.
-    public String serialize(TreeNode root) 
-    {
-        // Your code here
-    }
-
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) 
-    {
-        // Your code here
-    }
-}
-`;
-
-
-        case 'LRU Cache':
-            return `class LRUCache 
-{
-    public LRUCache(int capacity) 
-    {
-        // Initialize your data structure here
-    }
-    
-    public int get(int key) 
-    {
-        // Your code here
-    }
-    
-    public void put(int key, int value) 
-    {
-        // Your code here
-    }
-}
-`;
 
         default:
             return `class ${signature.methodName} 
