@@ -152,7 +152,7 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
                     autoIndent: 'advanced',
                     trimAutoWhitespace: false,
                     formatOnType: false,
-                    formatOnType: false,
+
                     formatOnPaste: false,
                     // Visual Scope & Structure
                     bracketPairColorization: { enabled: true },
