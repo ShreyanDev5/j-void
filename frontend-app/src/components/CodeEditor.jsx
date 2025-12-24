@@ -149,6 +149,25 @@ const CodeEditor = ({ code, onChange, onMount, theme = 'dark' }) => {
                     parameterHints: { enabled: false },
                     wordBasedSuggestions: false,
                     padding: { top: 12 },
+                    autoIndent: 'advanced',
+                    trimAutoWhitespace: false,
+                    formatOnType: false,
+                    formatOnType: false,
+                    formatOnPaste: false,
+                    // Visual Scope & Structure
+                    bracketPairColorization: { enabled: true },
+                    guides: {
+                        indentation: true,
+                        highlightActiveIndentation: true
+                    },
+                    // Mechanical Accelerators
+                    autoSurround: 'languageDefined',
+                    autoClosingBrackets: 'always',
+                    autoClosingQuotes: 'always',
+                    // Fluidity & Feel
+                    cursorSmoothCaretAnimation: 'on',
+                    smoothScrolling: true,
+                    scrollBeyondLastLine: false,
                 }}
             />
         </div>
