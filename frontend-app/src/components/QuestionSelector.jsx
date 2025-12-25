@@ -103,7 +103,7 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                             ref={inputRef}
                             type="text"
                             className="search-input"
-                            placeholder="Search 96 problems..."
+                            placeholder="Search 95 problems..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />

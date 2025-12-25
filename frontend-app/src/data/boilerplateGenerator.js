@@ -22,7 +22,6 @@ const signatureMap = {
     'Trapping Rain Water': { returnType: 'int', methodName: 'trap', params: 'int[] height' },
     'Container With Most Water': { returnType: 'int', methodName: 'maxArea', params: 'int[] height' },
     'Sort Colors': { returnType: 'void', methodName: 'sortColors', params: 'int[] nums' },
-    'Move Zeroes': { returnType: 'void', methodName: 'moveZeroes', params: 'int[] nums' },
 
     // 3. Sliding Window
     'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
@@ -36,15 +35,14 @@ const signatureMap = {
     'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
     'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
     'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
-    'Next Greater Element I': { returnType: 'int[]', methodName: 'nextGreaterElement', params: 'int[] nums1, int[] nums2' },
     'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
+    'Largest Rectangle in Histogram': { returnType: 'int', methodName: 'largestRectangleArea', params: 'int[] heights' },
 
     // 5. Binary Search & Quickselect
     'Binary Search': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Search in Rotated Sorted Array': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Find Minimum in Rotated Sorted Array': { returnType: 'int', methodName: 'findMin', params: 'int[] nums' },
     'Kth Largest Element in an Array': { returnType: 'int', methodName: 'findKthLargest', params: 'int[] nums, int k' },
-    'Find Smallest Letter Greater Than Target': { returnType: 'char', methodName: 'nextGreatestLetter', params: 'char[] letters, char target' },
     'Find Peak Element': { returnType: 'int', methodName: 'findPeakElement', params: 'int[] nums' },
 
     // 6. Linked List
@@ -53,7 +51,6 @@ const signatureMap = {
     'Linked List Cycle': { returnType: 'boolean', methodName: 'hasCycle', params: 'ListNode head', needsListNode: true },
     'Remove Nth Node From End of List': { returnType: 'ListNode', methodName: 'removeNthFromEnd', params: 'ListNode head, int n', needsListNode: true },
     'Add Two Numbers': { returnType: 'ListNode', methodName: 'addTwoNumbers', params: 'ListNode l1, ListNode l2', needsListNode: true },
-    'Intersection of Two Linked Lists': { returnType: 'ListNode', methodName: 'getIntersectionNode', params: 'ListNode headA, ListNode headB', needsListNode: true },
     'Reorder List': { returnType: 'void', methodName: 'reorderList', params: 'ListNode head', needsListNode: true },
 
     // 7. Trees
@@ -62,11 +59,8 @@ const signatureMap = {
     'Validate Binary Search Tree': { returnType: 'boolean', methodName: 'isValidBST', params: 'TreeNode root', needsTreeNode: true },
     'Binary Tree Level Order Traversal': { returnType: 'List<List<Integer>>', methodName: 'levelOrder', params: 'TreeNode root', needsTreeNode: true },
     'Construct Binary Tree from Preorder and Inorder Traversal': { returnType: 'TreeNode', methodName: 'buildTree', params: 'int[] preorder, int[] inorder', needsTreeNode: true },
-    'Lowest Common Ancestor of a BST': { returnType: 'TreeNode', methodName: 'lowestCommonAncestor', params: 'TreeNode root, TreeNode p, TreeNode q', needsTreeNode: true },
     'Kth Smallest Element in a BST': { returnType: 'int', methodName: 'kthSmallest', params: 'TreeNode root, int k', needsTreeNode: true },
     'Binary Tree Maximum Path Sum': { returnType: 'int', methodName: 'maxPathSum', params: 'TreeNode root', needsTreeNode: true },
-    'Diameter of Binary Tree': { returnType: 'int', methodName: 'diameterOfBinaryTree', params: 'TreeNode root', needsTreeNode: true },
-    'Same Tree': { returnType: 'boolean', methodName: 'isSameTree', params: 'TreeNode p, TreeNode q', needsTreeNode: true },
     'Lowest Common Ancestor of a Binary Tree': { returnType: 'TreeNode', methodName: 'lowestCommonAncestor', params: 'TreeNode root, TreeNode p, TreeNode q', needsTreeNode: true },
 
     // 8. Trie
@@ -79,7 +73,6 @@ const signatureMap = {
     'Task Scheduler': { returnType: 'int', methodName: 'leastInterval', params: 'char[] tasks, int n' },
     'Find Median from Data Stream': { returnType: 'void', methodName: 'MedianFinder', params: '', isClass: true },
     'K Closest Points to Origin': { returnType: 'int[][]', methodName: 'kClosest', params: 'int[][] points, int k' },
-    'Find K Closest Elements': { returnType: 'List<Integer>', methodName: 'findClosestElements', params: 'int[] arr, int k, int x' },
 
     // 10. Backtracking
     'Subsets': { returnType: 'List<List<Integer>>', methodName: 'subsets', params: 'int[] nums' },
@@ -97,6 +90,10 @@ const signatureMap = {
     'Rotting Oranges': { returnType: 'int', methodName: 'orangesRotting', params: 'int[][] grid' },
     'Flood Fill': { returnType: 'int[][]', methodName: 'floodFill', params: 'int[][] image, int sr, int sc, int color' },
     'Word Ladder': { returnType: 'int', methodName: 'ladderLength', params: 'String beginWord, String endWord, List<String> wordList' },
+    'Redundant Connection': { returnType: 'int[]', methodName: 'findRedundantConnection', params: 'int[][] edges' },
+    'Evaluate Division': { returnType: 'double[]', methodName: 'calcEquation', params: 'List<List<String>> equations, double[] values, List<List<String>> queries' },
+    'Network Delay Time': { returnType: 'int', methodName: 'networkDelayTime', params: 'int[][] times, int n, int k' },
+    'Pacific Atlantic Water Flow': { returnType: 'List<List<Integer>>', methodName: 'pacificAtlantic', params: 'int[][] heights' },
 
     // 12. Dynamic Programming — 1D
     'Climbing Stairs': { returnType: 'int', methodName: 'climbStairs', params: 'int n' },
@@ -108,11 +105,13 @@ const signatureMap = {
     'Decode Ways': { returnType: 'int', methodName: 'numDecodings', params: 'String s' },
     'Longest Palindromic Substring': { returnType: 'String', methodName: 'longestPalindrome', params: 'String s' },
     'Maximum Product Subarray': { returnType: 'int', methodName: 'maxProduct', params: 'int[] nums' },
-    'Palindromic Substrings': { returnType: 'int', methodName: 'countSubstrings', params: 'String s' },
 
     // 13. Dynamic Programming — 2D
     'Unique Paths': { returnType: 'int', methodName: 'uniquePaths', params: 'int m, int n' },
     'Longest Common Subsequence': { returnType: 'int', methodName: 'longestCommonSubsequence', params: 'String text1, String text2' },
+    'Edit Distance': { returnType: 'int', methodName: 'minDistance', params: 'String word1, String word2' },
+    'Regular Expression Matching': { returnType: 'boolean', methodName: 'isMatch', params: 'String s, String p' },
+    'Interleaving String': { returnType: 'boolean', methodName: 'isInterleave', params: 'String s1, String s2, String s3' },
 
     // 14. Greedy
     'Maximum Subarray': { returnType: 'int', methodName: 'maxSubArray', params: 'int[] nums' },
