@@ -1,6 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { roadmapData, getAllQuestions } from '../data/roadmapData';
 
+// Difficulty sort order: Easy < Medium < Hard
+const DIFFICULTY_ORDER = { 'Easy': 0, 'Medium': 1, 'Hard': 2 };
+
+const sortByDifficulty = (questions) => {
+    return [...questions].sort((a, b) =>
+        (DIFFICULTY_ORDER[a.difficulty] ?? 99) - (DIFFICULTY_ORDER[b.difficulty] ?? 99)
+    );
+};
+
 const QuestionSelector = ({ onSelect, selectedId }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -19,12 +28,26 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    // Focus input when dropdown opens
+    // Focus input when dropdown opens and auto-expand category of selected problem
     useEffect(() => {
-        if (isOpen && inputRef.current) {
-            inputRef.current.focus();
+        if (isOpen) {
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
+            // Auto-expand the category containing the selected problem
+            if (selectedId) {
+                const categoryWithSelected = roadmapData.find(category =>
+                    category.questions.some(q => q.id === selectedId)
+                );
+                if (categoryWithSelected) {
+                    setExpandedCategories(prev => ({
+                        ...prev,
+                        [categoryWithSelected.id]: true
+                    }));
+                }
+            }
         }
-    }, [isOpen]);
+    }, [isOpen, selectedId]);
 
     // Handle keyboard navigation
     const handleKeyDown = (e) => {
@@ -46,18 +69,24 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
         setSearchTerm('');
     };
 
-    // Filter questions based on search term
+    // Filter questions based on search term and sort by difficulty
     const getFilteredCategories = () => {
         if (!searchTerm.trim()) {
-            return roadmapData;
+            // Sort questions by difficulty within each category
+            return roadmapData.map(category => ({
+                ...category,
+                questions: sortByDifficulty(category.questions)
+            }));
         }
 
         const term = searchTerm.toLowerCase();
         return roadmapData
             .map(category => ({
                 ...category,
-                questions: category.questions.filter(q =>
-                    q.title.toLowerCase().includes(term)
+                questions: sortByDifficulty(
+                    category.questions.filter(q =>
+                        q.title.toLowerCase().includes(term)
+                    )
                 )
             }))
             .filter(category => category.questions.length > 0);
