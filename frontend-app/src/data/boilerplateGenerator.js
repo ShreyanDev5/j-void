@@ -5,7 +5,7 @@
 
 // Problem-specific signature mappings (LeetCode standard signatures)
 const signatureMap = {
-    // Arrays & Hashing
+    // 1. Arrays & Hashing
     'Two Sum': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] nums, int target' },
     'Contains Duplicate': { returnType: 'boolean', methodName: 'containsDuplicate', params: 'int[] nums' },
     'Valid Anagram': { returnType: 'boolean', methodName: 'isAnagram', params: 'String s, String t' },
@@ -15,101 +15,90 @@ const signatureMap = {
     'Product of Array Except Self': { returnType: 'int[]', methodName: 'productExceptSelf', params: 'int[] nums' },
     'First Missing Positive': { returnType: 'int', methodName: 'firstMissingPositive', params: 'int[] nums' },
 
-    // Sorting Fundamentals (non-LeetCode)
-    'Insertion Sort': { returnType: 'void', methodName: 'insertionSort', params: 'int[] arr' },
-    'Merge Sort': { returnType: 'void', methodName: 'mergeSort', params: 'int[] arr, int left, int right' },
-    'Quick Sort': { returnType: 'void', methodName: 'quickSort', params: 'int[] arr, int low, int high' },
-
-    // Two Pointers & Sliding Window
+    // 2. Two Pointers
     'Valid Palindrome': { returnType: 'boolean', methodName: 'isPalindrome', params: 'String s' },
-    'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
     '3Sum': { returnType: 'List<List<Integer>>', methodName: 'threeSum', params: 'int[] nums' },
-    'Minimum Window Substring': { returnType: 'String', methodName: 'minWindow', params: 'String s, String t' },
     'Two Sum II': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] numbers, int target' },
     'Trapping Rain Water': { returnType: 'int', methodName: 'trap', params: 'int[] height' },
     'Container With Most Water': { returnType: 'int', methodName: 'maxArea', params: 'int[] height' },
-    'Best Time to Buy and Sell Stock': { returnType: 'int', methodName: 'maxProfit', params: 'int[] prices' },
     'Sort Colors': { returnType: 'void', methodName: 'sortColors', params: 'int[] nums' },
     'Move Zeroes': { returnType: 'void', methodName: 'moveZeroes', params: 'int[] nums' },
 
-    // Stacks & Monotonic
+    // 3. Sliding Window
+    'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
+    'Minimum Window Substring': { returnType: 'String', methodName: 'minWindow', params: 'String s, String t' },
+    'Longest Repeating Character Replacement': { returnType: 'int', methodName: 'characterReplacement', params: 'String s, int k' },
+    'Permutation in String': { returnType: 'boolean', methodName: 'checkInclusion', params: 'String s1, String s2' },
+    'Best Time to Buy and Sell Stock': { returnType: 'int', methodName: 'maxProfit', params: 'int[] prices' },
+    'Sliding Window Maximum': { returnType: 'int[]', methodName: 'maxSlidingWindow', params: 'int[] nums, int k' },
+
+    // 4. Stacks & Monotonic
     'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
     'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
     'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
     'Next Greater Element I': { returnType: 'int[]', methodName: 'nextGreaterElement', params: 'int[] nums1, int[] nums2' },
     'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
 
-    // Binary Search & Quickselect
+    // 5. Binary Search & Quickselect
     'Binary Search': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Search in Rotated Sorted Array': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
     'Find Minimum in Rotated Sorted Array': { returnType: 'int', methodName: 'findMin', params: 'int[] nums' },
     'Kth Largest Element in an Array': { returnType: 'int', methodName: 'findKthLargest', params: 'int[] nums, int k' },
-    'Search Insert Position': { returnType: 'int', methodName: 'searchInsert', params: 'int[] nums, int target' },
+    'Find Smallest Letter Greater Than Target': { returnType: 'char', methodName: 'nextGreatestLetter', params: 'char[] letters, char target' },
+    'Find Peak Element': { returnType: 'int', methodName: 'findPeakElement', params: 'int[] nums' },
 
-    // Linked List
+    // 6. Linked List
     'Reverse Linked List': { returnType: 'ListNode', methodName: 'reverseList', params: 'ListNode head', needsListNode: true },
     'Merge Two Sorted Lists': { returnType: 'ListNode', methodName: 'mergeTwoLists', params: 'ListNode list1, ListNode list2', needsListNode: true },
     'Linked List Cycle': { returnType: 'boolean', methodName: 'hasCycle', params: 'ListNode head', needsListNode: true },
     'Remove Nth Node From End of List': { returnType: 'ListNode', methodName: 'removeNthFromEnd', params: 'ListNode head, int n', needsListNode: true },
     'Add Two Numbers': { returnType: 'ListNode', methodName: 'addTwoNumbers', params: 'ListNode l1, ListNode l2', needsListNode: true },
-    'Palindrome Linked List': { returnType: 'boolean', methodName: 'isPalindrome', params: 'ListNode head', needsListNode: true },
     'Intersection of Two Linked Lists': { returnType: 'ListNode', methodName: 'getIntersectionNode', params: 'ListNode headA, ListNode headB', needsListNode: true },
+    'Reorder List': { returnType: 'void', methodName: 'reorderList', params: 'ListNode head', needsListNode: true },
 
-    // Trees
+    // 7. Trees
     'Invert Binary Tree': { returnType: 'TreeNode', methodName: 'invertTree', params: 'TreeNode root', needsTreeNode: true },
     'Maximum Depth of Binary Tree': { returnType: 'int', methodName: 'maxDepth', params: 'TreeNode root', needsTreeNode: true },
     'Validate Binary Search Tree': { returnType: 'boolean', methodName: 'isValidBST', params: 'TreeNode root', needsTreeNode: true },
     'Binary Tree Level Order Traversal': { returnType: 'List<List<Integer>>', methodName: 'levelOrder', params: 'TreeNode root', needsTreeNode: true },
+    'Construct Binary Tree from Preorder and Inorder Traversal': { returnType: 'TreeNode', methodName: 'buildTree', params: 'int[] preorder, int[] inorder', needsTreeNode: true },
     'Lowest Common Ancestor of a BST': { returnType: 'TreeNode', methodName: 'lowestCommonAncestor', params: 'TreeNode root, TreeNode p, TreeNode q', needsTreeNode: true },
     'Kth Smallest Element in a BST': { returnType: 'int', methodName: 'kthSmallest', params: 'TreeNode root, int k', needsTreeNode: true },
     'Binary Tree Maximum Path Sum': { returnType: 'int', methodName: 'maxPathSum', params: 'TreeNode root', needsTreeNode: true },
     'Diameter of Binary Tree': { returnType: 'int', methodName: 'diameterOfBinaryTree', params: 'TreeNode root', needsTreeNode: true },
     'Same Tree': { returnType: 'boolean', methodName: 'isSameTree', params: 'TreeNode p, TreeNode q', needsTreeNode: true },
-    'Path Sum II': { returnType: 'List<List<Integer>>', methodName: 'pathSum', params: 'TreeNode root, int targetSum', needsTreeNode: true },
+    'Lowest Common Ancestor of a Binary Tree': { returnType: 'TreeNode', methodName: 'lowestCommonAncestor', params: 'TreeNode root, TreeNode p, TreeNode q', needsTreeNode: true },
 
-    // Trie
+    // 8. Trie
     'Implement Trie (Prefix Tree)': { returnType: 'void', methodName: 'Trie', params: '', isClass: true },
-    'Implement Trie (Prefix Tree)': { returnType: 'void', methodName: 'Trie', params: '', isClass: true },
+    'Word Search II': { returnType: 'List<String>', methodName: 'findWords', params: 'char[][] board, String[] words' },
 
-    // Heap / Priority Queue
+    // 9. Heap / Priority Queue
     'Kth Largest Element in a Stream': { returnType: 'int', methodName: 'add', params: 'int val', isClass: true },
     'Merge k Sorted Lists': { returnType: 'ListNode', methodName: 'mergeKLists', params: 'ListNode[] lists', needsListNode: true },
-
     'Task Scheduler': { returnType: 'int', methodName: 'leastInterval', params: 'char[] tasks, int n' },
+    'Find Median from Data Stream': { returnType: 'void', methodName: 'MedianFinder', params: '', isClass: true },
     'K Closest Points to Origin': { returnType: 'int[][]', methodName: 'kClosest', params: 'int[][] points, int k' },
+    'Find K Closest Elements': { returnType: 'List<Integer>', methodName: 'findClosestElements', params: 'int[] arr, int k, int x' },
 
-    // Backtracking
+    // 10. Backtracking
     'Subsets': { returnType: 'List<List<Integer>>', methodName: 'subsets', params: 'int[] nums' },
     'Permutations': { returnType: 'List<List<Integer>>', methodName: 'permute', params: 'int[] nums' },
     'Combination Sum': { returnType: 'List<List<Integer>>', methodName: 'combinationSum', params: 'int[] candidates, int target' },
+    'Word Search': { returnType: 'boolean', methodName: 'exist', params: 'char[][] board, String word' },
     'Generate Parentheses': { returnType: 'List<String>', methodName: 'generateParenthesis', params: 'int n' },
     'Letter Combinations of a Phone Number': { returnType: 'List<String>', methodName: 'letterCombinations', params: 'String digits' },
 
-    // Graph Theory Basics (non-LeetCode)
-    'Matrix DFS': { returnType: 'void', methodName: 'dfs', params: 'int[][] matrix, int row, int col, boolean[][] visited' },
-    'Matrix BFS': { returnType: 'void', methodName: 'bfs', params: 'int[][] matrix, int startRow, int startCol' },
-    'Topological Sort': { returnType: 'int[]', methodName: 'topologicalSort', params: 'int numNodes, int[][] edges' },
-
-    // Graphs
+    // 11. Graphs
     'Number of Islands': { returnType: 'int', methodName: 'numIslands', params: 'char[][] grid' },
     'Clone Graph': { returnType: 'Node', methodName: 'cloneGraph', params: 'Node node', needsGraphNode: true },
     'Course Schedule': { returnType: 'boolean', methodName: 'canFinish', params: 'int numCourses, int[][] prerequisites' },
     'Course Schedule II': { returnType: 'int[]', methodName: 'findOrder', params: 'int numCourses, int[][] prerequisites' },
     'Rotting Oranges': { returnType: 'int', methodName: 'orangesRotting', params: 'int[][] grid' },
     'Flood Fill': { returnType: 'int[][]', methodName: 'floodFill', params: 'int[][] image, int sr, int sc, int color' },
-    'Number of Connected Components': { returnType: 'int', methodName: 'countComponents', params: 'int n, int[][] edges' },
     'Word Ladder': { returnType: 'int', methodName: 'ladderLength', params: 'String beginWord, String endWord, List<String> wordList' },
 
-    // Advanced Graph Algorithms (non-LeetCode)
-    "Dijkstra's Algorithm": { returnType: 'int[]', methodName: 'dijkstra', params: 'int[][] graph, int source' },
-    "Prim's Algorithm": { returnType: 'int', methodName: 'primMST', params: 'int[][] graph' },
-    "Kruskal's Algorithm": { returnType: 'int', methodName: 'kruskalMST', params: 'int n, int[][] edges' },
-
-    // DP Fundamentals (non-LeetCode)
-    '0/1 Knapsack': { returnType: 'int', methodName: 'knapsack', params: 'int[] weights, int[] values, int capacity' },
-    'Unbounded Knapsack': { returnType: 'int', methodName: 'unboundedKnapsack', params: 'int[] weights, int[] values, int capacity' },
-
-    // Dynamic Programming — 1D
+    // 12. Dynamic Programming — 1D
     'Climbing Stairs': { returnType: 'int', methodName: 'climbStairs', params: 'int n' },
     'House Robber': { returnType: 'int', methodName: 'rob', params: 'int[] nums' },
     'Coin Change': { returnType: 'int', methodName: 'coinChange', params: 'int[] coins, int amount' },
@@ -117,35 +106,37 @@ const signatureMap = {
     'Word Break': { returnType: 'boolean', methodName: 'wordBreak', params: 'String s, List<String> wordDict' },
     'Partition Equal Subset Sum': { returnType: 'boolean', methodName: 'canPartition', params: 'int[] nums' },
     'Decode Ways': { returnType: 'int', methodName: 'numDecodings', params: 'String s' },
+    'Longest Palindromic Substring': { returnType: 'String', methodName: 'longestPalindrome', params: 'String s' },
+    'Maximum Product Subarray': { returnType: 'int', methodName: 'maxProduct', params: 'int[] nums' },
+    'Palindromic Substrings': { returnType: 'int', methodName: 'countSubstrings', params: 'String s' },
 
-    // Dynamic Programming — 2D
+    // 13. Dynamic Programming — 2D
     'Unique Paths': { returnType: 'int', methodName: 'uniquePaths', params: 'int m, int n' },
     'Longest Common Subsequence': { returnType: 'int', methodName: 'longestCommonSubsequence', params: 'String text1, String text2' },
-    'Minimum Path Sum': { returnType: 'int', methodName: 'minPathSum', params: 'int[][] grid' },
 
-    // Greedy
+    // 14. Greedy
     'Maximum Subarray': { returnType: 'int', methodName: 'maxSubArray', params: 'int[] nums' },
     'Jump Game': { returnType: 'boolean', methodName: 'canJump', params: 'int[] nums' },
     'Gas Station': { returnType: 'int', methodName: 'canCompleteCircuit', params: 'int[] gas, int[] cost' },
 
-    // Intervals
+    // 15. Intervals
     'Merge Intervals': { returnType: 'int[][]', methodName: 'merge', params: 'int[][] intervals' },
     'Insert Interval': { returnType: 'int[][]', methodName: 'insert', params: 'int[][] intervals, int[] newInterval' },
     'Non-overlapping Intervals': { returnType: 'int', methodName: 'eraseOverlapIntervals', params: 'int[][] intervals' },
 
-    // Bit Manipulation
+    // 16. Bit Manipulation
     'Single Number': { returnType: 'int', methodName: 'singleNumber', params: 'int[] nums' },
     'Number of 1 Bits': { returnType: 'int', methodName: 'hammingWeight', params: 'int n' },
     'Missing Number': { returnType: 'int', methodName: 'missingNumber', params: 'int[] nums' },
+    'Counting Bits': { returnType: 'int[]', methodName: 'countBits', params: 'int n' },
 
-
-    // Math & Geometry
+    // 17. Math & Geometry
     'Rotate Image': { returnType: 'void', methodName: 'rotate', params: 'int[][] matrix' },
     'Spiral Matrix': { returnType: 'List<Integer>', methodName: 'spiralOrder', params: 'int[][] matrix' },
     'Set Matrix Zeroes': { returnType: 'void', methodName: 'setZeroes', params: 'int[][] matrix' },
-
-
 };
+
+
 
 // Helper class definitions
 const listNodeClass = `/**
