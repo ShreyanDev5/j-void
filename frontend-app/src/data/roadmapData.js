@@ -17,42 +17,42 @@ export const roadmapData = [
             { id: '8', title: 'First Missing Positive', difficulty: 'Hard', url: lc('First Missing Positive') },
         ]
     },
-    // 2. Two Pointers
-    {
-        id: 'two_pointers',
-        title: 'Two Pointers',
-        questions: [
-            { id: '9', title: 'Valid Palindrome', difficulty: 'Easy', url: lc('Valid Palindrome') },
-            { id: '10', title: '3Sum', difficulty: 'Medium', url: lc('3Sum') },
-            { id: '11', title: 'Two Sum II', difficulty: 'Medium', url: lc('Two Sum II - Input Array Is Sorted') },
-            { id: '12', title: 'Trapping Rain Water', difficulty: 'Hard', url: lc('Trapping Rain Water') },
-            { id: '13', title: 'Container With Most Water', difficulty: 'Medium', url: lc('Container With Most Water') },
-            { id: '14', title: 'Sort Colors', difficulty: 'Medium', url: lc('Sort Colors') },
-        ]
-    },
-    // 3. Sliding Window
-    {
-        id: 'sliding_window',
-        title: 'Sliding Window',
-        questions: [
-            { id: '15', title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', url: lc('Longest Substring Without Repeating Characters') },
-            { id: '16', title: 'Minimum Window Substring', difficulty: 'Hard', url: lc('Minimum Window Substring') },
-            { id: '17', title: 'Longest Repeating Character Replacement', difficulty: 'Medium', url: lc('Longest Repeating Character Replacement') },
-            { id: '18', title: 'Permutation in String', difficulty: 'Medium', url: lc('Permutation in String') },
-            { id: '19', title: 'Best Time to Buy and Sell Stock', difficulty: 'Easy', url: lc('Best Time to Buy and Sell Stock') },
-            { id: '20', title: 'Sliding Window Maximum', difficulty: 'Hard', url: lc('Sliding Window Maximum') },
-        ]
-    },
-    // 4. Stacks & Monotonic
+    // 2. Stacks & Monotonic
     {
         id: 'stacks_monotonic',
         title: 'Stacks & Monotonic',
         questions: [
-            { id: '21', title: 'Valid Parentheses', difficulty: 'Easy', url: lc('Valid Parentheses') },
-            { id: '22', title: 'Min Stack', difficulty: 'Medium', url: lc('Min Stack') },
-            { id: '23', title: 'Daily Temperatures', difficulty: 'Medium', url: lc('Daily Temperatures') },
-            { id: '24', title: 'Evaluate Reverse Polish Notation', difficulty: 'Medium', url: lc('Evaluate Reverse Polish Notation') },
-            { id: '25', title: 'Largest Rectangle in Histogram', difficulty: 'Hard', url: lc('Largest Rectangle in Histogram') },
+            { id: '9', title: 'Valid Parentheses', difficulty: 'Easy', url: lc('Valid Parentheses') },
+            { id: '10', title: 'Min Stack', difficulty: 'Medium', url: lc('Min Stack') },
+            { id: '11', title: 'Daily Temperatures', difficulty: 'Medium', url: lc('Daily Temperatures') },
+            { id: '12', title: 'Evaluate Reverse Polish Notation', difficulty: 'Medium', url: lc('Evaluate Reverse Polish Notation') },
+            { id: '13', title: 'Largest Rectangle in Histogram', difficulty: 'Hard', url: lc('Largest Rectangle in Histogram') },
+        ]
+    },
+    // 3. Two Pointers
+    {
+        id: 'two_pointers',
+        title: 'Two Pointers',
+        questions: [
+            { id: '14', title: 'Valid Palindrome', difficulty: 'Easy', url: lc('Valid Palindrome') },
+            { id: '15', title: '3Sum', difficulty: 'Medium', url: lc('3Sum') },
+            { id: '16', title: 'Two Sum II', difficulty: 'Medium', url: lc('Two Sum II - Input Array Is Sorted') },
+            { id: '17', title: 'Trapping Rain Water', difficulty: 'Hard', url: lc('Trapping Rain Water') },
+            { id: '18', title: 'Container With Most Water', difficulty: 'Medium', url: lc('Container With Most Water') },
+            { id: '19', title: 'Sort Colors', difficulty: 'Medium', url: lc('Sort Colors') },
+        ]
+    },
+    // 4. Sliding Window
+    {
+        id: 'sliding_window',
+        title: 'Sliding Window',
+        questions: [
+            { id: '20', title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', url: lc('Longest Substring Without Repeating Characters') },
+            { id: '21', title: 'Minimum Window Substring', difficulty: 'Hard', url: lc('Minimum Window Substring') },
+            { id: '22', title: 'Longest Repeating Character Replacement', difficulty: 'Medium', url: lc('Longest Repeating Character Replacement') },
+            { id: '23', title: 'Permutation in String', difficulty: 'Medium', url: lc('Permutation in String') },
+            { id: '24', title: 'Best Time to Buy and Sell Stock', difficulty: 'Easy', url: lc('Best Time to Buy and Sell Stock') },
+            { id: '25', title: 'Sliding Window Maximum', difficulty: 'Hard', url: lc('Sliding Window Maximum') },
         ]
     },
     // 5. Binary Search & Quickselect

@@ -15,7 +15,14 @@ const signatureMap = {
     'Product of Array Except Self': { returnType: 'int[]', methodName: 'productExceptSelf', params: 'int[] nums' },
     'First Missing Positive': { returnType: 'int', methodName: 'firstMissingPositive', params: 'int[] nums' },
 
-    // 2. Two Pointers
+    // 2. Stacks & Monotonic
+    'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
+    'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
+    'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
+    'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
+    'Largest Rectangle in Histogram': { returnType: 'int', methodName: 'largestRectangleArea', params: 'int[] heights' },
+
+    // 3. Two Pointers
     'Valid Palindrome': { returnType: 'boolean', methodName: 'isPalindrome', params: 'String s' },
     '3Sum': { returnType: 'List<List<Integer>>', methodName: 'threeSum', params: 'int[] nums' },
     'Two Sum II': { returnType: 'int[]', methodName: 'twoSum', params: 'int[] numbers, int target' },
@@ -23,20 +30,13 @@ const signatureMap = {
     'Container With Most Water': { returnType: 'int', methodName: 'maxArea', params: 'int[] height' },
     'Sort Colors': { returnType: 'void', methodName: 'sortColors', params: 'int[] nums' },
 
-    // 3. Sliding Window
+    // 4. Sliding Window
     'Longest Substring Without Repeating Characters': { returnType: 'int', methodName: 'lengthOfLongestSubstring', params: 'String s' },
     'Minimum Window Substring': { returnType: 'String', methodName: 'minWindow', params: 'String s, String t' },
     'Longest Repeating Character Replacement': { returnType: 'int', methodName: 'characterReplacement', params: 'String s, int k' },
     'Permutation in String': { returnType: 'boolean', methodName: 'checkInclusion', params: 'String s1, String s2' },
     'Best Time to Buy and Sell Stock': { returnType: 'int', methodName: 'maxProfit', params: 'int[] prices' },
     'Sliding Window Maximum': { returnType: 'int[]', methodName: 'maxSlidingWindow', params: 'int[] nums, int k' },
-
-    // 4. Stacks & Monotonic
-    'Valid Parentheses': { returnType: 'boolean', methodName: 'isValid', params: 'String s' },
-    'Min Stack': { returnType: 'void', methodName: 'MinStack', params: '', isClass: true },
-    'Daily Temperatures': { returnType: 'int[]', methodName: 'dailyTemperatures', params: 'int[] temperatures' },
-    'Evaluate Reverse Polish Notation': { returnType: 'int', methodName: 'evalRPN', params: 'String[] tokens' },
-    'Largest Rectangle in Histogram': { returnType: 'int', methodName: 'largestRectangleArea', params: 'int[] heights' },
 
     // 5. Binary Search & Quickselect
     'Binary Search': { returnType: 'int', methodName: 'search', params: 'int[] nums, int target' },
