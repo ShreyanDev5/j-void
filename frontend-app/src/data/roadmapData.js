@@ -36,7 +36,7 @@ export const roadmapData = [
         questions: [
             { id: '14', title: 'Valid Palindrome', difficulty: 'Easy', url: lc('Valid Palindrome') },
             { id: '15', title: '3Sum', difficulty: 'Medium', url: lc('3Sum') },
-            { id: '16', title: 'Two Sum II', difficulty: 'Medium', url: lc('Two Sum II - Input Array Is Sorted') },
+            { id: '16', title: 'Two Sum II', difficulty: 'Medium', url: lc('Two Sum II Input Array Is Sorted') },
             { id: '17', title: 'Trapping Rain Water', difficulty: 'Hard', url: lc('Trapping Rain Water') },
             { id: '18', title: 'Container With Most Water', difficulty: 'Medium', url: lc('Container With Most Water') },
             { id: '19', title: 'Sort Colors', difficulty: 'Medium', url: lc('Sort Colors') },
