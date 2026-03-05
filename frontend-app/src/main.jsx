@@ -1,8 +1,8 @@
-import React from 'react';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
+import React from "react";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: 20, color: 'red' }}>
+        <div style={{ padding: 20, color: "red" }}>
           <h1>Something went wrong.</h1>
           <pre>{this.state.error.toString()}</pre>
         </div>
@@ -28,7 +28,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ErrorBoundary>
       <App />

@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { roadmapData, getAllQuestions } from '../data/roadmapData';
+import React, { useState, useRef, useEffect } from "react";
+import { roadmapData, getAllQuestions } from "../data/roadmapData";
 
 // Difficulty sort order: Easy < Medium < Hard
-const DIFFICULTY_ORDER = { 'Easy': 0, 'Medium': 1, 'Hard': 2 };
+const DIFFICULTY_ORDER = { Easy: 0, Medium: 1, Hard: 2 };
 
 const sortByDifficulty = (questions) => {
-    return [...questions].sort((a, b) =>
-        (DIFFICULTY_ORDER[a.difficulty] ?? 99) - (DIFFICULTY_ORDER[b.difficulty] ?? 99)
+    return [...questions].sort(
+        (a, b) =>
+            (DIFFICULTY_ORDER[a.difficulty] ?? 99) -
+            (DIFFICULTY_ORDER[b.difficulty] ?? 99),
     );
 };
 
 const QuestionSelector = ({ onSelect, selectedId }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
     const [expandedCategories, setExpandedCategories] = useState({});
     const dropdownRef = useRef(null);
     const inputRef = useRef(null);
@@ -24,8 +26,8 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                 setIsOpen(false);
             }
         };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     // Focus input when dropdown opens and auto-expand category of selected problem
@@ -36,93 +38,143 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
             }
             // Auto-expand the category containing the selected problem
             if (selectedId) {
-                const categoryWithSelected = roadmapData.find(category =>
-                    category.questions.some(q => q.id === selectedId)
+                const categoryWithSelected = roadmapData.find((category) =>
+                    category.questions.some((q) => q.id === selectedId),
                 );
-                if (categoryWithSelected) {
-                    setExpandedCategories(prev => ({
+                if (
+                    categoryWithSelected &&
+                    !expandedCategories[categoryWithSelected.id]
+                ) {
+                    setExpandedCategories((prev) => ({
                         ...prev,
-                        [categoryWithSelected.id]: true
+                        [categoryWithSelected.id]: true,
                     }));
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen, selectedId]);
 
     // Handle keyboard navigation
     const handleKeyDown = (e) => {
-        if (e.key === 'Escape') {
+        if (e.key === "Escape") {
             setIsOpen(false);
         }
     };
 
     const toggleCategory = (categoryId) => {
-        setExpandedCategories(prev => ({
+        setExpandedCategories((prev) => ({
             ...prev,
-            [categoryId]: !prev[categoryId]
+            [categoryId]: !prev[categoryId],
         }));
     };
 
     const handleSelect = (question) => {
         onSelect(question);
         setIsOpen(false);
-        setSearchTerm('');
+        setSearchTerm("");
     };
 
     // Filter questions based on search term and sort by difficulty
     const getFilteredCategories = () => {
         if (!searchTerm.trim()) {
             // Sort questions by difficulty within each category
-            return roadmapData.map(category => ({
+            return roadmapData.map((category) => ({
                 ...category,
-                questions: sortByDifficulty(category.questions)
+                questions: sortByDifficulty(category.questions),
             }));
         }
 
         const term = searchTerm.toLowerCase();
         return roadmapData
-            .map(category => ({
+            .map((category) => ({
                 ...category,
                 questions: sortByDifficulty(
-                    category.questions.filter(q =>
-                        q.title.toLowerCase().includes(term)
-                    )
-                )
+                    category.questions.filter((q) =>
+                        q.title.toLowerCase().includes(term),
+                    ),
+                ),
             }))
-            .filter(category => category.questions.length > 0);
+            .filter((category) => category.questions.length > 0);
     };
 
     const filteredCategories = getFilteredCategories();
     const allQuestions = getAllQuestions();
-    const selectedQuestion = allQuestions.find(q => q.id === selectedId);
+    const selectedQuestion = allQuestions.find((q) => q.id === selectedId);
 
     const getDifficultyClass = (difficulty) => {
         switch (difficulty) {
-            case 'Easy': return 'difficulty-easy';
-            case 'Medium': return 'difficulty-medium';
-            case 'Hard': return 'difficulty-hard';
-            default: return '';
+            case "Easy":
+                return "difficulty-easy";
+            case "Medium":
+                return "difficulty-medium";
+            case "Hard":
+                return "difficulty-hard";
+            default:
+                return "";
         }
     };
 
     return (
-        <div className="question-selector" ref={dropdownRef} onKeyDown={handleKeyDown}>
+        <div
+            className="question-selector"
+            ref={dropdownRef}
+            onKeyDown={handleKeyDown}
+        >
             <button
                 className="selector-button"
                 onClick={() => setIsOpen(!isOpen)}
                 title="Select a problem"
             >
-                <svg className="selector-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 6 6)" />
-                    <circle cx="18" cy="6" r="3" stroke="currentColor" strokeWidth="1.5" />
-                    <rect x="15" y="15" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M9 6H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    <path d="M18 9V12H18C18 13.6569 16.6569 15 15 15H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <svg
+                    className="selector-icon-svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect
+                        x="3"
+                        y="3"
+                        width="6"
+                        height="6"
+                        rx="1"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        transform="rotate(45 6 6)"
+                    />
+                    <circle
+                        cx="18"
+                        cy="6"
+                        r="3"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                    />
+                    <rect
+                        x="15"
+                        y="15"
+                        width="6"
+                        height="6"
+                        rx="1"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                    />
+                    <path
+                        d="M9 6H15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                    />
+                    <path
+                        d="M18 9V12H18C18 13.6569 16.6569 15 15 15H15"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                    />
                 </svg>
                 <span className="selector-text">
-                    {selectedQuestion ? selectedQuestion.title : 'Problems'}
+                    {selectedQuestion ? selectedQuestion.title : "Problems"}
                 </span>
-                <span className="selector-arrow">{isOpen ? '▲' : '▼'}</span>
+                <span className="selector-arrow">{isOpen ? "▲" : "▼"}</span>
             </button>
 
             {isOpen && (
@@ -139,29 +191,33 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                     </div>
 
                     <div className="categories-list">
-                        {filteredCategories.map(category => (
+                        {filteredCategories.map((category) => (
                             <div key={category.id} className="category-group">
                                 <button
                                     className="category-header"
                                     onClick={() => toggleCategory(category.id)}
                                 >
                                     <span className="category-arrow">
-                                        {expandedCategories[category.id] ? '▼' : '▶'}
+                                        {expandedCategories[category.id] ? "▼" : "▶"}
                                     </span>
                                     <span className="category-title">{category.title}</span>
-                                    <span className="category-count">{category.questions.length}</span>
+                                    <span className="category-count">
+                                        {category.questions.length}
+                                    </span>
                                 </button>
 
                                 {(expandedCategories[category.id] || searchTerm) && (
                                     <div className="questions-list">
-                                        {category.questions.map(question => (
+                                        {category.questions.map((question) => (
                                             <button
                                                 key={question.id}
-                                                className={`question-item ${selectedId === question.id ? 'selected' : ''}`}
+                                                className={`question-item ${selectedId === question.id ? "selected" : ""}`}
                                                 onClick={() => handleSelect(question)}
                                             >
                                                 <span className="question-title">{question.title}</span>
-                                                <span className={`difficulty-badge ${getDifficultyClass(question.difficulty)}`}>
+                                                <span
+                                                    className={`difficulty-badge ${getDifficultyClass(question.difficulty)}`}
+                                                >
                                                     {question.difficulty}
                                                 </span>
                                                 {question.url && (
@@ -173,9 +229,24 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                                                         onClick={(e) => e.stopPropagation()}
                                                         title="Open on LeetCode"
                                                     >
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                                            <path d="M7 7H17V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                d="M7 17L17 7"
+                                                                stroke="currentColor"
+                                                                strokeWidth="2"
+                                                                strokeLinecap="round"
+                                                            />
+                                                            <path
+                                                                d="M7 7H17V17"
+                                                                stroke="currentColor"
+                                                                strokeWidth="2"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                            />
                                                         </svg>
                                                     </a>
                                                 )}

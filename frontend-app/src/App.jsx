@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import CodeEditor from './components/CodeEditor';
-import { generateBoilerplate } from './data/boilerplateGenerator';
-import './index.css';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Header from "./components/Header";
+import CodeEditor from "./components/CodeEditor";
+import { generateBoilerplate } from "./data/boilerplateGenerator";
+import "./index.css";
+import "./App.css";
 
 // Default code when no problem is selected
 const DEFAULT_CODE = `public class Main
@@ -18,8 +17,8 @@ const DEFAULT_CODE = `public class Main
 function App() {
   // Theme state with localStorage persistence
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('j-void-theme');
-    return saved || 'dark';
+    const saved = localStorage.getItem("j-void-theme");
+    return saved || "dark";
   });
 
   // Selected question state
@@ -30,13 +29,13 @@ function App() {
 
   // Apply theme to document
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('j-void-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("j-void-theme", theme);
   }, [theme]);
 
   // Handle theme toggle
   const handleThemeToggle = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   // Handle question selection
@@ -73,4 +72,3 @@ function App() {
 }
 
 export default App;
-
