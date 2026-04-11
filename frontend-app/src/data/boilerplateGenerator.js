@@ -16,11 +16,6 @@ const signatureMap = {
     methodName: "containsDuplicate",
     params: "int[] nums",
   },
-  "Valid Anagram": {
-    returnType: "boolean",
-    methodName: "isAnagram",
-    params: "String s, String t",
-  },
   "Group Anagrams": {
     returnType: "List<List<String>>",
     methodName: "groupAnagrams",
@@ -41,11 +36,6 @@ const signatureMap = {
     methodName: "productExceptSelf",
     params: "int[] nums",
   },
-  "First Missing Positive": {
-    returnType: "int",
-    methodName: "firstMissingPositive",
-    params: "int[] nums",
-  },
 
   // 2. Stacks & Monotonic
   "Valid Parentheses": {
@@ -64,11 +54,6 @@ const signatureMap = {
     methodName: "dailyTemperatures",
     params: "int[] temperatures",
   },
-  "Evaluate Reverse Polish Notation": {
-    returnType: "int",
-    methodName: "evalRPN",
-    params: "String[] tokens",
-  },
   "Largest Rectangle in Histogram": {
     returnType: "int",
     methodName: "largestRectangleArea",
@@ -86,11 +71,6 @@ const signatureMap = {
     methodName: "threeSum",
     params: "int[] nums",
   },
-  "Two Sum II": {
-    returnType: "int[]",
-    methodName: "twoSum",
-    params: "int[] numbers, int target",
-  },
   "Trapping Rain Water": {
     returnType: "int",
     methodName: "trap",
@@ -100,11 +80,6 @@ const signatureMap = {
     returnType: "int",
     methodName: "maxArea",
     params: "int[] height",
-  },
-  "Sort Colors": {
-    returnType: "void",
-    methodName: "sortColors",
-    params: "int[] nums",
   },
 
   // 4. Sliding Window
@@ -123,20 +98,10 @@ const signatureMap = {
     methodName: "characterReplacement",
     params: "String s, int k",
   },
-  "Permutation in String": {
-    returnType: "boolean",
-    methodName: "checkInclusion",
-    params: "String s1, String s2",
-  },
   "Best Time to Buy and Sell Stock": {
     returnType: "int",
     methodName: "maxProfit",
     params: "int[] prices",
-  },
-  "Sliding Window Maximum": {
-    returnType: "int[]",
-    methodName: "maxSlidingWindow",
-    params: "int[] nums, int k",
   },
 
   // 5. Binary Search & Quickselect
@@ -150,20 +115,10 @@ const signatureMap = {
     methodName: "search",
     params: "int[] nums, int target",
   },
-  "Find Minimum in Rotated Sorted Array": {
-    returnType: "int",
-    methodName: "findMin",
-    params: "int[] nums",
-  },
   "Kth Largest Element in an Array": {
     returnType: "int",
     methodName: "findKthLargest",
     params: "int[] nums, int k",
-  },
-  "Find Peak Element": {
-    returnType: "int",
-    methodName: "findPeakElement",
-    params: "int[] nums",
   },
 
   // 6. Linked List
@@ -171,12 +126,6 @@ const signatureMap = {
     returnType: "ListNode",
     methodName: "reverseList",
     params: "ListNode head",
-    needsListNode: true,
-  },
-  "Merge Two Sorted Lists": {
-    returnType: "ListNode",
-    methodName: "mergeTwoLists",
-    params: "ListNode list1, ListNode list2",
     needsListNode: true,
   },
   "Linked List Cycle": {
@@ -191,12 +140,6 @@ const signatureMap = {
     params: "ListNode head, int n",
     needsListNode: true,
   },
-  "Add Two Numbers": {
-    returnType: "ListNode",
-    methodName: "addTwoNumbers",
-    params: "ListNode l1, ListNode l2",
-    needsListNode: true,
-  },
   "Reorder List": {
     returnType: "void",
     methodName: "reorderList",
@@ -208,12 +151,6 @@ const signatureMap = {
   "Invert Binary Tree": {
     returnType: "TreeNode",
     methodName: "invertTree",
-    params: "TreeNode root",
-    needsTreeNode: true,
-  },
-  "Maximum Depth of Binary Tree": {
-    returnType: "int",
-    methodName: "maxDepth",
     params: "TreeNode root",
     needsTreeNode: true,
   },
@@ -235,18 +172,6 @@ const signatureMap = {
     params: "int[] preorder, int[] inorder",
     needsTreeNode: true,
   },
-  "Kth Smallest Element in a BST": {
-    returnType: "int",
-    methodName: "kthSmallest",
-    params: "TreeNode root, int k",
-    needsTreeNode: true,
-  },
-  "Binary Tree Maximum Path Sum": {
-    returnType: "int",
-    methodName: "maxPathSum",
-    params: "TreeNode root",
-    needsTreeNode: true,
-  },
   "Lowest Common Ancestor of a Binary Tree": {
     returnType: "TreeNode",
     methodName: "lowestCommonAncestor",
@@ -260,11 +185,6 @@ const signatureMap = {
     methodName: "Trie",
     params: "",
     isClass: true,
-  },
-  "Word Search II": {
-    returnType: "List<String>",
-    methodName: "findWords",
-    params: "char[][] board, String[] words",
   },
 
   // 9. Heap / Priority Queue
@@ -284,17 +204,6 @@ const signatureMap = {
     returnType: "int",
     methodName: "leastInterval",
     params: "char[] tasks, int n",
-  },
-  "Find Median from Data Stream": {
-    returnType: "void",
-    methodName: "MedianFinder",
-    params: "",
-    isClass: true,
-  },
-  "K Closest Points to Origin": {
-    returnType: "int[][]",
-    methodName: "kClosest",
-    params: "int[][] points, int k",
   },
 
   // 10. Backtracking
@@ -323,11 +232,6 @@ const signatureMap = {
     methodName: "generateParenthesis",
     params: "int n",
   },
-  "Letter Combinations of a Phone Number": {
-    returnType: "List<String>",
-    methodName: "letterCombinations",
-    params: "String digits",
-  },
 
   // 11. Graphs
   "Number of Islands": {
@@ -346,46 +250,20 @@ const signatureMap = {
     methodName: "canFinish",
     params: "int numCourses, int[][] prerequisites",
   },
-  "Course Schedule II": {
-    returnType: "int[]",
-    methodName: "findOrder",
-    params: "int numCourses, int[][] prerequisites",
-  },
   "Rotting Oranges": {
     returnType: "int",
     methodName: "orangesRotting",
     params: "int[][] grid",
-  },
-  "Flood Fill": {
-    returnType: "int[][]",
-    methodName: "floodFill",
-    params: "int[][] image, int sr, int sc, int color",
   },
   "Word Ladder": {
     returnType: "int",
     methodName: "ladderLength",
     params: "String beginWord, String endWord, List<String> wordList",
   },
-  "Redundant Connection": {
-    returnType: "int[]",
-    methodName: "findRedundantConnection",
-    params: "int[][] edges",
-  },
-  "Evaluate Division": {
-    returnType: "double[]",
-    methodName: "calcEquation",
-    params:
-      "List<List<String>> equations, double[] values, List<List<String>> queries",
-  },
   "Network Delay Time": {
     returnType: "int",
     methodName: "networkDelayTime",
     params: "int[][] times, int n, int k",
-  },
-  "Pacific Atlantic Water Flow": {
-    returnType: "List<List<Integer>>",
-    methodName: "pacificAtlantic",
-    params: "int[][] heights",
   },
 
   // 12. Dynamic Programming — 1D
@@ -414,26 +292,6 @@ const signatureMap = {
     methodName: "wordBreak",
     params: "String s, List<String> wordDict",
   },
-  "Partition Equal Subset Sum": {
-    returnType: "boolean",
-    methodName: "canPartition",
-    params: "int[] nums",
-  },
-  "Decode Ways": {
-    returnType: "int",
-    methodName: "numDecodings",
-    params: "String s",
-  },
-  "Longest Palindromic Substring": {
-    returnType: "String",
-    methodName: "longestPalindrome",
-    params: "String s",
-  },
-  "Maximum Product Subarray": {
-    returnType: "int",
-    methodName: "maxProduct",
-    params: "int[] nums",
-  },
 
   // 13. Dynamic Programming — 2D
   "Unique Paths": {
@@ -445,21 +303,6 @@ const signatureMap = {
     returnType: "int",
     methodName: "longestCommonSubsequence",
     params: "String text1, String text2",
-  },
-  "Edit Distance": {
-    returnType: "int",
-    methodName: "minDistance",
-    params: "String word1, String word2",
-  },
-  "Regular Expression Matching": {
-    returnType: "boolean",
-    methodName: "isMatch",
-    params: "String s, String p",
-  },
-  "Interleaving String": {
-    returnType: "boolean",
-    methodName: "isInterleave",
-    params: "String s1, String s2, String s3",
   },
 
   // 14. Greedy
@@ -473,26 +316,11 @@ const signatureMap = {
     methodName: "canJump",
     params: "int[] nums",
   },
-  "Gas Station": {
-    returnType: "int",
-    methodName: "canCompleteCircuit",
-    params: "int[] gas, int[] cost",
-  },
 
   // 15. Intervals
   "Merge Intervals": {
     returnType: "int[][]",
     methodName: "merge",
-    params: "int[][] intervals",
-  },
-  "Insert Interval": {
-    returnType: "int[][]",
-    methodName: "insert",
-    params: "int[][] intervals, int[] newInterval",
-  },
-  "Non-overlapping Intervals": {
-    returnType: "int",
-    methodName: "eraseOverlapIntervals",
     params: "int[][] intervals",
   },
 
@@ -507,11 +335,6 @@ const signatureMap = {
     methodName: "hammingWeight",
     params: "int n",
   },
-  "Missing Number": {
-    returnType: "int",
-    methodName: "missingNumber",
-    params: "int[] nums",
-  },
   "Counting Bits": {
     returnType: "int[]",
     methodName: "countBits",
@@ -519,16 +342,6 @@ const signatureMap = {
   },
 
   // 17. Math & Geometry
-  "Rotate Image": {
-    returnType: "void",
-    methodName: "rotate",
-    params: "int[][] matrix",
-  },
-  "Spiral Matrix": {
-    returnType: "List<Integer>",
-    methodName: "spiralOrder",
-    params: "int[][] matrix",
-  },
   "Set Matrix Zeroes": {
     returnType: "void",
     methodName: "setZeroes",
