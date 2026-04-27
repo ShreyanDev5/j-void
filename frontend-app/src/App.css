@@ -58,7 +58,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease;
-  width: 350px;
+  width: 480px;
   justify-content: space-between;
 }
 
@@ -96,7 +96,7 @@
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  width: 550px;
+  width: 480px;
   max-height: 450px;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -623,7 +623,7 @@
   }
 
   .selector-dropdown {
-    width: 450px;
+    width: 400px;
     right: -10px;
   }
 

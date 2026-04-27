@@ -10,7 +10,7 @@ const DEFAULT_CODE = `public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello, World!");
+        
     }
 }`;
 
@@ -26,6 +26,9 @@ function App() {
 
   // Editor code state
   const [code, setCode] = useState(DEFAULT_CODE);
+
+  // Reset confirmation modal state
+  const [showResetModal, setShowResetModal] = useState(false);
 
   // Apply theme to document
   useEffect(() => {
@@ -47,16 +50,20 @@ function App() {
 
   // Handle resetting code to default boilerplate
   const handleResetCode = () => {
-    const confirmReset = window.confirm(
-      "Are you sure you want to reset your code to the default definition? Your current progress will be lost."
-    );
-    if (confirmReset) {
-      if (selectedQuestion) {
-        setCode(generateBoilerplate(selectedQuestion.title));
-      } else {
-        setCode(DEFAULT_CODE);
-      }
+    setShowResetModal(true);
+  };
+
+  const handleConfirmReset = () => {
+    if (selectedQuestion) {
+      setCode(generateBoilerplate(selectedQuestion.title));
+    } else {
+      setCode(DEFAULT_CODE);
     }
+    setShowResetModal(false);
+  };
+
+  const handleCancelReset = () => {
+    setShowResetModal(false);
   };
 
   const handleEditorDidMount = (editor, monaco) => {
@@ -82,6 +89,26 @@ function App() {
           theme={theme}
         />
       </div>
+
+      {showResetModal && (
+        <div className="modal-overlay" onClick={handleCancelReset}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h3>Reset Code</h3>
+            <p>
+              Are you sure you want to reset your code to the default
+              definition? Your current progress will be lost.
+            </p>
+            <div className="modal-actions">
+              <button className="btn-cancel" onClick={handleCancelReset}>
+                Cancel
+              </button>
+              <button className="btn-danger" onClick={handleConfirmReset}>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

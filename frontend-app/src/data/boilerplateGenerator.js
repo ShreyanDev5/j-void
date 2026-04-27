@@ -423,13 +423,7 @@ export const generateBoilerplate = (title) => {
       )
       .join("");
 
-    return `class Solution 
-{
-    public void ${methodName}() 
-    {
-    }
-}
-`;
+    return `class Solution \n{\n    public void ${methodName}() \n    {\n        \n    }\n}\n`;
   }
 
   let prefix = "";
@@ -453,13 +447,7 @@ export const generateBoilerplate = (title) => {
   // Standard method boilerplate
   return (
     prefix +
-    `class Solution 
-{
-    public ${signature.returnType} ${signature.methodName}(${signature.params}) 
-    {
-    }
-}
-`
+    `class Solution \n{\n    public ${signature.returnType} ${signature.methodName}(${signature.params}) \n    {\n        \n    }\n}\n`
   );
 };
 
@@ -469,72 +457,16 @@ export const generateBoilerplate = (title) => {
 const generateClassBoilerplate = (title, signature) => {
   switch (title) {
     case "Min Stack":
-      return `class MinStack 
-{
-    public MinStack() 
-    {
-    }
-    
-    public void push(int val) 
-    {
-    }
-    
-    public void pop() 
-    {
-    }
-    
-    public int top() 
-    {
-    }
-    
-    public int getMin() 
-    {
-    }
-}
-`;
+      return `class MinStack \n{\n    public MinStack() \n    {\n        \n    }\n    \n    public void push(int val) \n    {\n        \n    }\n    \n    public void pop() \n    {\n        \n    }\n    \n    public int top() \n    {\n        \n    }\n    \n    public int getMin() \n    {\n        \n    }\n}\n`;
 
     case "Implement Trie (Prefix Tree)":
-      return `class Trie 
-{
-    public Trie() 
-    {
-    }
-    
-    public void insert(String word) 
-    {
-    }
-    
-    public boolean search(String word) 
-    {
-    }
-    
-    public boolean startsWith(String prefix) 
-    {
-    }
-}
-`;
+      return `class Trie \n{\n    public Trie() \n    {\n        \n    }\n    \n    public void insert(String word) \n    {\n        \n    }\n    \n    public boolean search(String word) \n    {\n        \n    }\n    \n    public boolean startsWith(String prefix) \n    {\n        \n    }\n}\n`;
 
     case "Kth Largest Element in a Stream":
-      return `class KthLargest 
-{
-    public KthLargest(int k, int[] nums) 
-    {
-    }
-    
-    public int add(int val) 
-    {
-    }
-}
-`;
+      return `class KthLargest \n{\n    public KthLargest(int k, int[] nums) \n    {\n        \n    }\n    \n    public int add(int val) \n    {\n        \n    }\n}\n`;
 
     default:
-      return `class ${signature.methodName} 
-{
-    public ${signature.methodName}() 
-    {
-    }
-}
-`;
+      return `class ${signature.methodName} \n{\n    public ${signature.methodName}() \n    {\n        \n    }\n}\n`;
   }
 };
 
