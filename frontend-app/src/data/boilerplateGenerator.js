@@ -352,84 +352,54 @@ const signatureMap = {
 // Helper class definitions
 const listNodeClass = `/**
  * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
  */
-class ListNode 
-{
-    int val;
-    ListNode next;
-    
-    ListNode() 
-    {
-    }
-    
-    ListNode(int val) 
-    {
-        this.val = val;
-    }
-    
-    ListNode(int val, ListNode next) 
-    {
-        this.val = val;
-        this.next = next;
-    }
-}
 
 `;
 
 const treeNodeClass = `/**
  * Definition for a binary tree node.
+ * class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
  */
-class TreeNode 
-{
-    int val;
-    TreeNode left;
-    TreeNode right;
-    
-    TreeNode() 
-    {
-    }
-    
-    TreeNode(int val) 
-    {
-        this.val = val;
-    }
-    
-    TreeNode(int val, TreeNode left, TreeNode right) 
-    {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 `;
 
 const graphNodeClass = `/**
  * Definition for a Node.
+ * class Node {
+ *     public int val;
+ *     public List<Node> neighbors;
+ *     public Node() {
+ *         val = 0;
+ *         neighbors = new ArrayList<Node>();
+ *     }
+ *     public Node(int _val) {
+ *         val = _val;
+ *         neighbors = new ArrayList<Node>();
+ *     }
+ *     public Node(int _val, ArrayList<Node> _neighbors) {
+ *         val = _val;
+ *         neighbors = _neighbors;
+ *     }
+ * }
  */
-class Node 
-{
-    public int val;
-    public List<Node> neighbors;
-    
-    public Node() 
-    {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-    
-    public Node(int _val) 
-    {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-    
-    public Node(int _val, ArrayList<Node> _neighbors) 
-    {
-        val = _val;
-        neighbors = _neighbors;
-    }
-}
 
 `;
 
@@ -457,7 +427,6 @@ export const generateBoilerplate = (title) => {
 {
     public void ${methodName}() 
     {
-        // Your solution here
     }
 }
 `;
@@ -488,7 +457,6 @@ export const generateBoilerplate = (title) => {
 {
     public ${signature.returnType} ${signature.methodName}(${signature.params}) 
     {
-        // Your solution here
     }
 }
 `
@@ -505,27 +473,22 @@ const generateClassBoilerplate = (title, signature) => {
 {
     public MinStack() 
     {
-        // Initialize your data structure here
     }
     
     public void push(int val) 
     {
-        // Your code here
     }
     
     public void pop() 
     {
-        // Your code here
     }
     
     public int top() 
     {
-        // Your code here
     }
     
     public int getMin() 
     {
-        // Your code here
     }
 }
 `;
@@ -535,22 +498,18 @@ const generateClassBoilerplate = (title, signature) => {
 {
     public Trie() 
     {
-        // Initialize your data structure here
     }
     
     public void insert(String word) 
     {
-        // Your code here
     }
     
     public boolean search(String word) 
     {
-        // Your code here
     }
     
     public boolean startsWith(String prefix) 
     {
-        // Your code here
     }
 }
 `;
@@ -560,12 +519,10 @@ const generateClassBoilerplate = (title, signature) => {
 {
     public KthLargest(int k, int[] nums) 
     {
-        // Initialize your data structure here
     }
     
     public int add(int val) 
     {
-        // Your code here
     }
 }
 `;
@@ -575,7 +532,6 @@ const generateClassBoilerplate = (title, signature) => {
 {
     public ${signature.methodName}() 
     {
-        // Initialize your data structure here
     }
 }
 `;

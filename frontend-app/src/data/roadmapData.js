@@ -41,7 +41,33 @@ export const roadmapData = [
       },
     ],
   },
-  // 2. Stacks & Monotonic
+  // 2. Two Pointers
+  {
+    id: "two_pointers",
+    title: "Two Pointers",
+    questions: [
+      {
+        id: "14",
+        title: "Valid Palindrome",
+        difficulty: "Easy",
+        url: lc("Valid Palindrome"),
+      },
+      { id: "15", title: "3Sum", difficulty: "Medium", url: lc("3Sum") },
+      {
+        id: "17",
+        title: "Trapping Rain Water",
+        difficulty: "Hard",
+        url: lc("Trapping Rain Water"),
+      },
+      {
+        id: "18",
+        title: "Container With Most Water",
+        difficulty: "Medium",
+        url: lc("Container With Most Water"),
+      },
+    ],
+  },
+  // 3. Stacks & Monotonic
   {
     id: "stacks_monotonic",
     title: "Stacks & Monotonic",
@@ -72,33 +98,32 @@ export const roadmapData = [
       },
     ],
   },
-  // 3. Two Pointers
+  // 4. Binary Search & Quickselect
   {
-    id: "two_pointers",
-    title: "Two Pointers",
+    id: "binary_search_quickselect",
+    title: "Binary Search & Quickselect",
     questions: [
       {
-        id: "14",
-        title: "Valid Palindrome",
+        id: "26",
+        title: "Binary Search",
         difficulty: "Easy",
-        url: lc("Valid Palindrome"),
-      },
-      { id: "15", title: "3Sum", difficulty: "Medium", url: lc("3Sum") },
-      {
-        id: "17",
-        title: "Trapping Rain Water",
-        difficulty: "Hard",
-        url: lc("Trapping Rain Water"),
+        url: lc("Binary Search"),
       },
       {
-        id: "18",
-        title: "Container With Most Water",
+        id: "27",
+        title: "Search in Rotated Sorted Array",
         difficulty: "Medium",
-        url: lc("Container With Most Water"),
+        url: lc("Search in Rotated Sorted Array"),
+      },
+      {
+        id: "29",
+        title: "Kth Largest Element in an Array",
+        difficulty: "Medium",
+        url: lc("Kth Largest Element in an Array"),
       },
     ],
   },
-  // 4. Sliding Window
+  // 5. Sliding Window
   {
     id: "sliding_window",
     title: "Sliding Window",
@@ -126,31 +151,6 @@ export const roadmapData = [
         title: "Best Time to Buy and Sell Stock",
         difficulty: "Easy",
         url: lc("Best Time to Buy and Sell Stock"),
-      },
-    ],
-  },
-  // 5. Binary Search & Quickselect
-  {
-    id: "binary_search_quickselect",
-    title: "Binary Search & Quickselect",
-    questions: [
-      {
-        id: "26",
-        title: "Binary Search",
-        difficulty: "Easy",
-        url: lc("Binary Search"),
-      },
-      {
-        id: "27",
-        title: "Search in Rotated Sorted Array",
-        difficulty: "Medium",
-        url: lc("Search in Rotated Sorted Array"),
-      },
-      {
-        id: "29",
-        title: "Kth Largest Element in an Array",
-        difficulty: "Medium",
-        url: lc("Kth Largest Element in an Array"),
       },
     ],
   },
@@ -335,7 +335,39 @@ export const roadmapData = [
       },
     ],
   },
-  // 12. Dynamic Programming — 1D
+  // 12. Greedy
+  {
+    id: "greedy",
+    title: "Greedy",
+    questions: [
+      {
+        id: "83",
+        title: "Maximum Subarray",
+        difficulty: "Medium",
+        url: lc("Maximum Subarray"),
+      },
+      {
+        id: "84",
+        title: "Jump Game",
+        difficulty: "Medium",
+        url: lc("Jump Game"),
+      },
+    ],
+  },
+  // 13. Intervals
+  {
+    id: "intervals",
+    title: "Intervals",
+    questions: [
+      {
+        id: "86",
+        title: "Merge Intervals",
+        difficulty: "Medium",
+        url: lc("Merge Intervals"),
+      },
+    ],
+  },
+  // 14. Dynamic Programming — 1D
   {
     id: "dp_1d",
     title: "Dynamic Programming — 1D",
@@ -372,7 +404,7 @@ export const roadmapData = [
       },
     ],
   },
-  // 13. Dynamic Programming — 2D
+  // 15. Dynamic Programming — 2D
   {
     id: "dp_2d",
     title: "Dynamic Programming — 2D",
@@ -388,38 +420,6 @@ export const roadmapData = [
         title: "Longest Common Subsequence",
         difficulty: "Medium",
         url: lc("Longest Common Subsequence"),
-      },
-    ],
-  },
-  // 14. Greedy
-  {
-    id: "greedy",
-    title: "Greedy",
-    questions: [
-      {
-        id: "83",
-        title: "Maximum Subarray",
-        difficulty: "Medium",
-        url: lc("Maximum Subarray"),
-      },
-      {
-        id: "84",
-        title: "Jump Game",
-        difficulty: "Medium",
-        url: lc("Jump Game"),
-      },
-    ],
-  },
-  // 15. Intervals
-  {
-    id: "intervals",
-    title: "Intervals",
-    questions: [
-      {
-        id: "86",
-        title: "Merge Intervals",
-        difficulty: "Medium",
-        url: lc("Merge Intervals"),
       },
     ],
   },

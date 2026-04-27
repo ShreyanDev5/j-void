@@ -8,6 +8,7 @@ const Header = ({
   theme,
   onThemeToggle,
   code,
+  onResetCode,
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -66,6 +67,25 @@ const Header = ({
             </svg>
           )}
         </button>
+        <button
+          className="copy-button"
+          onClick={onResetCode}
+          title="Reset to default code"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+        </button>
         <ThemeToggle theme={theme} onToggle={onThemeToggle} />
         <div className="help-container">
           <div className="tooltip-text">
@@ -79,7 +99,7 @@ const Header = ({
             Explore <strong>Shreyan's Arc</strong>—a premium interactive DSA
             roadmap with curated problems and visual learning paths.
             <div className="tooltip-note">
-              J-Void contains the exact same 95 curated questions as Shreyan's
+              J-Void contains the exact same 59 curated problems as Shreyan's
               Arc—tailored for Freshers, SDE 1, and Junior Developer roles.
             </div>
             <a

@@ -45,6 +45,20 @@ function App() {
     setCode(boilerplate);
   };
 
+  // Handle resetting code to default boilerplate
+  const handleResetCode = () => {
+    const confirmReset = window.confirm(
+      "Are you sure you want to reset your code to the default definition? Your current progress will be lost."
+    );
+    if (confirmReset) {
+      if (selectedQuestion) {
+        setCode(generateBoilerplate(selectedQuestion.title));
+      } else {
+        setCode(DEFAULT_CODE);
+      }
+    }
+  };
+
   const handleEditorDidMount = (editor, monaco) => {
     // Expose monaco to window if needed
     window.monaco = monaco;
@@ -58,6 +72,7 @@ function App() {
         theme={theme}
         onThemeToggle={handleThemeToggle}
         code={code}
+        onResetCode={handleResetCode}
       />
       <div className="main-content">
         <CodeEditor
