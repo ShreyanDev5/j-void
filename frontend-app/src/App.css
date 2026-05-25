@@ -687,6 +687,17 @@
   .header-controls {
     gap: 6px;
   }
+
+  /* Touch-optimized Monaco Folding Controls */
+  .monaco-editor .codicon-folding-expanded,
+  .monaco-editor .codicon-folding-collapsed {
+    transform: scale(1.6) !important;
+    transform-origin: center left !important;
+    margin-left: 2px !important;
+    opacity: 0.95 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
 }
 
 @media (max-width: 576px) {
