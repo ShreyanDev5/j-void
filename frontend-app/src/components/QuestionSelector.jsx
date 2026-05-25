@@ -19,6 +19,9 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
     const dropdownRef = useRef(null);
     const inputRef = useRef(null);
 
+    const touchStartYRef = useRef(0);
+    const isSwipingRef = useRef(false);
+
     // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -27,8 +30,63 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener("touchstart", handleClickOutside, { passive: true });
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
+        };
     }, []);
+
+    const handleTouchStart = (e) => {
+        if (window.innerWidth > 576) return;
+
+        const categoriesList = dropdownRef.current?.querySelector(".categories-list");
+        if (categoriesList && categoriesList.scrollTop > 0) {
+            return;
+        }
+
+        touchStartYRef.current = e.touches[0].clientY;
+        isSwipingRef.current = true;
+    };
+
+    const handleTouchMove = (e) => {
+        if (!isSwipingRef.current) return;
+
+        const currentY = e.touches[0].clientY;
+        const diffY = currentY - touchStartYRef.current;
+
+        if (diffY > 0) {
+            const dropdownElement = dropdownRef.current?.querySelector(".selector-dropdown");
+            if (dropdownElement) {
+                dropdownElement.style.transform = `translateY(${diffY}px)`;
+                dropdownElement.style.transition = "none";
+            }
+        }
+    };
+
+    const handleTouchEnd = (e) => {
+        if (!isSwipingRef.current) return;
+        isSwipingRef.current = false;
+
+        const dropdownElement = dropdownRef.current?.querySelector(".selector-dropdown");
+        if (dropdownElement) {
+            const currentY = e.changedTouches[0].clientY;
+            const diffY = currentY - touchStartYRef.current;
+
+            if (diffY > 80) {
+                setIsOpen(false);
+                setSearchTerm("");
+                dropdownElement.style.transform = "";
+                dropdownElement.style.transition = "";
+            } else {
+                dropdownElement.style.transform = "";
+                dropdownElement.style.transition = "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)";
+                setTimeout(() => {
+                    if (dropdownElement) dropdownElement.style.transition = "";
+                }, 200);
+            }
+        }
+    };
 
     // Focus input when dropdown opens and auto-expand category of selected problem
     useEffect(() => {
@@ -178,7 +236,12 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
             </button>
 
             {isOpen && (
-                <div className="selector-dropdown">
+                <div
+                    className="selector-dropdown"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <div className="search-container">
                         <input
                             ref={inputRef}

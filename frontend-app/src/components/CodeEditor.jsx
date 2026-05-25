@@ -145,6 +145,8 @@ const CodeEditor = ({ code, onChange, onMount, theme = "dark" }) => {
           fontFamily: 'Consolas, "Courier New", monospace',
           automaticLayout: true,
           glyphMargin: true,
+          folding: true,
+          showFoldingControls: "always",
           suggest: {
             showKeywords: false,
             showSnippets: false,
