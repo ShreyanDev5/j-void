@@ -66,11 +66,6 @@ function App() {
     setShowResetModal(false);
   };
 
-  const handleEditorDidMount = (editor, monaco) => {
-    // Expose monaco to window if needed
-    window.monaco = monaco;
-  };
-
   return (
     <div className={`app-container theme-${theme}`}>
       <Header
@@ -85,7 +80,6 @@ function App() {
         <CodeEditor
           code={code}
           onChange={(value) => setCode(value)}
-          onMount={handleEditorDidMount}
           theme={theme}
         />
       </div>

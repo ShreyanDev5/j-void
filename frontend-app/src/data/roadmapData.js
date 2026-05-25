@@ -474,13 +474,3 @@ export const getAllQuestions = () => {
   );
 };
 
-// Get question by id
-export const getQuestionById = (id) => {
-  for (const category of roadmapData) {
-    const question = category.questions.find((q) => q.id === id);
-    if (question) {
-      return { ...question, category: category.title, categoryId: category.id };
-    }
-  }
-  return null;
-};

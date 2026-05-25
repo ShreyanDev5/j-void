@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from "react";
 import Editor from "@monaco-editor/react";
 
-const CodeEditor = ({ code, onChange, onMount, theme = "dark" }) => {
+const CodeEditor = ({ code, onChange, theme = "dark" }) => {
   const editorRef = useRef(null);
   const monacoRef = useRef(null);
   const bookmarksRef = useRef(new Set()); // Store bookmarked line numbers
@@ -121,13 +121,8 @@ const CodeEditor = ({ code, onChange, onMount, theme = "dark" }) => {
           lastHoveredLineRef.current = null;
         }
       });
-
-      // Call the parent's onMount if provided
-      if (onMount) {
-        onMount(editor, monaco);
-      }
     },
-    [onMount, updateDecorations],
+    [updateDecorations],
   );
 
   return (

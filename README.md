@@ -1,32 +1,54 @@
-# J-Void: Java Syntax Practice
+# ☕ J-Void: Java Syntax Practice
 
 A minimalist, distraction-free environment dedicated to practicing Java syntax—no compilation, no execution, just pure coding.
 
-This app is designed to pair seamlessly with **Shreyan's Arc**, a premium interactive DSA roadmap featuring visual learning paths. **J-Void** currently includes a curated set of 59 problems targeted for Freshers, SDE 1, and Junior Developer roles.
+**J-Void** is designed to pair seamlessly with **Shreyan's Arc**, a premium interactive DSA roadmap featuring visual learning paths. It features a curated set of 59 problems tailored for Freshers, SDE 1, and Junior Developer roles.
 
-## Tech Stack
+---
 
-- **Frontend:** React, Vite
-- **Editor:** Monaco Editor
+## ✨ Key Features
 
-## Local Development
+- **🚀 Minimalist Code Playground**: Pure Java syntax practice with no compile/runtime distractions.
+- **📝 Allman Brace Formatting**: Automatically generates method signatures in clean, Allman brace style.
+- **🔖 Gutter Bookmarks**: A custom bookmarking system in the Monaco editor gutter. Click the gutter to set a bookmark; hover to preview a ghost bookmark.
+- **📱 Fully Responsive**: Custom responsive layout featuring a sleek bottom-sheet problem selector on mobile viewports.
+- **🌗 Ambient Themes**: Easily switch between high-contrast dark mode and premium light mode, persisting via `localStorage`.
 
-1.  **Install Dependencies**
-    ```bash
-    cd frontend-app
-    npm install
-    ```
-2.  **Start Development Server**
-    ```bash
-    npm run dev
-    ```
-    View the app at `http://localhost:5173`.
+---
 
-## Deployment
+## 🛠️ Tech Stack
 
-This project is optimized for deployment on **Vercel**.
+- **Frontend**: React (v19), Vite
+- **Code Editor**: Monaco Editor (`@monaco-editor/react`)
+- **Styling**: Modern, responsive Vanilla CSS
 
-1.  Push the repository to GitHub.
-2.  Import the project into Vercel.
-3.  Set the **Root Directory** to `frontend-app`.
-4.  Deploy.
+---
+
+## 💻 Local Development
+
+1. **Clone & Navigate**
+   ```bash
+   cd frontend-app
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 🚀 Production Deployment
+
+Optimized for instant deployment on **Vercel**:
+
+1. Push your repository to GitHub.
+2. Import the project into **Vercel**.
+3. Set the **Root Directory** to `frontend-app`.
+4. Deploy!
