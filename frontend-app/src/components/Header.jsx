@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import QuestionSelector from "./QuestionSelector";
 import ThemeToggle from "./ThemeToggle";
 
@@ -11,6 +11,22 @@ const Header = ({
   onResetCode,
 }) => {
   const [copied, setCopied] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
+  const helpRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (helpRef.current && !helpRef.current.contains(event.target)) {
+        setShowHelp(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   const handleCopy = async () => {
     try {
@@ -87,7 +103,16 @@ const Header = ({
           </svg>
         </button>
         <ThemeToggle theme={theme} onToggle={onThemeToggle} />
-        <div className="help-container">
+        <div className={`help-container ${showHelp ? "show-mobile-help" : ""}`} ref={helpRef}>
+          {showHelp && (
+            <div
+              className="help-backdrop"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowHelp(false);
+              }}
+            />
+          )}
           <div className="tooltip-text">
             <strong>Welcome to J-Void</strong>
             <br />
@@ -111,7 +136,13 @@ const Header = ({
               Discover Shreyan's Arc →
             </a>
           </div>
-          <button className="help-button">?</button>
+          <button
+            className="help-button"
+            onClick={() => setShowHelp(!showHelp)}
+            title="Help & Info"
+          >
+            ?
+          </button>
         </div>
       </div>
     </header>
