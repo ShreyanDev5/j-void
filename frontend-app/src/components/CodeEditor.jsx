@@ -146,7 +146,7 @@ const CodeEditor = ({ code, onChange, onMount, theme = "dark" }) => {
           automaticLayout: true,
           glyphMargin: true,
           folding: true,
-          showFoldingControls: "always",
+          showFoldingControls: "mouseover",
           suggest: {
             showKeywords: false,
             showSnippets: false,
