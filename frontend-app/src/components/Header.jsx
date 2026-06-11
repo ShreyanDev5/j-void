@@ -116,16 +116,16 @@ const Header = ({
           <div className="tooltip-text">
             <strong>Welcome to J-Void</strong>
             <br />
-            Your distraction-free sanctuary for mastering Java syntax. No
-            execution, no output, no noise—just you and the code.
+            A minimalist, distraction-free playground for practicing Java. No
+            compilation or execution delays—just you and the code.
             <div className="tooltip-divider"></div>
             <span className="tooltip-subtitle">Ready for more?</span>
             <br />
-            Explore <strong>Shreyan's Arc</strong>—a premium interactive DSA
-            roadmap with curated problems and visual learning paths.
+            Explore <strong>Shreyan's Arc</strong>—an interactive DSA roadmap
+            with visual learning paths.
             <div className="tooltip-note">
-              J-Void contains the exact same 59 curated problems as Shreyan's
-              Arc—tailored for Freshers, SDE 1, and Junior Developer roles.
+              J-Void includes the same 59 problems as Shreyan's Arc, tailored
+              for New Grads, SDE 1, and Junior Developer roles.
             </div>
             <a
               href="https://shreyans-arc.vercel.app/"
