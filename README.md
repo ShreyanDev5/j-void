@@ -1,42 +1,48 @@
 # ☕ J-Void: Java Practice
 
-A minimalist, distraction-free environment dedicated to practicing Java—no compilation, no execution, just pure coding.
+A simple Java editor to practice writing code syntax without the wait of compilation or execution.
 
-**J-Void** is designed to pair seamlessly with **Shreyan's Arc**, a premium interactive DSA roadmap featuring visual learning paths. It features a curated set of 59 problems tailored for New Grads, SDE 1, and Junior Developer roles.
+![J-Void Home Page](frontend-app/public/readme_home_page.png)
+
+Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual DSA roadmap). It contains 59 standard DSA problems tailored for developer interview prep.
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-- **🚀 Minimalist Code Playground**: Pure Java practice with no compile/runtime distractions.
-- **📝 Allman Brace Formatting**: Automatically generates method signatures in clean, Allman brace style.
-- **🔖 Gutter Bookmarks**: A custom bookmarking system in the Monaco editor gutter. Click the gutter to set a bookmark; hover to preview a ghost bookmark.
-- **📱 Fully Responsive**: Custom responsive layout featuring a sleek bottom-sheet problem selector on mobile viewports.
-- **🌗 Ambient Themes**: Easily switch between high-contrast dark mode and premium light mode, persisting via `localStorage`.
+- **Instant Editor**: Write Java code immediately with zero setup or compilation delays.
+- **Allman Formatting**: Generates method signatures using Allman-style braces.
+- **Gutter Bookmarks**: Bookmark lines directly in the Monaco editor gutter (click to save, hover to preview).
+- **Responsive Layout**: Works on mobile and desktop, using a bottom-sheet selector for mobile navigation.
+- **Theme Support**: Light and dark modes that persist via `localStorage`.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React (v19), Vite
-- **Code Editor**: Monaco Editor (`@monaco-editor/react`)
-- **Styling**: Modern, responsive Vanilla CSS
+- **Editor**: Monaco Editor (`@monaco-editor/react`)
+- **Styling**: Vanilla CSS
+- **Backend**: None (pure client-side application)
+- **AI Tools**: GitHub Copilot, Antigravity
 
 ---
 
 ## 💻 Local Development
 
-1. **Clone & Navigate**
+1. **Clone the Repository**
    ```bash
-   cd frontend-app
+   git clone https://github.com/ShreyanDev5/j-void.git
+   cd j-void
    ```
 
 2. **Install Dependencies**
    ```bash
+   cd frontend-app
    npm install
    ```
 
-3. **Start Development Server**
+3. **Run the App**
    ```bash
    npm run dev
    ```
@@ -44,11 +50,10 @@ A minimalist, distraction-free environment dedicated to practicing Java—no com
 
 ---
 
-## 🚀 Production Deployment
+## 🚀 Deployment
 
-Optimized for instant deployment on **Vercel**:
+To deploy on **Vercel**:
 
-1. Push your repository to GitHub.
-2. Import the project into **Vercel**.
-3. Set the **Root Directory** to `frontend-app`.
-4. Deploy!
+1. Import the repository.
+2. Set the root directory to `frontend-app`.
+3. Click deploy.
