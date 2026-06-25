@@ -47,12 +47,3 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
    ```
    Open [http://localhost:5173](http://localhost:5173) in your browser.
 
----
-
-## 🚀 Deployment
-
-To deploy on **Vercel**:
-
-1. Import the repository.
-2. Set the root directory to `frontend-app`.
-3. Click deploy.
