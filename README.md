@@ -23,7 +23,6 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
 - **Frontend**: React (v19), Vite
 - **Editor**: Monaco Editor (`@monaco-editor/react`)
 - **Styling**: Vanilla CSS
-- **Backend**: None (pure client-side application)
 - **AI Tools**: GitHub Copilot, Antigravity
 
 ---
