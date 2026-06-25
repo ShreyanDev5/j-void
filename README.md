@@ -13,7 +13,7 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
 - **Instant Editor**: Write Java code immediately with zero setup or compilation delays.
 - **Allman Formatting**: Generates method signatures using Allman-style braces.
 - **Gutter Bookmarks**: Bookmark lines directly in the Monaco editor gutter (click to save, hover to preview).
-- **Responsive Layout**: Works on mobile and desktop, using a bottom-sheet selector for mobile navigation.
+- **Responsive Layout**: Works on mobile and desktop, with a bottom-sheet problem selector on mobile.
 - **Theme Support**: Light and dark modes that persist via `localStorage`.
 
 ---
