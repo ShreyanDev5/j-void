@@ -52,4 +52,5 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
 
 ## 🌐 Deployment
 
-- **Platform**: Vercel
+* **Platform**: [Vercel](https://vercel.com)
+* **Live Link**: [j-void.vercel.app](https://j-void.vercel.app/)
