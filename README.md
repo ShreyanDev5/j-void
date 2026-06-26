@@ -1,4 +1,4 @@
-# <img src="frontend-app/public/logo.png" height="36" align="center" alt="J-Void Logo" /> J-Void: Java Practice
+# <img src="frontend-app/public/logo.png" height="36" align="middle" alt="J-Void Logo" /> J-Void: Java Practice
 
 A simple Java editor to practice writing code syntax without the wait of compilation or execution.
 
