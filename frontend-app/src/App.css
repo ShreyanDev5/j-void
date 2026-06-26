@@ -21,10 +21,10 @@
 }
 
 .header-logo {
-  height: 22px;
-  padding: 4px 6px;
+  height: 18px;
+  padding: 3px 5px;
   background-color: #1e1e1e;
-  border-radius: 6px;
+  border-radius: 5px;
   box-sizing: content-box;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
@@ -679,7 +679,9 @@
   }
 
   .header-logo {
-    height: 18px;
+    height: 14px;
+    padding: 2px 4px;
+    border-radius: 4px;
   }
 
   .help-button,
