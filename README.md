@@ -24,6 +24,7 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
 - **Editor**: Monaco Editor (`@monaco-editor/react`)
 - **Styling**: Vanilla CSS
 - **AI Tools**: GitHub Copilot, Antigravity
+- **Deployment**: Vercel
 
 ---
 
@@ -47,3 +48,8 @@ Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual D
    ```
    Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+---
+
+## 🌐 Deployment
+
+- **Platform**: Vercel
