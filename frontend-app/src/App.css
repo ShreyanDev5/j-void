@@ -422,7 +422,7 @@
 
 .tooltip-text {
   visibility: hidden;
-  width: 290px;
+  width: 310px;
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   text-align: left;
