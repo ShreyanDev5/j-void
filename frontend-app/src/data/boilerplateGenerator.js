@@ -54,11 +54,6 @@ const signatureMap = {
     methodName: "dailyTemperatures",
     params: "int[] temperatures",
   },
-  "Largest Rectangle in Histogram": {
-    returnType: "int",
-    methodName: "largestRectangleArea",
-    params: "int[] heights",
-  },
 
   // 3. Two Pointers
   "Valid Palindrome": {
@@ -188,12 +183,6 @@ const signatureMap = {
   },
 
   // 9. Heap / Priority Queue
-  "Kth Largest Element in a Stream": {
-    returnType: "int",
-    methodName: "add",
-    params: "int val",
-    isClass: true,
-  },
   "Merge k Sorted Lists": {
     returnType: "ListNode",
     methodName: "mergeKLists",
@@ -255,10 +244,10 @@ const signatureMap = {
     methodName: "orangesRotting",
     params: "int[][] grid",
   },
-  "Word Ladder": {
-    returnType: "int",
-    methodName: "ladderLength",
-    params: "String beginWord, String endWord, List<String> wordList",
+  "Redundant Connection": {
+    returnType: "int[]",
+    methodName: "findRedundantConnection",
+    params: "int[][] edges",
   },
   "Network Delay Time": {
     returnType: "int",
@@ -318,6 +307,11 @@ const signatureMap = {
   },
 
   // 15. Intervals
+  "Insert Interval": {
+    returnType: "int[][]",
+    methodName: "insert",
+    params: "int[][] intervals, int[] newInterval",
+  },
   "Merge Intervals": {
     returnType: "int[][]",
     methodName: "merge",
@@ -461,9 +455,6 @@ const generateClassBoilerplate = (title, signature) => {
 
     case "Implement Trie (Prefix Tree)":
       return `class Trie \n{\n    public Trie() \n    {\n        \n    }\n    \n    public void insert(String word) \n    {\n        \n    }\n    \n    public boolean search(String word) \n    {\n        \n    }\n    \n    public boolean startsWith(String prefix) \n    {\n        \n    }\n}\n`;
-
-    case "Kth Largest Element in a Stream":
-      return `class KthLargest \n{\n    public KthLargest(int k, int[] nums) \n    {\n        \n    }\n    \n    public int add(int val) \n    {\n        \n    }\n}\n`;
 
     default:
       return `class ${signature.methodName} \n{\n    public ${signature.methodName}() \n    {\n        \n    }\n}\n`;

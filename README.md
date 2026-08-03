@@ -4,7 +4,7 @@ A simple Java editor to practice writing code syntax without the wait of compila
 
 ![J-Void Home Page](frontend-app/public/readme_home_page.png)
 
-Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual DSA roadmap). It contains 59 standard DSA problems tailored for developer interview prep.
+Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual DSA roadmap). It contains 58 standard DSA problems tailored for developer interview prep.
 
 ---
 

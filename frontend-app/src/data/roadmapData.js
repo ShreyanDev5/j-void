@@ -90,12 +90,6 @@ export const roadmapData = [
         difficulty: "Medium",
         url: lc("Daily Temperatures"),
       },
-      {
-        id: "13",
-        title: "Largest Rectangle in Histogram",
-        difficulty: "Hard",
-        url: lc("Largest Rectangle in Histogram"),
-      },
     ],
   },
   // 4. Binary Search & Quickselect
@@ -241,12 +235,6 @@ export const roadmapData = [
     title: "Heap / Priority Queue",
     questions: [
       {
-        id: "47",
-        title: "Kth Largest Element in a Stream",
-        difficulty: "Easy",
-        url: lc("Kth Largest Element in a Stream"),
-      },
-      {
         id: "48",
         title: "Merge k Sorted Lists",
         difficulty: "Hard",
@@ -322,10 +310,10 @@ export const roadmapData = [
         url: lc("Rotting Oranges"),
       },
       {
-        id: "64",
-        title: "Word Ladder",
-        difficulty: "Hard",
-        url: lc("Word Ladder"),
+        id: "684",
+        title: "Redundant Connection",
+        difficulty: "Medium",
+        url: lc("Redundant Connection"),
       },
       {
         id: "67",
@@ -359,6 +347,12 @@ export const roadmapData = [
     id: "intervals",
     title: "Intervals",
     questions: [
+      {
+        id: "57",
+        title: "Insert Interval",
+        difficulty: "Medium",
+        url: lc("Insert Interval"),
+      },
       {
         id: "86",
         title: "Merge Intervals",

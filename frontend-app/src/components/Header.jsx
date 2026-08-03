@@ -125,7 +125,7 @@ const Header = ({
             <br />
             Explore <strong>Shreyan's Arc</strong>—an interactive DSA roadmap
             combining Blind 75 and top LeetCode patterns for fast, pattern-based
-            interview prep. Features the same 59 curated problems with visual
+            interview prep. Features the same 58 curated problems with visual
             learning paths.
             <a
               href="https://shreyans-arc.vercel.app/"
