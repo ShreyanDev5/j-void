@@ -1,56 +1,46 @@
-# <img src="frontend-app/public/logo.png" height="30" align="absmiddle" alt="J-Void Logo" />&nbsp; J-Void: Java Practice
+# <img src="frontend-app/public/logo.png" height="24" align="absmiddle" alt="J-Void Logo" /> J-Void
 
-A simple Java editor to practice writing code syntax without the wait of compilation or execution.
+A lightweight, in-browser Java editor to practice syntax and interview patterns with zero compilation lag. Built as the companion editor for [Shreyan's Arc](https://shreyans-arc.vercel.app/).
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-j--void.vercel.app-blue?style=flat-square)](https://j-void.vercel.app/)
+[![Roadmap Companion](https://img.shields.io/badge/Companion_App-Shreyan's_Arc-purple?style=flat-square)](https://shreyans-arc.vercel.app/)
 
 ![J-Void Home Page](frontend-app/public/readme_home_page.png)
 
-Built to accompany [Shreyan's Arc](https://shreyans-arc.vercel.app/) (a visual DSA roadmap). It contains 58 standard DSA problems tailored for developer interview prep.
+---
+
+## Features
+
+- **Instant Editor:** Write and edit Java code immediately with zero setup or build wait times.
+- **58 Curated Problems:** Pre-loaded problem templates matching [Shreyan's Arc](https://shreyans-arc.vercel.app/) DSA roadmap.
+- **Allman Formatting:** Auto-generated method signatures with Allman-style braces.
+- **Gutter Bookmarks:** Click editor gutter line numbers to bookmark lines; hover to preview.
+- **Responsive & Themed:** Dark/light mode persistence and mobile-ready problem drawer.
 
 ---
 
-## ✨ Features
+## Tech Stack
 
-- **Instant Editor**: Write Java code immediately with zero setup or compilation delays.
-- **Allman Formatting**: Generates method signatures using Allman-style braces.
-- **Gutter Bookmarks**: Bookmark lines directly in the Monaco editor gutter (click to save, hover to preview).
-- **Responsive Layout**: Works on mobile and desktop, with a bottom-sheet problem selector on mobile.
-- **Theme Support**: Light and dark modes that persist via `localStorage`.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React (v19), Vite
-- **Editor**: Monaco Editor (`@monaco-editor/react`)
-- **Styling**: Vanilla CSS
-- **AI Tools**: GitHub Copilot, Antigravity
-- **Deployment**: Vercel
+- **Frontend:** React 19, Vite
+- **Editor:** Monaco Editor (`@monaco-editor/react`)
+- **Styling:** Vanilla CSS
+- **AI Tooling:** Antigravity, GitHub Copilot
+- **Deployment:** Vercel
 
 ---
 
-## 💻 Local Development
+## Local Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/ShreyanDev5/j-void.git
-   cd j-void
-   ```
+**Prerequisites:** [Node.js](https://nodejs.org/) (v18+) and [Git](https://git-scm.com/)
 
-2. **Install Dependencies**
-   ```bash
-   cd frontend-app
-   npm install
-   ```
+```bash
+# 1. Clone repository & enter frontend directory
+git clone https://github.com/ShreyanDev5/j-void.git
+cd j-void/frontend-app
 
-3. **Run the App**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser.
+# 2. Install dependencies & run dev server
+npm install
+npm run dev
+```
 
----
-
-## 🌐 Deployment
-
-* **Platform**: [Vercel](https://vercel.com)
-* **Live Link**: [j-void.vercel.app](https://j-void.vercel.app/)
+Open [http://localhost:5173](http://localhost:5173) in your browser.
