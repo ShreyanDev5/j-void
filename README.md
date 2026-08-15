@@ -2,7 +2,7 @@
 
 A lightweight, in-browser Java editor to practice syntax and interview patterns with zero compilation lag. Built as the companion editor for [Shreyan's Arc](https://shreyans-arc.vercel.app/).
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-j--void.vercel.app-blue?style=flat-square)](https://j-void.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-j--void.vercel.app-blue?style=flat-square&logo=vercel&logoColor=white)](https://j-void.vercel.app/)
 [![Companion App](https://img.shields.io/badge/Companion_App-Shreyan's_Arc-purple?style=flat-square)](https://shreyans-arc.vercel.app/)
 
 ---
@@ -11,7 +11,7 @@ A lightweight, in-browser Java editor to practice syntax and interview patterns 
 
 | Main Interface & Workflow |
 | :---: |
-| <img src="frontend-app/public/readme_home_page.png" alt="J-Void Editor Interface" width="720" /> |
+| <img src="frontend-app/public/readme_home_page.png" width="720" alt="J-Void Editor Interface" /> |
 
 ---
 
@@ -27,10 +27,9 @@ A lightweight, in-browser Java editor to practice syntax and interview patterns 
 
 ## Tech Stack
 
-- **Frontend**: React 19, Monaco Editor (`@monaco-editor/react`), Vite
-- **Styling**: Vanilla CSS
+- **Frontend**: React 19, Monaco Editor (`@monaco-editor/react`), Vite, Vanilla CSS
 - **Deployment & Infra**: Vercel
-- **AI Tooling**: Antigravity, GitHub Copilot
+- **AI Tooling**: Antigravity, Cursor
 
 ---
 
@@ -81,8 +80,9 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Deployment
 
-- **Frontend (Production)**: [j-void.vercel.app](https://j-void.vercel.app)
+- **Live Application**: [j-void.vercel.app](https://j-void.vercel.app)
 - **Companion App**: [shreyans-arc.vercel.app](https://shreyans-arc.vercel.app)
+- **Platform**: Hosted on [Vercel](https://vercel.com)
 
 ---
 
