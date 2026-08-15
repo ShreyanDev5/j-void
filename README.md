@@ -11,7 +11,7 @@ A lightweight, in-browser Java editor to practice syntax and interview patterns 
 
 | Main Interface & Workflow |
 | :---: |
-| <img src="frontend-app/public/readme_home_page.png" width="720" alt="J-Void Editor Interface" /> |
+| <img src="frontend-app/public/readme_home_page.png" width="100%" alt="J-Void Editor Interface" /> |
 
 ---
 
