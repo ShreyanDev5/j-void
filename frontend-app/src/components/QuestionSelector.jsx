@@ -12,7 +12,11 @@ const sortByDifficulty = (questions) => {
     );
 };
 
-const QuestionSelector = ({ onSelect, selectedId }) => {
+const QuestionSelector = ({
+    onSelect,
+    selectedId,
+    selectedQuestion: propSelectedQuestion,
+}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [expandedCategories, setExpandedCategories] = useState({});
@@ -88,6 +92,8 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
         }
     };
 
+    const activeQuestionId = propSelectedQuestion?.id || selectedId;
+
     // Focus input when dropdown opens and auto-expand category of selected problem
     useEffect(() => {
         if (isOpen) {
@@ -95,9 +101,9 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                 inputRef.current.focus();
             }
             // Auto-expand the category containing the selected problem
-            if (selectedId) {
+            if (activeQuestionId) {
                 const categoryWithSelected = roadmapData.find((category) =>
-                    category.questions.some((q) => q.id === selectedId),
+                    category.questions.some((q) => q.id === activeQuestionId),
                 );
                 if (
                     categoryWithSelected &&
@@ -111,7 +117,7 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isOpen, selectedId]);
+    }, [isOpen, activeQuestionId]);
 
     // Handle keyboard navigation
     const handleKeyDown = (e) => {
@@ -136,7 +142,6 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
     // Filter questions based on search term and sort by difficulty
     const getFilteredCategories = () => {
         if (!searchTerm.trim()) {
-            // Sort questions by difficulty within each category
             return roadmapData.map((category) => ({
                 ...category,
                 questions: sortByDifficulty(category.questions),
@@ -158,7 +163,8 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
 
     const filteredCategories = getFilteredCategories();
     const allQuestions = getAllQuestions();
-    const selectedQuestion = allQuestions.find((q) => q.id === selectedId);
+    const selectedQuestion =
+        propSelectedQuestion || allQuestions.find((q) => q.id === activeQuestionId);
 
     const getDifficultyClass = (difficulty) => {
         switch (difficulty) {
@@ -180,59 +186,81 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
             onKeyDown={handleKeyDown}
         >
             <button
-                className="selector-button"
+                className={`selector-button ${isOpen ? "open" : ""}`}
                 onClick={() => setIsOpen(!isOpen)}
                 title="Select a problem"
+                aria-expanded={isOpen}
             >
+                <div className="selector-left">
+                    <svg
+                        className="selector-icon-svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect
+                            x="3"
+                            y="3"
+                            width="6"
+                            height="6"
+                            rx="1"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            transform="rotate(45 6 6)"
+                        />
+                        <circle
+                            cx="18"
+                            cy="6"
+                            r="3"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                        />
+                        <rect
+                            x="15"
+                            y="15"
+                            width="6"
+                            height="6"
+                            rx="1"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                        />
+                        <path
+                            d="M9 6H15"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                        <path
+                            d="M18 9V12H18C18 13.6569 16.6569 15 15 15H15"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                    <span className="selector-text">
+                        {selectedQuestion ? selectedQuestion.title : "Select a problem"}
+                    </span>
+                    {selectedQuestion && (
+                        <span
+                            className={`difficulty-pill ${getDifficultyClass(selectedQuestion.difficulty)}`}
+                        >
+                            {selectedQuestion.difficulty}
+                        </span>
+                    )}
+                </div>
                 <svg
-                    className="selector-icon-svg"
+                    className={`selector-arrow ${isOpen ? "open" : ""}`}
+                    width="12"
+                    height="12"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                 >
-                    <rect
-                        x="3"
-                        y="3"
-                        width="6"
-                        height="6"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        transform="rotate(45 6 6)"
-                    />
-                    <circle
-                        cx="18"
-                        cy="6"
-                        r="3"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                    />
-                    <rect
-                        x="15"
-                        y="15"
-                        width="6"
-                        height="6"
-                        rx="1"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                    />
-                    <path
-                        d="M9 6H15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                    />
-                    <path
-                        d="M18 9V12H18C18 13.6569 16.6569 15 15 15H15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                    />
+                    <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
-                <span className="selector-text">
-                    {selectedQuestion ? selectedQuestion.title : "Problems"}
-                </span>
-                <span className="selector-arrow">{isOpen ? "▲" : "▼"}</span>
             </button>
 
             {isOpen && (
@@ -243,26 +271,83 @@ const QuestionSelector = ({ onSelect, selectedId }) => {
                     onTouchEnd={handleTouchEnd}
                 >
                     <div className="search-container">
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            className="search-input"
-                            placeholder={`Search ${allQuestions.length} problems...`}
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                        <div className="search-input-wrapper">
+                            <svg
+                                className="search-icon"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                className="search-input"
+                                placeholder="Search problems..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                            {searchTerm && (
+                                <button
+                                    className="search-clear-btn"
+                                    onClick={() => setSearchTerm("")}
+                                    title="Clear search"
+                                >
+                                    ✕
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     <div className="categories-list">
+                        {selectedQuestion && !searchTerm && (
+                            <button
+                                className="clear-problem-btn"
+                                onClick={() => handleSelect(null)}
+                            >
+                                <svg
+                                    width="13"
+                                    height="13"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                                <span>Default template</span>
+                            </button>
+                        )}
+
                         {filteredCategories.map((category) => (
                             <div key={category.id} className="category-group">
                                 <button
                                     className="category-header"
                                     onClick={() => toggleCategory(category.id)}
                                 >
-                                    <span className="category-arrow">
-                                        {expandedCategories[category.id] ? "▼" : "▶"}
-                                    </span>
+                                    <svg
+                                        className={`category-chevron ${expandedCategories[category.id] ? "expanded" : ""}`}
+                                        width="10"
+                                        height="10"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
                                     <span className="category-title">{category.title}</span>
                                     <span className="category-count">
                                         {category.questions.length}

@@ -1,7 +1,7 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 
-const CodeEditor = ({ code, onChange, theme = "dark" }) => {
+const CodeEditor = ({ code, onChange, theme = "dark", onCursorChange }) => {
   const editorRef = useRef(null);
   const monacoRef = useRef(null);
   const bookmarksRef = useRef(new Set()); // Store bookmarked line numbers
@@ -9,8 +9,85 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
   const ghostDecorationsRef = useRef([]); // Store ghost decoration IDs
   const lastHoveredLineRef = useRef(null); // Optimize: only update if line changes
 
+  const handleEditorBeforeMount = (monaco) => {
+    monaco.editor.defineTheme("jvoid-dark", {
+      base: "vs-dark",
+      inherit: true,
+      rules: [
+        { token: "comment", foreground: "676775", fontStyle: "italic" },
+        { token: "keyword", foreground: "f59e0b" },
+        { token: "string", foreground: "10b981" },
+        { token: "number", foreground: "38bdf8" },
+        { token: "type", foreground: "a78bfa" },
+      ],
+      colors: {
+        "editor.background": "#121316",
+        "editor.foreground": "#ededf0",
+        "editorLineNumber.foreground": "#42434d",
+        "editorLineNumber.activeForeground": "#ededf0",
+        "editorCursor.foreground": "#f59e0b",
+        "editor.lineHighlightBackground": "#17181c",
+        "editorGutter.background": "#121316",
+        "editorIndentGuide.background": "#1d1f25",
+        "editorIndentGuide.activeBackground": "#2e313b",
+        "editor.selectionBackground": "#2a2e3d",
+        "editor.inactiveSelectionBackground": "#1e212b",
+      },
+    });
+
+    monaco.editor.defineTheme("jvoid-light", {
+      base: "vs",
+      inherit: true,
+      rules: [
+        { token: "comment", foreground: "888796", fontStyle: "italic" },
+        { token: "keyword", foreground: "d97706" },
+        { token: "string", foreground: "059669" },
+        { token: "number", foreground: "0284c7" },
+        { token: "type", foreground: "7c3aed" },
+      ],
+      colors: {
+        "editor.background": "#faf9f5",
+        "editor.foreground": "#191a1e",
+        "editorLineNumber.foreground": "#b8b6ab",
+        "editorLineNumber.activeForeground": "#191a1e",
+        "editorCursor.foreground": "#d97706",
+        "editor.lineHighlightBackground": "#f3f1ec",
+        "editorGutter.background": "#faf9f5",
+        "editorIndentGuide.background": "#eae7df",
+        "editorIndentGuide.activeBackground": "#ccc8bd",
+        "editor.selectionBackground": "#e2dfd7",
+        "editor.inactiveSelectionBackground": "#ebe8df",
+      },
+    });
+  };
+
+  const notifyCursorChange = useCallback(() => {
+    if (!editorRef.current || !onCursorChange) return;
+    const position = editorRef.current.getPosition() || { lineNumber: 1, column: 1 };
+    onCursorChange({
+      line: position.lineNumber,
+      column: position.column,
+      totalLines: editorRef.current.getModel()?.getLineCount() || 1,
+      bookmarksCount: bookmarksRef.current.size,
+    });
+  }, [onCursorChange]);
+
+  // Clean bookmarks when code changes externally (e.g. problem switch or reset)
+  useEffect(() => {
+    if (editorRef.current && editorRef.current.getValue() !== code) {
+      bookmarksRef.current.clear();
+      if (decorationsRef.current.length > 0) {
+        decorationsRef.current = editorRef.current.deltaDecorations(
+          decorationsRef.current,
+          [],
+        );
+      }
+      notifyCursorChange();
+    }
+  }, [code, notifyCursorChange]);
+
   const updateDecorations = useCallback(() => {
-    if (!editorRef.current) return;
+    if (!editorRef.current || !monacoRef.current) return;
 
     const newDecorations = Array.from(bookmarksRef.current).map(
       (lineNumber) => ({
@@ -18,6 +95,9 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
         options: {
           isWholeLine: false,
           glyphMarginClassName: "bookmark-glyph",
+          stickiness:
+            monacoRef.current.editor.TrackedRangeStickiness
+              .NeverGrowsWhenTypingAtEdges,
         },
       }),
     );
@@ -38,12 +118,55 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
       );
       lastHoveredLineRef.current = null;
     }
-  }, []);
+
+    notifyCursorChange();
+  }, [notifyCursorChange]);
 
   const handleEditorDidMount = useCallback(
     (editor, monaco) => {
       editorRef.current = editor;
       monacoRef.current = monaco;
+
+      // Report initial cursor position
+      notifyCursorChange();
+
+      // Listen to cursor position changes
+      editor.onDidChangeCursorPosition(() => {
+        notifyCursorChange();
+      });
+
+      // Synchronize bookmarks with dynamic line additions/deletions
+      editor.onDidChangeModelContent(() => {
+        if (!decorationsRef.current.length) {
+          notifyCursorChange();
+          return;
+        }
+        const model = editor.getModel();
+        if (!model) return;
+
+        const updatedBookmarks = new Set();
+        const survivingDecorations = [];
+
+        for (const id of decorationsRef.current) {
+          const range = model.getDecorationRange(id);
+          if (
+            range &&
+            range.startLineNumber >= 1 &&
+            range.startLineNumber <= model.getLineCount() &&
+            range.startLineNumber === range.endLineNumber
+          ) {
+            updatedBookmarks.add(range.startLineNumber);
+            survivingDecorations.push(id);
+          }
+        }
+
+        bookmarksRef.current = updatedBookmarks;
+        decorationsRef.current = survivingDecorations;
+        notifyCursorChange();
+      });
+
+      // Prevent default browser Ctrl+S / Cmd+S save prompt
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {});
 
       // Handle click on glyph margin to toggle bookmark
       editor.onMouseDown((e) => {
@@ -122,7 +245,7 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
         }
       });
     },
-    [updateDecorations],
+    [updateDecorations, notifyCursorChange],
   );
 
   return (
@@ -130,14 +253,18 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
       <Editor
         height="100%"
         defaultLanguage="java"
-        theme={theme === "dark" ? "vs-dark" : "vs"}
+        beforeMount={handleEditorBeforeMount}
+        theme={theme === "dark" ? "jvoid-dark" : "jvoid-light"}
         value={code}
         onChange={onChange}
         onMount={handleEditorDidMount}
         options={{
           minimap: { enabled: false },
           fontSize: 14,
-          fontFamily: 'Consolas, "Courier New", monospace',
+          fontFamily: '"JetBrains Mono", Consolas, "Courier New", monospace',
+          fontLigatures: true,
+          letterSpacing: 0.1,
+          lineHeight: 22,
           automaticLayout: true,
           glyphMargin: true,
           folding: true,
@@ -175,7 +302,7 @@ const CodeEditor = ({ code, onChange, theme = "dark" }) => {
           quickSuggestions: false,
           parameterHints: { enabled: false },
           wordBasedSuggestions: false,
-          padding: { top: 12 },
+          padding: { top: 14, bottom: 40 },
           autoIndent: "advanced",
           trimAutoWhitespace: false,
           formatOnType: false,
