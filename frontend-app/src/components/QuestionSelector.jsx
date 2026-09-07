@@ -356,50 +356,68 @@ const QuestionSelector = ({
 
                                 {(expandedCategories[category.id] || searchTerm) && (
                                     <div className="questions-list">
-                                        {category.questions.map((question) => (
-                                            <button
-                                                key={question.id}
-                                                className={`question-item ${selectedId === question.id ? "selected" : ""}`}
-                                                onClick={() => handleSelect(question)}
-                                            >
-                                                <span className="question-title">{question.title}</span>
-                                                <span
-                                                    className={`difficulty-badge ${getDifficultyClass(question.difficulty)}`}
+                                        {category.questions.map((question) => {
+                                            const isSelected = activeQuestionId === question.id;
+                                            return (
+                                                <button
+                                                    key={question.id}
+                                                    className={`question-item ${isSelected ? "selected" : ""}`}
+                                                    onClick={() => handleSelect(question)}
                                                 >
-                                                    {question.difficulty}
-                                                </span>
-                                                {question.url && (
-                                                    <a
-                                                        href={question.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="leetcode-link"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                        title="Open on LeetCode"
-                                                    >
+                                                    {isSelected && (
                                                         <svg
+                                                            className="selected-check-icon"
+                                                            width="11"
+                                                            height="11"
                                                             viewBox="0 0 24 24"
                                                             fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            stroke="currentColor"
+                                                            strokeWidth="2.5"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
                                                         >
-                                                            <path
-                                                                d="M7 17L17 7"
-                                                                stroke="currentColor"
-                                                                strokeWidth="2"
-                                                                strokeLinecap="round"
-                                                            />
-                                                            <path
-                                                                d="M7 7H17V17"
-                                                                stroke="currentColor"
-                                                                strokeWidth="2"
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                            />
+                                                            <polyline points="20 6 9 17 4 12"></polyline>
                                                         </svg>
-                                                    </a>
-                                                )}
-                                            </button>
-                                        ))}
+                                                    )}
+                                                    <span className="question-title">{question.title}</span>
+                                                    <span
+                                                        className={`difficulty-badge ${getDifficultyClass(question.difficulty)}`}
+                                                    >
+                                                        {question.difficulty}
+                                                    </span>
+                                                    {question.url && (
+                                                        <a
+                                                            href={question.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="leetcode-link"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            title="Open on LeetCode"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                                <path
+                                                                    d="M7 17L17 7"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                    strokeLinecap="round"
+                                                                />
+                                                                <path
+                                                                    d="M7 7H17V17"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="2"
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                />
+                                                            </svg>
+                                                        </a>
+                                                    )}
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 )}
                             </div>

@@ -2,7 +2,8 @@
 
 A distraction-free, in-browser Java editor for practicing coding interview patterns. Built as the companion editor for [Shreyan's Arc](https://shreyans-arc.vercel.app/), a NeetCode-style DSA roadmap.
 
-[Live Demo](https://j-void.vercel.app) · [Companion Roadmap](https://shreyans-arc.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-j--void.vercel.app-blue?style=flat-square)](https://j-void.vercel.app/)
+[![Companion App](https://img.shields.io/badge/Companion_App-Shreyan's_Arc-purple?style=flat-square)](https://shreyans-arc.vercel.app/)
 
 ---
 

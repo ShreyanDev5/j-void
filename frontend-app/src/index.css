@@ -4,17 +4,17 @@
    CSS Variables - Refined Warm Minimal Palette
    ============================================ */
 :root {
-  /* Dark Mode (Default) - Warm Charcoal / Obsidian */
-  --bg-primary: #121316;
-  --bg-secondary: #191a1e;
-  --bg-tertiary: #222328;
+  /* Dark Mode (Default) - Deep Obsidian Charcoal */
+  --bg-primary: #151517;
+  --bg-secondary: #1c1c1f;
+  --bg-tertiary: #242427;
   --text-primary: #ededf0;
-  --text-secondary: #9b9ba7;
-  --text-muted: #676775;
+  --text-secondary: #9c9da8;
+  --text-muted: #6d6e7a;
   --accent: #f59e0b;
   --accent-hover: #fbbf24;
-  --border-color: #27282f;
-  --border-light: #34353f;
+  --border-color: #29292d;
+  --border-light: #34343a;
 
   /* Difficulty Colors */
   --easy: #10b981;
