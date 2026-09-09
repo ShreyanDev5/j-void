@@ -8,18 +8,24 @@ export const roadmapData = [
     id: "arrays_hashing",
     title: "Arrays & Hashing",
     questions: [
-      { id: "1", title: "Two Sum", difficulty: "Easy", url: lc("Two Sum") },
       {
         id: "2",
         title: "Contains Duplicate",
         difficulty: "Easy",
         url: lc("Contains Duplicate"),
       },
+      { id: "1", title: "Two Sum", difficulty: "Easy", url: lc("Two Sum") },
       {
         id: "4",
         title: "Group Anagrams",
         difficulty: "Medium",
         url: lc("Group Anagrams"),
+      },
+      {
+        id: "7",
+        title: "Product of Array Except Self",
+        difficulty: "Medium",
+        url: lc("Product of Array Except Self"),
       },
       {
         id: "5",
@@ -32,12 +38,6 @@ export const roadmapData = [
         title: "Longest Consecutive Sequence",
         difficulty: "Medium",
         url: lc("Longest Consecutive Sequence"),
-      },
-      {
-        id: "7",
-        title: "Product of Array Except Self",
-        difficulty: "Medium",
-        url: lc("Product of Array Except Self"),
       },
     ],
   },
@@ -52,6 +52,12 @@ export const roadmapData = [
         difficulty: "Easy",
         url: lc("Valid Palindrome"),
       },
+      {
+        id: "18",
+        title: "Container With Most Water",
+        difficulty: "Medium",
+        url: lc("Container With Most Water"),
+      },
       { id: "15", title: "3Sum", difficulty: "Medium", url: lc("3Sum") },
       {
         id: "17",
@@ -59,15 +65,40 @@ export const roadmapData = [
         difficulty: "Hard",
         url: lc("Trapping Rain Water"),
       },
+    ],
+  },
+  // 3. Sliding Window
+  {
+    id: "sliding_window",
+    title: "Sliding Window",
+    questions: [
       {
-        id: "18",
-        title: "Container With Most Water",
+        id: "24",
+        title: "Best Time to Buy and Sell Stock",
+        difficulty: "Easy",
+        url: lc("Best Time to Buy and Sell Stock"),
+      },
+      {
+        id: "20",
+        title: "Longest Substring Without Repeating Characters",
         difficulty: "Medium",
-        url: lc("Container With Most Water"),
+        url: lc("Longest Substring Without Repeating Characters"),
+      },
+      {
+        id: "22",
+        title: "Longest Repeating Character Replacement",
+        difficulty: "Medium",
+        url: lc("Longest Repeating Character Replacement"),
+      },
+      {
+        id: "21",
+        title: "Minimum Window Substring",
+        difficulty: "Hard",
+        url: lc("Minimum Window Substring"),
       },
     ],
   },
-  // 3. Stacks & Monotonic
+  // 4. Stacks & Monotonic
   {
     id: "stacks_monotonic",
     title: "Stacks & Monotonic",
@@ -92,7 +123,7 @@ export const roadmapData = [
       },
     ],
   },
-  // 4. Binary Search & Quickselect
+  // 5. Binary Search & Quickselect
   {
     id: "binary_search_quickselect",
     title: "Binary Search & Quickselect",
@@ -114,37 +145,6 @@ export const roadmapData = [
         title: "Kth Largest Element in an Array",
         difficulty: "Medium",
         url: lc("Kth Largest Element in an Array"),
-      },
-    ],
-  },
-  // 5. Sliding Window
-  {
-    id: "sliding_window",
-    title: "Sliding Window",
-    questions: [
-      {
-        id: "20",
-        title: "Longest Substring Without Repeating Characters",
-        difficulty: "Medium",
-        url: lc("Longest Substring Without Repeating Characters"),
-      },
-      {
-        id: "21",
-        title: "Minimum Window Substring",
-        difficulty: "Hard",
-        url: lc("Minimum Window Substring"),
-      },
-      {
-        id: "22",
-        title: "Longest Repeating Character Replacement",
-        difficulty: "Medium",
-        url: lc("Longest Repeating Character Replacement"),
-      },
-      {
-        id: "24",
-        title: "Best Time to Buy and Sell Stock",
-        difficulty: "Easy",
-        url: lc("Best Time to Buy and Sell Stock"),
       },
     ],
   },
@@ -191,28 +191,28 @@ export const roadmapData = [
         url: lc("Invert Binary Tree"),
       },
       {
-        id: "39",
-        title: "Validate Binary Search Tree",
-        difficulty: "Medium",
-        url: lc("Validate Binary Search Tree"),
-      },
-      {
         id: "40",
         title: "Binary Tree Level Order Traversal",
         difficulty: "Medium",
         url: lc("Binary Tree Level Order Traversal"),
       },
       {
-        id: "41",
-        title: "Construct Binary Tree from Preorder and Inorder Traversal",
+        id: "39",
+        title: "Validate Binary Search Tree",
         difficulty: "Medium",
-        url: lc("Construct Binary Tree from Preorder and Inorder Traversal"),
+        url: lc("Validate Binary Search Tree"),
       },
       {
         id: "44",
         title: "Lowest Common Ancestor of a Binary Tree",
         difficulty: "Medium",
         url: lc("Lowest Common Ancestor of a Binary Tree"),
+      },
+      {
+        id: "41",
+        title: "Construct Binary Tree from Preorder and Inorder Traversal",
+        difficulty: "Medium",
+        url: lc("Construct Binary Tree from Preorder and Inorder Traversal"),
       },
     ],
   },
@@ -235,16 +235,16 @@ export const roadmapData = [
     title: "Heap / Priority Queue",
     questions: [
       {
-        id: "48",
-        title: "Merge k Sorted Lists",
-        difficulty: "Hard",
-        url: lc("Merge k Sorted Lists"),
-      },
-      {
         id: "49",
         title: "Task Scheduler",
         difficulty: "Medium",
         url: lc("Task Scheduler"),
+      },
+      {
+        id: "48",
+        title: "Merge k Sorted Lists",
+        difficulty: "Hard",
+        url: lc("Merge k Sorted Lists"),
       },
     ],
   },
@@ -255,28 +255,28 @@ export const roadmapData = [
     questions: [
       { id: "52", title: "Subsets", difficulty: "Medium", url: lc("Subsets") },
       {
-        id: "53",
-        title: "Permutations",
-        difficulty: "Medium",
-        url: lc("Permutations"),
-      },
-      {
         id: "54",
         title: "Combination Sum",
         difficulty: "Medium",
         url: lc("Combination Sum"),
       },
       {
-        id: "55",
-        title: "Word Search",
+        id: "53",
+        title: "Permutations",
         difficulty: "Medium",
-        url: lc("Word Search"),
+        url: lc("Permutations"),
       },
       {
         id: "56",
         title: "Generate Parentheses",
         difficulty: "Medium",
         url: lc("Generate Parentheses"),
+      },
+      {
+        id: "55",
+        title: "Word Search",
+        difficulty: "Medium",
+        url: lc("Word Search"),
       },
     ],
   },
@@ -292,6 +292,12 @@ export const roadmapData = [
         url: lc("Number of Islands"),
       },
       {
+        id: "62",
+        title: "Rotting Oranges",
+        difficulty: "Medium",
+        url: lc("Rotting Oranges"),
+      },
+      {
         id: "59",
         title: "Clone Graph",
         difficulty: "Medium",
@@ -302,12 +308,6 @@ export const roadmapData = [
         title: "Course Schedule",
         difficulty: "Medium",
         url: lc("Course Schedule"),
-      },
-      {
-        id: "62",
-        title: "Rotting Oranges",
-        difficulty: "Medium",
-        url: lc("Rotting Oranges"),
       },
       {
         id: "684",
@@ -323,45 +323,7 @@ export const roadmapData = [
       },
     ],
   },
-  // 12. Greedy
-  {
-    id: "greedy",
-    title: "Greedy",
-    questions: [
-      {
-        id: "83",
-        title: "Maximum Subarray",
-        difficulty: "Medium",
-        url: lc("Maximum Subarray"),
-      },
-      {
-        id: "84",
-        title: "Jump Game",
-        difficulty: "Medium",
-        url: lc("Jump Game"),
-      },
-    ],
-  },
-  // 13. Intervals
-  {
-    id: "intervals",
-    title: "Intervals",
-    questions: [
-      {
-        id: "57",
-        title: "Insert Interval",
-        difficulty: "Medium",
-        url: lc("Insert Interval"),
-      },
-      {
-        id: "86",
-        title: "Merge Intervals",
-        difficulty: "Medium",
-        url: lc("Merge Intervals"),
-      },
-    ],
-  },
-  // 14. Dynamic Programming — 1D
+  // 12. Dynamic Programming — 1D
   {
     id: "dp_1d",
     title: "Dynamic Programming — 1D",
@@ -398,7 +360,7 @@ export const roadmapData = [
       },
     ],
   },
-  // 15. Dynamic Programming — 2D
+  // 13. Dynamic Programming — 2D
   {
     id: "dp_2d",
     title: "Dynamic Programming — 2D",
@@ -414,6 +376,44 @@ export const roadmapData = [
         title: "Longest Common Subsequence",
         difficulty: "Medium",
         url: lc("Longest Common Subsequence"),
+      },
+    ],
+  },
+  // 14. Greedy
+  {
+    id: "greedy",
+    title: "Greedy",
+    questions: [
+      {
+        id: "83",
+        title: "Maximum Subarray",
+        difficulty: "Medium",
+        url: lc("Maximum Subarray"),
+      },
+      {
+        id: "84",
+        title: "Jump Game",
+        difficulty: "Medium",
+        url: lc("Jump Game"),
+      },
+    ],
+  },
+  // 15. Intervals
+  {
+    id: "intervals",
+    title: "Intervals",
+    questions: [
+      {
+        id: "86",
+        title: "Merge Intervals",
+        difficulty: "Medium",
+        url: lc("Merge Intervals"),
+      },
+      {
+        id: "57",
+        title: "Insert Interval",
+        difficulty: "Medium",
+        url: lc("Insert Interval"),
       },
     ],
   },
@@ -467,4 +467,3 @@ export const getAllQuestions = () => {
     })),
   );
 };
-
