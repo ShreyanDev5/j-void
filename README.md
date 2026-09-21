@@ -1,7 +1,7 @@
 # J-Void
 
 > Distraction-free in-browser Java editor for practicing coding interview patterns.
-> 37 curated problems across 8 core patterns, paired with [Shreyan's Arc](https://shreyans-arc.vercel.app/).
+> 37 curated problems across 8 core patterns, paired with Shreyan's Arc.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-j--void.vercel.app-blue?style=flat-square)](https://j-void.vercel.app/)
 [![Companion App](https://img.shields.io/badge/Companion_App-Shreyan's_Arc-purple?style=flat-square)](https://shreyans-arc.vercel.app/)
