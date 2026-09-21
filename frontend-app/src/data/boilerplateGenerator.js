@@ -31,6 +31,12 @@ const signatureMap = {
     methodName: "longestConsecutive",
     params: "int[] nums",
   },
+  "LRU Cache": {
+    returnType: "void",
+    methodName: "LRUCache",
+    params: "int capacity",
+    isClass: true,
+  },
   "Product of Array Except Self": {
     returnType: "int[]",
     methodName: "productExceptSelf",
@@ -452,6 +458,9 @@ const generateClassBoilerplate = (title, signature) => {
   switch (title) {
     case "Min Stack":
       return `class MinStack \n{\n    public MinStack() \n    {\n        \n    }\n    \n    public void push(int val) \n    {\n        \n    }\n    \n    public void pop() \n    {\n        \n    }\n    \n    public int top() \n    {\n        \n    }\n    \n    public int getMin() \n    {\n        \n    }\n}\n`;
+
+    case "LRU Cache":
+      return `class LRUCache \n{\n    public LRUCache(int capacity) \n    {\n        \n    }\n    \n    public int get(int key) \n    {\n        \n    }\n    \n    public void put(int key, int value) \n    {\n        \n    }\n}\n`;
 
     case "Implement Trie (Prefix Tree)":
       return `class Trie \n{\n    public Trie() \n    {\n        \n    }\n    \n    public void insert(String word) \n    {\n        \n    }\n    \n    public boolean search(String word) \n    {\n        \n    }\n    \n    public boolean startsWith(String prefix) \n    {\n        \n    }\n}\n`;

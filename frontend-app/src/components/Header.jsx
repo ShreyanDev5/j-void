@@ -173,16 +173,16 @@ const Header = ({
             </p>
             <div className="tooltip-divider"></div>
             <div className="tooltip-section">
-              <span className="tooltip-label">Companion Roadmap</span>
+              <span className="tooltip-label">Companion roadmap</span>
               <a
                 href="https://shreyans-arc.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="arc-link"
               >
-                Shreyan's Arc (NeetCode-style{" "}
+                Shreyan's Arc (DSA{" "}
                 <span className="arc-link-tail">
-                  Roadmap)
+                  roadmap)
                   <svg
                     width="13"
                     height="13"
@@ -201,7 +201,7 @@ const Header = ({
               </a>
             </div>
             <div className="tooltip-tip">
-              <span>Tip:</span> Click line numbers to toggle bookmarks.
+              <span>Tip:</span> Click beside line numbers to toggle bookmarks.
             </div>
           </div>
         </div>

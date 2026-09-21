@@ -3,29 +3,17 @@ const lc = (name) =>
   `https://leetcode.com/problems/${name.toLowerCase().replace(/ /g, "-").replace(/[()]/g, "")}/`;
 
 export const roadmapData = [
-  // 1. Arrays & Hashing
+  // 1. Hashmaps / Hashsets
   {
-    id: "arrays_hashing",
-    title: "Arrays & Hashing",
+    id: "hashmaps_hashsets",
+    title: "Hashmaps / Hashsets",
     questions: [
-      {
-        id: "2",
-        title: "Contains Duplicate",
-        difficulty: "Easy",
-        url: lc("Contains Duplicate"),
-      },
       { id: "1", title: "Two Sum", difficulty: "Easy", url: lc("Two Sum") },
       {
         id: "4",
         title: "Group Anagrams",
         difficulty: "Medium",
         url: lc("Group Anagrams"),
-      },
-      {
-        id: "7",
-        title: "Product of Array Except Self",
-        difficulty: "Medium",
-        url: lc("Product of Array Except Self"),
       },
       {
         id: "5",
@@ -38,6 +26,12 @@ export const roadmapData = [
         title: "Longest Consecutive Sequence",
         difficulty: "Medium",
         url: lc("Longest Consecutive Sequence"),
+      },
+      {
+        id: "146",
+        title: "LRU Cache",
+        difficulty: "Medium",
+        url: lc("LRU Cache"),
       },
     ],
   },
@@ -53,17 +47,29 @@ export const roadmapData = [
         url: lc("Valid Palindrome"),
       },
       {
+        id: "31",
+        title: "Reverse Linked List",
+        difficulty: "Easy",
+        url: lc("Reverse Linked List"),
+      },
+      {
+        id: "33",
+        title: "Linked List Cycle",
+        difficulty: "Easy",
+        url: lc("Linked List Cycle"),
+      },
+      { id: "15", title: "3Sum", difficulty: "Medium", url: lc("3Sum") },
+      {
         id: "18",
         title: "Container With Most Water",
         difficulty: "Medium",
         url: lc("Container With Most Water"),
       },
-      { id: "15", title: "3Sum", difficulty: "Medium", url: lc("3Sum") },
       {
-        id: "17",
-        title: "Trapping Rain Water",
-        difficulty: "Hard",
-        url: lc("Trapping Rain Water"),
+        id: "86",
+        title: "Merge Intervals",
+        difficulty: "Medium",
+        url: lc("Merge Intervals"),
       },
     ],
   },
@@ -85,12 +91,6 @@ export const roadmapData = [
         url: lc("Longest Substring Without Repeating Characters"),
       },
       {
-        id: "22",
-        title: "Longest Repeating Character Replacement",
-        difficulty: "Medium",
-        url: lc("Longest Repeating Character Replacement"),
-      },
-      {
         id: "21",
         title: "Minimum Window Substring",
         difficulty: "Hard",
@@ -98,35 +98,10 @@ export const roadmapData = [
       },
     ],
   },
-  // 4. Stacks & Monotonic
+  // 4. Modified Binary Search
   {
-    id: "stacks_monotonic",
-    title: "Stacks & Monotonic",
-    questions: [
-      {
-        id: "9",
-        title: "Valid Parentheses",
-        difficulty: "Easy",
-        url: lc("Valid Parentheses"),
-      },
-      {
-        id: "10",
-        title: "Min Stack",
-        difficulty: "Medium",
-        url: lc("Min Stack"),
-      },
-      {
-        id: "11",
-        title: "Daily Temperatures",
-        difficulty: "Medium",
-        url: lc("Daily Temperatures"),
-      },
-    ],
-  },
-  // 5. Binary Search & Quickselect
-  {
-    id: "binary_search_quickselect",
-    title: "Binary Search & Quickselect",
+    id: "modified_binary_search",
+    title: "Modified Binary Search",
     questions: [
       {
         id: "26",
@@ -140,56 +115,69 @@ export const roadmapData = [
         difficulty: "Medium",
         url: lc("Search in Rotated Sorted Array"),
       },
+    ],
+  },
+  // 5. Stack & Prefix Sum
+  {
+    id: "stack_prefix_sum",
+    title: "Stack & Prefix Sum",
+    questions: [
+      {
+        id: "9",
+        title: "Valid Parentheses",
+        difficulty: "Easy",
+        url: lc("Valid Parentheses"),
+      },
+      {
+        id: "11",
+        title: "Daily Temperatures",
+        difficulty: "Medium",
+        url: lc("Daily Temperatures"),
+      },
+      {
+        id: "7",
+        title: "Product of Array Except Self",
+        difficulty: "Medium",
+        url: lc("Product of Array Except Self"),
+      },
+      {
+        id: "83",
+        title: "Maximum Subarray",
+        difficulty: "Medium",
+        url: lc("Maximum Subarray"),
+      },
+    ],
+  },
+  // 6. Heap / Priority Queue
+  {
+    id: "heap_priority_queue",
+    title: "Heap / Priority Queue",
+    questions: [
       {
         id: "29",
         title: "Kth Largest Element in an Array",
         difficulty: "Medium",
         url: lc("Kth Largest Element in an Array"),
       },
-    ],
-  },
-  // 6. Linked List
-  {
-    id: "linked_list",
-    title: "Linked List",
-    questions: [
       {
-        id: "31",
-        title: "Reverse Linked List",
-        difficulty: "Easy",
-        url: lc("Reverse Linked List"),
-      },
-      {
-        id: "33",
-        title: "Linked List Cycle",
-        difficulty: "Easy",
-        url: lc("Linked List Cycle"),
-      },
-      {
-        id: "34",
-        title: "Remove Nth Node From End of List",
+        id: "49",
+        title: "Task Scheduler",
         difficulty: "Medium",
-        url: lc("Remove Nth Node From End of List"),
+        url: lc("Task Scheduler"),
       },
       {
-        id: "36",
-        title: "Reorder List",
-        difficulty: "Medium",
-        url: lc("Reorder List"),
+        id: "48",
+        title: "Merge k Sorted Lists",
+        difficulty: "Hard",
+        url: lc("Merge k Sorted Lists"),
       },
     ],
   },
-  // 7. Trees
+  // 7. BFS / DFS
   {
-    id: "trees",
-    title: "Trees",
+    id: "bfs_dfs",
+    title: "BFS / DFS",
     questions: [
-      {
-        id: "37",
-        title: "Invert Binary Tree",
-        difficulty: "Easy",
-        url: lc("Invert Binary Tree"),
-      },
       {
         id: "40",
         title: "Binary Tree Level Order Traversal",
@@ -209,68 +197,28 @@ export const roadmapData = [
         url: lc("Lowest Common Ancestor of a Binary Tree"),
       },
       {
-        id: "41",
-        title: "Construct Binary Tree from Preorder and Inorder Traversal",
+        id: "58",
+        title: "Number of Islands",
         difficulty: "Medium",
-        url: lc("Construct Binary Tree from Preorder and Inorder Traversal"),
-      },
-    ],
-  },
-  // 8. Trie
-  {
-    id: "trie",
-    title: "Trie",
-    questions: [
-      {
-        id: "45",
-        title: "Implement Trie (Prefix Tree)",
-        difficulty: "Medium",
-        url: lc("Implement Trie (Prefix Tree)"),
-      },
-    ],
-  },
-  // 9. Heap / Priority Queue
-  {
-    id: "heap_priority_queue",
-    title: "Heap / Priority Queue",
-    questions: [
-      {
-        id: "49",
-        title: "Task Scheduler",
-        difficulty: "Medium",
-        url: lc("Task Scheduler"),
+        url: lc("Number of Islands"),
       },
       {
-        id: "48",
-        title: "Merge k Sorted Lists",
-        difficulty: "Hard",
-        url: lc("Merge k Sorted Lists"),
+        id: "60",
+        title: "Course Schedule",
+        difficulty: "Medium",
+        url: lc("Course Schedule"),
       },
-    ],
-  },
-  // 10. Backtracking
-  {
-    id: "backtracking",
-    title: "Backtracking",
-    questions: [
-      { id: "52", title: "Subsets", difficulty: "Medium", url: lc("Subsets") },
+      {
+        id: "67",
+        title: "Network Delay Time",
+        difficulty: "Medium",
+        url: lc("Network Delay Time"),
+      },
       {
         id: "54",
         title: "Combination Sum",
         difficulty: "Medium",
         url: lc("Combination Sum"),
-      },
-      {
-        id: "53",
-        title: "Permutations",
-        difficulty: "Medium",
-        url: lc("Permutations"),
-      },
-      {
-        id: "56",
-        title: "Generate Parentheses",
-        difficulty: "Medium",
-        url: lc("Generate Parentheses"),
       },
       {
         id: "55",
@@ -280,53 +228,10 @@ export const roadmapData = [
       },
     ],
   },
-  // 11. Graphs
+  // 8. Memoization
   {
-    id: "graphs",
-    title: "Graphs",
-    questions: [
-      {
-        id: "58",
-        title: "Number of Islands",
-        difficulty: "Medium",
-        url: lc("Number of Islands"),
-      },
-      {
-        id: "62",
-        title: "Rotting Oranges",
-        difficulty: "Medium",
-        url: lc("Rotting Oranges"),
-      },
-      {
-        id: "59",
-        title: "Clone Graph",
-        difficulty: "Medium",
-        url: lc("Clone Graph"),
-      },
-      {
-        id: "60",
-        title: "Course Schedule",
-        difficulty: "Medium",
-        url: lc("Course Schedule"),
-      },
-      {
-        id: "684",
-        title: "Redundant Connection",
-        difficulty: "Medium",
-        url: lc("Redundant Connection"),
-      },
-      {
-        id: "67",
-        title: "Network Delay Time",
-        difficulty: "Medium",
-        url: lc("Network Delay Time"),
-      },
-    ],
-  },
-  // 12. Dynamic Programming — 1D
-  {
-    id: "dp_1d",
-    title: "Dynamic Programming — 1D",
+    id: "memoization",
+    title: "Memoization",
     questions: [
       {
         id: "69",
@@ -353,19 +258,6 @@ export const roadmapData = [
         url: lc("Longest Increasing Subsequence"),
       },
       {
-        id: "73",
-        title: "Word Break",
-        difficulty: "Medium",
-        url: lc("Word Break"),
-      },
-    ],
-  },
-  // 13. Dynamic Programming — 2D
-  {
-    id: "dp_2d",
-    title: "Dynamic Programming — 2D",
-    questions: [
-      {
         id: "78",
         title: "Unique Paths",
         difficulty: "Medium",
@@ -376,82 +268,6 @@ export const roadmapData = [
         title: "Longest Common Subsequence",
         difficulty: "Medium",
         url: lc("Longest Common Subsequence"),
-      },
-    ],
-  },
-  // 14. Greedy
-  {
-    id: "greedy",
-    title: "Greedy",
-    questions: [
-      {
-        id: "83",
-        title: "Maximum Subarray",
-        difficulty: "Medium",
-        url: lc("Maximum Subarray"),
-      },
-      {
-        id: "84",
-        title: "Jump Game",
-        difficulty: "Medium",
-        url: lc("Jump Game"),
-      },
-    ],
-  },
-  // 15. Intervals
-  {
-    id: "intervals",
-    title: "Intervals",
-    questions: [
-      {
-        id: "86",
-        title: "Merge Intervals",
-        difficulty: "Medium",
-        url: lc("Merge Intervals"),
-      },
-      {
-        id: "57",
-        title: "Insert Interval",
-        difficulty: "Medium",
-        url: lc("Insert Interval"),
-      },
-    ],
-  },
-  // 16. Bit Manipulation
-  {
-    id: "bit_manipulation",
-    title: "Bit Manipulation",
-    questions: [
-      {
-        id: "89",
-        title: "Single Number",
-        difficulty: "Easy",
-        url: lc("Single Number"),
-      },
-      {
-        id: "90",
-        title: "Number of 1 Bits",
-        difficulty: "Easy",
-        url: lc("Number of 1 Bits"),
-      },
-      {
-        id: "92",
-        title: "Counting Bits",
-        difficulty: "Easy",
-        url: lc("Counting Bits"),
-      },
-    ],
-  },
-  // 17. Math & Geometry
-  {
-    id: "math_geometry",
-    title: "Math & Geometry",
-    questions: [
-      {
-        id: "95",
-        title: "Set Matrix Zeroes",
-        difficulty: "Medium",
-        url: lc("Set Matrix Zeroes"),
       },
     ],
   },
